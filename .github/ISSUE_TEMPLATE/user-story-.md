@@ -8,12 +8,10 @@ assignees: CluelessBiker
 ---
 
 USER STORY:
-As a **role** I can **capability** so that **received benefit**.
+As a **user** I can **** so that I can ****.
 
 ACCEPTANCE CRITERIA:
-- criteria one:
-- criteria two:
-- criteria three:
+- 
 
 TASKS:
 - [ ]
