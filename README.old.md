@@ -212,7 +212,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - Favicon - to provide the code & image for the icon in the tab bar.
 - Adobe Photoshop - for photo editing
 - Django
-- Bootstrap
+- React-Bootstrap
 - DrawSQL
 - ReactJS
 
@@ -222,6 +222,16 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
 
+1. Install ReactJS:
+```
+npx create-react-app . --use-npm
+npm start
+```
+
+2. Install the following packages unsing the command `npm install`:
+```
+react-bootstrap@1.6.3 bootstrap@4.6.0
+```
 
 ## Credits
 
