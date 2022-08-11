@@ -1,8 +1,28 @@
 import React from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 const NavBar = () => {
   return (
-    <div>NavBar</div>
+    <div>
+        <div fixed="top">
+            <h1>THE RED CRAYON</h1>
+        </div>
+        <Navbar bg="light" expand="md">
+            <Container>
+                {/* <Navbar.Brand>THE RED CRAYON</Navbar.Brand> */}
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto flex-column text-left">
+                        <Nav.Link>Articles</Nav.Link>
+                        <Nav.Link>Posts</Nav.Link>
+                        <Nav.Link>Login</Nav.Link>
+                        <Nav.Link>Sign up</Nav.Link>
+                        <Nav.Link>Log out</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    </div>
   )
 }
 
