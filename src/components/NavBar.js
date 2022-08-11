@@ -6,8 +6,9 @@ const NavBar = () => {
   return (
     <div>
         <div fixed="top" className={styles.NavBar}>
-            <h1>THE RED CRAYON</h1>
+            <h1>The Red Crayon</h1>
         </div>
+
         <Navbar bg="light" expand="md">
             <Container>
                 {/* <Navbar.Brand>THE RED CRAYON</Navbar.Brand> */}
