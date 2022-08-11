@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Col } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css';
 
 const NavBar = () => {
@@ -9,8 +9,8 @@ const NavBar = () => {
             <h1>The Red Crayon</h1>
         </div>
 
-        <Navbar bg="light" expand="md">
-            <Container>
+        <Col md={3}>
+            <Navbar bg="light" expand="md">
                 {/* <Navbar.Brand>THE RED CRAYON</Navbar.Brand> */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -22,8 +22,8 @@ const NavBar = () => {
                         <Nav.Link>Log out</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            </Navbar>
+        </Col>
     </div>
   )
 }
