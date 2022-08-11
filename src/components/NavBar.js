@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import styles from '../styles/NavBar.module.css';
 
 const NavBar = () => {
   return (
     <div>
-        <div fixed="top">
+        <div fixed="top" className={styles.NavBar}>
             <h1>THE RED CRAYON</h1>
         </div>
         <Navbar bg="light" expand="md">
