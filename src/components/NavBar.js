@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav, Col } from 'react-bootstrap';
+import { Navbar, Nav, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import styles from '../styles/NavBar.module.css';
 
@@ -25,40 +25,40 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-file-lines"></i> News</NavLink>
+
                         <NavLink
-                            exact
                             to="/explore"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-hashtag"></i> Explore</NavLink>
+
                         <NavLink
-                            exact
                             to="/favourites"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-regular fa-bookmark"></i> Favourites</NavLink>
+
                         <NavLink
-                            exact
                             to="/login"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-right-to-bracket"></i> Login</NavLink>
+
                         <NavLink
-                            exact
                             to="/signup"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-user-pen"></i> Sign up</NavLink>
+
                         <NavLink
-                            exact
                             to="/logout"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
+
                         <NavLink
-                            exact
                             to="/submit"
-                            className={styles.MenuLinks}
+                            className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i class="fa-solid fa-circle-plus"></i> Submit</NavLink>
                     </Nav>

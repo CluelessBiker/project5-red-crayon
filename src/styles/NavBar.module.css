@@ -6,14 +6,14 @@
 }
 
 .NavLink{
-    color: grey;
+    color: #3a3a3a;
 }
 
 .NavLink:hover{
-    color: red;
+    color: #4D0307;
     text-decoration: none;
 }
 
 .Active{
-    color: yellowgreen;
+    color: #DD798A;
 }
