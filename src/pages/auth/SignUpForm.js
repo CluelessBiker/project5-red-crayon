@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
-// import styles from "../../styles/SignUpForm.module.css";
+import styles from "../../styles/SignUpForm.module.css";
 
 const SignUpForm = () => {
 
     return (
-        <Container>
+        <Container className={styles.Container}>
             <h1>WHAT?!?!</h1>
             <Form>
                 <Form.Group controlId="username">
