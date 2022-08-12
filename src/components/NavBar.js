@@ -15,11 +15,13 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto flex-column text-left">
-                        <Nav.Link>Articles</Nav.Link>
-                        <Nav.Link>Posts</Nav.Link>
-                        <Nav.Link>Login</Nav.Link>
-                        <Nav.Link>Sign up</Nav.Link>
-                        <Nav.Link>Log out</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-file-lines"></i> News</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-hashtag"></i> Explore</Nav.Link>
+                        <Nav.Link><i class="fa-regular fa-bookmark"></i> Favourites</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-right-to-bracket"></i> Login</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-user-pen"></i> Sign up</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-right-from-bracket"></i> Log out</Nav.Link>
+                        <Nav.Link><i class="fa-solid fa-circle-plus"></i> Submit</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
