@@ -231,6 +231,7 @@ npm start
 2. Install the following packages unsing the command `npm install`:
 ```
 react-bootstrap@1.6.3 bootstrap@4.6.0
+react-router-dom@5.3.0
 ```
 
 ## Credits
