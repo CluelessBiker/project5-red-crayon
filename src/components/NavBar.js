@@ -1,19 +1,12 @@
 import React from 'react';
-import { Navbar, Nav, Col } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 import styles from '../styles/NavBar.module.css';
 
 const NavBar = () => {
   return (
     <div>
-        <div fixed="top" className={styles.NavBar}>
-            <NavLink to="/">
-                <h1>The Red Crayon</h1>
-            </NavLink>
-            {/* <h1>The Red Crayon</h1> */}
-        </div>
-
-        <Col md={3}>
+        <Container>
             <Navbar bg="light" expand="md">
                 {/* <Navbar.Brand>THE RED CRAYON</Navbar.Brand> */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -64,7 +57,7 @@ const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </Col>
+        </Container>
     </div>
   )
 }
