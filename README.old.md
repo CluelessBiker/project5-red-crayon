@@ -221,18 +221,28 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
-
-1. Install ReactJS:
+1. Launch the gipod workspace.
+2. Install ReactJS:
 ```
 npx create-react-app . --use-npm
 npm start
 ```
-
 2. Install the following packages unsing the command `npm install`:
 ```
 react-bootstrap@1.6.3 bootstrap@4.6.0
 react-router-dom@5.3.0
+axios
 ```
+3. Git add, commit, and push changes to gitpod.
+4. Create the project app on Heroku, and link the GitHub repository by lavigating to the 'Deploy' tab.
+
+### Connecting to the API:
+1. Navigated to the Heroku app of the project DRF-API, and under the Settings tab, added the following configvars:
+- Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
+- Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
+2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
+3. Install the Axios package.
+
 
 ## Credits
 
