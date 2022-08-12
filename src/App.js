@@ -19,7 +19,6 @@ function App() {
           <Route exact path="/logout" render={() => <h1>Logout</h1>} />
           <Route exact path="/submit" render={() => <h1>Submit</h1>} />
         </Switch>
-
       </Container>
     </div>
   );
