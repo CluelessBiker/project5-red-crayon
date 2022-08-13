@@ -16,6 +16,8 @@ const SignUpForm = () => {
 
     const history = useHistory();
 
+    const [errors, setErrors] = useState({});
+
     const handleChange = (event) => {
         setSignUpData({
             ...signUpData,
@@ -23,11 +25,20 @@ const SignUpForm = () => {
         });
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post("/dj-rest-auth/registration/", signUpData);
+            history.push("/login");
+        } catch (err) {
+            setErrors(err.response?.data);
+        }
+    };
 
     return (
         <Container className={styles.Container}>
             <h1>WHAT?!?!</h1>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="username">
                     <Form.Label>username</Form.Label>
                     <Form.Control
@@ -38,6 +49,11 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
+                {errors.username?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Form.Group controlId="password">
                     <Form.Label>password</Form.Label>
@@ -49,6 +65,11 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
+                {errors.password?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Form.Group controlId="password2">
                     <Form.Label>re-enter password</Form.Label>
@@ -60,11 +81,20 @@ const SignUpForm = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
+                {errors.password2?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Button variant="primary" type="submit">
                     sign up
                 </Button>
-
+                {errors.non_field_errors?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
             </Form>
 
             <div>
