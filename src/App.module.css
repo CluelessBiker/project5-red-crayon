@@ -1,5 +1,6 @@
 p, h1, h2, label, input, button {
   font-family: 'Nixie One', cursive;
+  font-size: 130%;
 }
 
 .NavBar h1{

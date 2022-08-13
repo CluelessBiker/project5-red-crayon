@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import styles from "../../styles/SignUpForm.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 import axios from "axios";
 
+/**
+* Render the SignUp form.
+*/
 const SignUpForm = () => {
 
     const [signUpData, setSignUpData] = useState({
@@ -18,6 +22,9 @@ const SignUpForm = () => {
 
     const [errors, setErrors] = useState({});
 
+    /**
+    * Convert inputed data into Key+Value pairs
+    */
     const handleChange = (event) => {
         setSignUpData({
             ...signUpData,
@@ -25,6 +32,11 @@ const SignUpForm = () => {
         });
     };
 
+    /**
+    * Push data to the API.
+    * Reroute user to the login page.
+    * Display error message for invalid data.
+    */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -37,8 +49,8 @@ const SignUpForm = () => {
 
     return (
         <Container className={styles.Container}>
-            <h1>WHAT?!?!</h1>
             <Form onSubmit={handleSubmit}>
+                <br />
                 <Form.Group controlId="username">
                     <Form.Label>username</Form.Label>
                     <Form.Control
@@ -50,7 +62,7 @@ const SignUpForm = () => {
                     />
                 </Form.Group>
                 {errors.username?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
@@ -66,7 +78,7 @@ const SignUpForm = () => {
                     />
                 </Form.Group>
                 {errors.password?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
@@ -82,24 +94,26 @@ const SignUpForm = () => {
                     />
                 </Form.Group>
                 {errors.password2?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className={btnStyles.Button}>
                     sign up
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>
+                    <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
             </Form>
 
+            <br />
             <div>
                 <p>Have an account? <Link to="/login">Sign in</Link></p>
             </div>
+            <br />
         </Container>
     )
 
