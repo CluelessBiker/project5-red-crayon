@@ -17,43 +17,43 @@ const NavBar = () => {
                             to="/"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-file-lines"></i> News</NavLink>
+                        ><i className="fa-solid fa-file-lines"></i> News</NavLink>
 
                         <NavLink
                             to="/explore"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-hashtag"></i> Explore</NavLink>
+                        ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
 
                         <NavLink
                             to="/favourites"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-regular fa-bookmark"></i> Favourites</NavLink>
+                        ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
 
                         <NavLink
                             to="/login"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-right-to-bracket"></i> Login</NavLink>
+                        ><i className="fa-solid fa-right-to-bracket"></i> Login</NavLink>
 
                         <NavLink
                             to="/signup"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-user-pen"></i> Sign up</NavLink>
+                        ><i className="fa-solid fa-user-pen"></i> Sign up</NavLink>
 
                         <NavLink
                             to="/logout"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
+                        ><i className="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
 
                         <NavLink
                             to="/submit"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
-                        ><i class="fa-solid fa-circle-plus"></i> Submit</NavLink>
+                        ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
