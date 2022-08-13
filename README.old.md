@@ -168,6 +168,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ## Testing
 -
 
+### Manual Testing:
+1. SignUpForm gives 400 error:
+- Resolved by changing `password` to `password1` in form fields & variable keys.
+
 ### Validator Testing
 - html files pass through the [W3C validator](https://validator.w3.org/) with no html issues found
 - Errors listed only reference {%%} & {{}} tags.

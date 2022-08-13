@@ -7,16 +7,17 @@ import axios from "axios";
 
 /**
 * Render the SignUp form.
+* Variables, data handling & error handling code provided in Moments walkthrough.
 */
 const SignUpForm = () => {
 
     const [signUpData, setSignUpData] = useState({
         username: "",
-        password: "",
+        password1: "",
         password2: "",
     });
 
-    const { username, password, password2 } = signUpData;
+    const { username, password1, password2 } = signUpData;
 
     const history = useHistory();
 
@@ -37,13 +38,13 @@ const SignUpForm = () => {
     * Reroute user to the login page.
     * Display error message for invalid data.
     */
-    const handleSubmit = async (event) => {
+     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post("/dj-rest-auth/registration/", signUpData);
-            history.push("/login");
+          await axios.post("/dj-rest-auth/registration/", signUpData);
+          history.push("/login");
         } catch (err) {
-            setErrors(err.response?.data);
+          setErrors(err.response?.data);
         }
     };
 
@@ -67,13 +68,13 @@ const SignUpForm = () => {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password">
+                <Form.Group controlId="password1">
                     <Form.Label>password</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="password"
-                        name="password"
-                        value={password}
+                        name="password1"
+                        value={password1}
                         onChange={handleChange}
                     />
                 </Form.Group>
