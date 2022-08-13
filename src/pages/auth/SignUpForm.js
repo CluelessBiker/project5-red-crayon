@@ -52,6 +52,8 @@ const SignUpForm = () => {
         <Container className={styles.Container}>
             <Form onSubmit={handleSubmit}>
                 <br />
+                <h1>Sign up!</h1>
+                <br />
                 <Form.Group controlId="username">
                     <Form.Label>username</Form.Label>
                     <Form.Control
