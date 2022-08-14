@@ -3,6 +3,7 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import ToggleCollapse from '../hooks/ToggleCollapse';
 import styles from '../styles/NavBar.module.css';
 import Avatar from "./Avatar";
 
@@ -10,6 +11,8 @@ const NavBar = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
+    const { expanded, setExpanded, ref } = ToggleCollapse();
 
     const handleSignOut = async () => {
         try {
@@ -66,9 +69,17 @@ const NavBar = () => {
   return (
     <div>
         <Container>
-            <Navbar bg="light" expand="md">
-                {/* <Navbar.Brand>THE RED CRAYON</Navbar.Brand> */}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar
+                bg="light"
+                expand="md"
+                expanded={expanded}
+            >
+                <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                    ref={ref}
+                    onClick={() => setExpanded(!expanded)}
+                />
+
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto flex-column text-left">
                         <NavLink
