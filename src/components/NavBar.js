@@ -1,9 +1,31 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 import styles from '../styles/NavBar.module.css';
 
 const NavBar = () => {
+
+    const currentUser = useCurrentUser();
+    
+    const loggedInIcons = <>{currentUser?.username}</>;
+
+    const loggedOutIcons = (
+        <>
+            <NavLink
+                to="/login"
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+            ><i className="fa-solid fa-right-to-bracket"></i> Login</NavLink>
+
+            <NavLink
+                to="/signup"
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+            ><i className="fa-solid fa-user-pen"></i> Sign up</NavLink>
+        </>
+    );
+
   return (
     <div>
         <Container>
@@ -31,17 +53,7 @@ const NavBar = () => {
                             activeClassName={styles.Active}
                         ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
 
-                        <NavLink
-                            to="/login"
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                        ><i className="fa-solid fa-right-to-bracket"></i> Login</NavLink>
-
-                        <NavLink
-                            to="/signup"
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                        ><i className="fa-solid fa-user-pen"></i> Sign up</NavLink>
+                        { currentUser ? loggedInIcons : loggedOutIcons }
 
                         <NavLink
                             to="/logout"
