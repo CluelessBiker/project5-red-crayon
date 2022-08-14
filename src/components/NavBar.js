@@ -4,6 +4,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import styles from '../styles/NavBar.module.css';
+import Avatar from "./Avatar";
 
 const NavBar = () => {
 
@@ -32,6 +33,11 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
             ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
+
+            <NavLink
+                to={`/profiles/${currentUser?.profile_id}`}
+                className={styles.NavLink}
+            ><Avatar src={currentUser?.profile_image} text="Profile" height={35} /></NavLink>
 
             <NavLink
                 to="/"
@@ -78,13 +84,7 @@ const NavBar = () => {
                             activeClassName={styles.Active}
                         ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
 
-                        
-
                         { currentUser ? loggedInIcons : loggedOutIcons }
-
-                        
-
-                        
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
