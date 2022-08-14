@@ -62,7 +62,7 @@ const NavBar = () => {
                         ><i className="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
 
                         <NavLink
-                            to="/submit"
+                            to="/posts/create"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
