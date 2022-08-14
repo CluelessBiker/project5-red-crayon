@@ -5,6 +5,10 @@
     line-height: 70px;
 }
 
+.ProfileAvatar{
+    margin-left: -13px;
+}
+
 .NavLink:hover{
     color: #4D0307;
     text-decoration: none;

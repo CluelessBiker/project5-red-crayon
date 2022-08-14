@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/login" render={() => <LogInForm />} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/logout" render={() => <h1>Logout</h1>} />
-            <Route exact path="/submit" render={() => <h1>Submit</h1>} />
+            <Route exact path="/posts/create" render={() => <h1>Submit</h1>} />
             <Route render={() => <p>Page not found!</p>} />
           </Switch>
         </Col>
