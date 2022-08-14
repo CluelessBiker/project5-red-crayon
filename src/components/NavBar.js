@@ -21,12 +21,23 @@ const NavBar = () => {
     
     const loggedInIcons = (
         <>
-        <NavLink
-            to="/"
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            onClick={handleSignOut}
-        ><i className="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
+            <NavLink
+                to="/favourites"
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+            ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
+
+            <NavLink
+                to="/posts/create"
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+            ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
+
+            <NavLink
+                to="/"
+                className={styles.NavLink}
+                onClick={handleSignOut}
+            ><i className="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
         </>
     );
 
@@ -67,21 +78,13 @@ const NavBar = () => {
                             activeClassName={styles.Active}
                         ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
 
-                        <NavLink
-                            to="/favourites"
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                        ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
+                        
 
                         { currentUser ? loggedInIcons : loggedOutIcons }
 
                         
 
-                        <NavLink
-                            to="/posts/create"
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
-                        ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
