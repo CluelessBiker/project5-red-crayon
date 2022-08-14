@@ -4,12 +4,15 @@ import { Container, Form, Button, Alert } from "react-bootstrap";
 import styles from "../../styles/LogInForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
 * Render the SignUp form.
 * Variables, data handling & error handling code provided in Moments walkthrough.
 */
 const LogInForm = () => {
+
+    const setCurrentUser = useSetCurrentUser();
 
     const [logInData, setLogInData] = useState({
         username: "",
@@ -41,6 +44,7 @@ const LogInForm = () => {
         event.preventDefault();
         try {
           await axios.post("/dj-rest-auth/login/", logInData);
+          setCurrentUser(data.user)
           history.push("/");
         } catch (err) {
           setErrors(err.response?.data);

@@ -12,6 +12,10 @@ export const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
+/**
+* Retrieve user data from API upon component mount.
+* Provide user data to child components.
+*/
 export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
 
