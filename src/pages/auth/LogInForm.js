@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import styles from "../../styles/SignUpForm.module.css";
+import styles from "../../styles/LogInForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import axios from "axios";
 
@@ -11,13 +11,12 @@ import axios from "axios";
 */
 const LogInForm = () => {
 
-    const [signUpData, setSignUpData] = useState({
+    const [logInData, setLogInData] = useState({
         username: "",
-        password1: "",
-        password2: "",
+        password: "",
     });
 
-    const { username, password1, password2 } = signUpData;
+    const { username, password } = logInData;
 
     const history = useHistory();
 
@@ -27,8 +26,8 @@ const LogInForm = () => {
     * Convert inputed data into Key+Value pairs
     */
     const handleChange = (event) => {
-        setSignUpData({
-            ...signUpData,
+        setLogInData({
+            ...logInData,
             [event.target.name]: event.target.value,
         });
     };
@@ -41,8 +40,8 @@ const LogInForm = () => {
      const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-          await axios.post("/dj-rest-auth/registration/", signUpData);
-          history.push("/login");
+          await axios.post("/dj-rest-auth/login/", logInData);
+          history.push("/");
         } catch (err) {
           setErrors(err.response?.data);
         }
@@ -52,7 +51,7 @@ const LogInForm = () => {
         <Container className={styles.Container}>
             <Form onSubmit={handleSubmit}>
                 <br />
-                <h1>Sign up!</h1>
+                <h1>Login!</h1>
                 <br />
                 <Form.Group controlId="username">
                     <Form.Label>username</Form.Label>
@@ -70,13 +69,13 @@ const LogInForm = () => {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password1">
+                <Form.Group controlId="password">
                     <Form.Label>password</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="password"
-                        name="password1"
-                        value={password1}
+                        name="password"
+                        value={password}
                         onChange={handleChange}
                     />
                 </Form.Group>
@@ -86,24 +85,8 @@ const LogInForm = () => {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="password2">
-                    <Form.Label>re-enter password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        placeholder="re-enter password"
-                        name="password2"
-                        value={password2}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
-                {errors.password2?.map((message, idx) => (
-                    <Alert variant="danger" key={idx}>
-                        {message}
-                    </Alert>
-                ))}
-
                 <Button variant="primary" type="submit" className={btnStyles.Button}>
-                    sign up
+                    login
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
@@ -114,7 +97,7 @@ const LogInForm = () => {
 
             <br />
             <div>
-                <p>Have an account? <Link to="/login">Sign in</Link></p>
+                <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>
             </div>
             <br />
         </Container>

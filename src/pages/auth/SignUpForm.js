@@ -114,7 +114,7 @@ const SignUpForm = () => {
 
             <br />
             <div>
-                <p>Have an account? <Link to="/login">Sign in</Link></p>
+                <p>Have an account? <Link to="/login">Login here!</Link></p>
             </div>
             <br />
         </Container>
