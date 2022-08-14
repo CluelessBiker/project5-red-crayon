@@ -4,6 +4,7 @@ import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
+import LogInForm from './pages/auth/LogInForm';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route exact path="/" render={() => <h1>News</h1>} />
             <Route exact path="/explore" render={() => <h1>Explore</h1>} />
             <Route exact path="/favourites" render={() => <h1>Favourites</h1>} />
-            <Route exact path="/login" render={() => <h1>Login</h1>} />
+            <Route exact path="/login" render={() => <LogInForm />} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/logout" render={() => <h1>Logout</h1>} />
             <Route exact path="/submit" render={() => <h1>Submit</h1>} />
