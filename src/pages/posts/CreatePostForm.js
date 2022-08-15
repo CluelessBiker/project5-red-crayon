@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Container, Form, Button, Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
+/**
+* Render CreatePostForm.
+* Supply user with input fields to create a post.
+*/
 function CreatePostForm() {
+
+    const [errors, setErrors] = useState({})
+
+    const [postData, setPostData] = useState({
+        title: "",
+        description: "",
+        image: "",
+        music_medium: "",
+        song_name: "",
+        artist_name: "",
+        bevarage: "",
+        art_medium: "",
+    });
+
+    const { title, description, image, music_medium, song_name, artist_name, beverage, art_medium } = postData;
+
+    const imageInput = useRef(null);
+    const history = useHistory();
+
+    /**
+    * Populate postData strings.
+    */
+    const handleChange = (event) => {
+        setPostData({
+            ...postData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     return (
         <Container>
             <Form>
