@@ -83,122 +83,120 @@ function CreatePostForm() {
             <h2>Inspired?</h2>
             <p>We want to know what has those creative juices flowing!</p>
             <Form>
-                <Form.Group controlId="">
-                    <Form.Label></Form.Label>
+                <Form.Group controlId="title">
+                    <Form.Label>Title:</Form.Label>
                     <Form.Control
-                        type=""
-                        name=""
-                        value={}
+                        type="text"
+                        name="title"
+                        value={title}
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors?..?.map((message, idx) => (
+                {errors?.title?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="">
-                    <Form.Label></Form.Label>
+                <Form.Group controlId="description">
+                    <Form.Label>Description:</Form.Label>
                     <Form.Control
-                        type=""
-                        name=""
-                        value={}
+                        as="textarea"
+                        rows={6}
+                        name="description"
+                        value={description}
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors?..?.map((message, idx) => (
+                {errors?.description?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="">
-                    <Form.Label></Form.Label>
+                <Form.Group controlId="song_name">
+                    <Form.Label>Song name:</Form.Label>
                     <Form.Control
-                        type=""
-                        name=""
-                        value={}
+                        type="text"
+                        name="song_name"
+                        value={song_name}
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors?..?.map((message, idx) => (
+                {errors?.song_name?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
-                <Form.Group controlId="">
-                    <Form.Label></Form.Label>
+                <Form.Group controlId="artist_name">
+                    <Form.Label>Artist:</Form.Label>
                     <Form.Control
-                        type=""
-                        name=""
-                        value={}
+                        type="text"
+                        name="artist_name"
+                        value={artist_name}
                         onChange={handleChange}
                     />
                 </Form.Group>
-                {errors?..?.map((message, idx) => (
+                {errors?.artist_name?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
                 ))}
 
                 <Row>
-                    <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label></Form.Label>
+                    <Form.Group as={Col} controlId="music_medium">
+                        <Form.Label>What are you listening to it on?</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
-                            type=""
-                            name=""
-                            value={}
+                            name="music_medium"
+                            value={music_medium}
                             onChange={handleChange}
                         >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
-                    {errors?..?.map((message, idx) => (
+                    {errors?.music_medium?.map((message, idx) => (
                         <Alert variant="danger" key={idx}>
                             {message}
                         </Alert>
                     ))}
 
-                    <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label></Form.Label>
+                    <Form.Group as={Col} controlId="beverage">
+                        <Form.Label>Pick your poison:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
-                            type=""
-                            name=""
-                            value={}
+                            name="beverage"
+                            value={beverage}
                             onChange={handleChange}
                         >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
-                    {errors?..?.map((message, idx) => (
+                    {errors?.beverage?.map((message, idx) => (
                         <Alert variant="danger" key={idx}>
                             {message}
                         </Alert>
                     ))}
 
-                    <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label></Form.Label>
+                    <Form.Group as={Col} controlId="art_medium">
+                        <Form.Label>What are you working with?</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
-                            type=""
-                            name=""
-                            value={}
+                            name="art_medium"
+                            value={art_medium}
                             onChange={handleChange}
                         >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
-                    {errors?..?.map((message, idx) => (
+                    {errors?.art_medium?.map((message, idx) => (
                         <Alert variant="danger" key={idx}>
                             {message}
                         </Alert>
@@ -206,12 +204,12 @@ function CreatePostForm() {
 
                 </Row>
 
-                <Form.Group controlId="">
+                <Form.Group controlId="image">
                     <Form.Label></Form.Label>
                     <Form.Control type="" placeholder="" />
                     <Form.File />
                 </Form.Group>
-                {errors?..?.map((message, idx) => (
+                {errors?.image?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
