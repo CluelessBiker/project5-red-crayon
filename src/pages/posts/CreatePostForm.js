@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Container, Form, Button, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 
 /**
 * Render CreatePostForm.
@@ -36,6 +37,10 @@ function CreatePostForm() {
         });
     };
 
+    /**
+    * Change uploaded image.
+    * clear previously uploaded image.
+    */
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -43,6 +48,33 @@ function CreatePostForm() {
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+        };
+    };
+
+    /**
+    * Pust data to API.
+    */
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("image", image);
+        formData.append("music_medium", music_medium);
+        formData.append("song_name", song_name);
+        formData.append("artist_name", artist_name);
+        formData.append("beverage", beverage);
+        formData.append("art_medium", art_medium);
+
+        try {
+            const { data } = await axiosReq.post("/posts/", formData);
+            history.push(`/posts/${data.id}`);
+        } catch (err) {
+            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
+            };
         };
     };
 
