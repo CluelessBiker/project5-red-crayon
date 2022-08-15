@@ -7,6 +7,9 @@ import ToggleCollapse from '../hooks/ToggleCollapse';
 import styles from '../styles/NavBar.module.css';
 import Avatar from "./Avatar";
 
+/**
+* Navigation bar. 
+*/
 const NavBar = () => {
 
     const currentUser = useCurrentUser();
@@ -14,6 +17,9 @@ const NavBar = () => {
 
     const { expanded, setExpanded, ref } = ToggleCollapse();
 
+    /**
+    * Log user out from API.
+    */
     const handleSignOut = async () => {
         try {
             await axios.post("dj-rest-auth/logout/");
