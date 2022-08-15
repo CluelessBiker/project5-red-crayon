@@ -14,3 +14,9 @@ h1{
   color: black;
   text-align: center;
 }
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}

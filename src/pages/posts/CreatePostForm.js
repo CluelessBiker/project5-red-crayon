@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Container, Form, Button, Col, Row, Alert } from "react-bootstrap";
+import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
 
 /**
 * Render CreatePostForm.
@@ -60,7 +62,7 @@ function CreatePostForm() {
 
         formData.append("title", title);
         formData.append("description", description);
-        formData.append("image", image);
+        formData.append("image", imageInput.currentfiles[0]);
         formData.append("music_medium", music_medium);
         formData.append("song_name", song_name);
         formData.append("artist_name", artist_name);
@@ -114,35 +116,37 @@ function CreatePostForm() {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="song_name">
-                    <Form.Label>Song name:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="song_name"
-                        value={song_name}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
-                {errors?.song_name?.map((message, idx) => (
-                    <Alert variant="danger" key={idx}>
-                        {message}
-                    </Alert>
-                ))}
+                <Row>
+                    <Form.Group controlId="song_name">
+                        <Form.Label>Song name:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="song_name"
+                            value={song_name}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.song_name?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
 
-                <Form.Group controlId="artist_name">
-                    <Form.Label>Artist:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="artist_name"
-                        value={artist_name}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
-                {errors?.artist_name?.map((message, idx) => (
-                    <Alert variant="danger" key={idx}>
-                        {message}
-                    </Alert>
-                ))}
+                    <Form.Group controlId="artist_name">
+                        <Form.Label>Artist:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="artist_name"
+                            value={artist_name}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.artist_name?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                </Row>
 
                 <Row>
                     <Form.Group as={Col} controlId="music_medium">
@@ -203,11 +207,40 @@ function CreatePostForm() {
                     ))}
 
                 </Row>
+                
+                <Form.Group className="text-center">
+                    {image ? (
+                        <>
+                            <figure>
+                                <Image className={appStyles.Image} src={image} rounded />
+                            </figure>
+                            <div>
+                                <Form.Label
+                                htmlFor="image-upload"
+                                >
+                                Change the image
+                                </Form.Label>
+                            </div>
+                        </>
+                    ) : (
+                        <Form.Label
+                        className="d-flex justify-content-center"
+                        htmlFor="image-upload"
+                        >
+                            <i className="fa-solid fa-cloud-arrow-up"></i>
+                            <Asset
+                                // src={Upload}
+                                message="Click or tap to upload an image"
+                            />
+                        </Form.Label>
+                    )}
 
-                <Form.Group controlId="image">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="" placeholder="" />
-                    <Form.File />
+                    <Form.File
+                        id="image-upload"
+                        accept="image/*"
+                        onChange={handleChangeImage}
+                        ref={imageInput}
+                    />
                 </Form.Group>
                 {errors?.image?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
@@ -216,11 +249,11 @@ function CreatePostForm() {
                 ))}
                 
                 <Row>
-                    <Button variant="primary" type="submit">
+                    <Button type="submit">
                         Submit
                     </Button>
                     
-                    <Button variant="primary" type="submit">
+                    <Button onClick={() => history.goBack()}>
                         Cancel
                     </Button>
                 </Row>
