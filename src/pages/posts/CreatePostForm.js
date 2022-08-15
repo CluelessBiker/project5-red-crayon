@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
@@ -11,7 +12,7 @@ import Asset from "../../components/Asset";
 */
 function CreatePostForm() {
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
 
     const [postData, setPostData] = useState({
         title: "",
@@ -20,7 +21,7 @@ function CreatePostForm() {
         music_medium: "",
         song_name: "",
         artist_name: "",
-        bevarage: "",
+        beverage: "",
         art_medium: "",
     });
 
@@ -33,6 +34,27 @@ function CreatePostForm() {
     * Populate postData strings.
     */
     const handleChange = (event) => {
+        setPostData({
+            ...postData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const handleMusic = (event) => {
+        setPostData({
+            ...postData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const handleBeverage = (event) => {
+        setPostData({
+            ...postData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const handleArt = (event) => {
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
@@ -62,7 +84,7 @@ function CreatePostForm() {
 
         formData.append("title", title);
         formData.append("description", description);
-        formData.append("image", imageInput.currentfiles[0]);
+        formData.append("image", imageInput.current.files[0]);
         formData.append("music_medium", music_medium);
         formData.append("song_name", song_name);
         formData.append("artist_name", artist_name);
@@ -75,17 +97,17 @@ function CreatePostForm() {
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
-                setErrors(err.response?.data);
-            };
-        };
+              setErrors(err.response?.data);
+            }
+        }
     };
 
     return (
         <Container>
             <h2>Inspired?</h2>
             <p>We want to know what has those creative juices flowing!</p>
-            <Form>
-                <Form.Group controlId="title">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
                     <Form.Label>Title:</Form.Label>
                     <Form.Control
                         type="text"
@@ -100,7 +122,7 @@ function CreatePostForm() {
                     </Alert>
                 ))}
 
-                <Form.Group controlId="description">
+                <Form.Group>
                     <Form.Label>Description:</Form.Label>
                     <Form.Control
                         as="textarea"
@@ -117,7 +139,7 @@ function CreatePostForm() {
                 ))}
 
                 <Row>
-                    <Form.Group controlId="song_name">
+                    <Form.Group>
                         <Form.Label>Song name:</Form.Label>
                         <Form.Control
                             type="text"
@@ -132,7 +154,7 @@ function CreatePostForm() {
                         </Alert>
                     ))}
 
-                    <Form.Group controlId="artist_name">
+                    <Form.Group>
                         <Form.Label>Artist:</Form.Label>
                         <Form.Control
                             type="text"
@@ -149,17 +171,22 @@ function CreatePostForm() {
                 </Row>
 
                 <Row>
-                    <Form.Group as={Col} controlId="music_medium">
+                    <Form.Group as={Col}>
                         <Form.Label>What are you listening to it on?</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
                             name="music_medium"
-                            value={music_medium}
-                            onChange={handleChange}
+                            
+                            onChange={handleMusic}
                         >
-                            <option>Choose...</option>
-                            <option>...</option>
+                            <option value="none">None</option>
+                            <option value="cassette">Cassette</option>
+                            <option value="CD">CD</option>
+                            <option value="minidisc">Minidisc</option>
+                            <option value="vinyl">Vinyl</option>
+                            <option value="mp3">mp3</option>
+                            <option value="radio">Radio</option>
                         </Form.Control>
                     </Form.Group>
                     {errors?.music_medium?.map((message, idx) => (
@@ -168,17 +195,25 @@ function CreatePostForm() {
                         </Alert>
                     ))}
 
-                    <Form.Group as={Col} controlId="beverage">
+                    <Form.Group as={Col}>
                         <Form.Label>Pick your poison:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
                             name="beverage"
-                            value={beverage}
-                            onChange={handleChange}
+                            
+                            onChange={handleBeverage}
                         >
-                            <option>Choose...</option>
-                            <option>...</option>
+                            <option value="none">None</option>
+                            <option value="water">Water</option>
+                            <option value="soda">Soda</option>
+                            <option value="juice">Juice</option>
+                            <option value="coffee">Coffee</option>
+                            <option value="tea">Tea</option>
+                            <option value="wine">Wine</option>
+                            <option value="beer">Beer</option>
+                            <option value="cocktail">Cocktail</option>
+                            <option value="spirits">Spirits</option>
                         </Form.Control>
                     </Form.Group>
                     {errors?.beverage?.map((message, idx) => (
@@ -187,17 +222,30 @@ function CreatePostForm() {
                         </Alert>
                     ))}
 
-                    <Form.Group as={Col} controlId="art_medium">
+                    <Form.Group as={Col}>
                         <Form.Label>What are you working with?</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
                             name="art_medium"
-                            value={art_medium}
-                            onChange={handleChange}
+                            
+                            onChange={handleArt}
                         >
-                            <option>Choose...</option>
-                            <option>...</option>
+                            <option value="none">None</option>
+                            <option value="acrylic_paint">Acrylic paint</option>
+                            <option value="oil_paint">Oil paint</option>
+                            <option value="water_colours">Water colours</option>
+                            <option value="spray_paint">Spray paint</option>
+                            <option value="coloured_pencils">Coloured pencils</option>
+                            <option value="markers">Markers</option>
+                            <option value="photography">Photography</option>
+                            <option value="videography">Videography</option>
+                            <option value="digital">Digital</option>
+                            <option value="coding">Coding</option>
+                            <option value="wood">Wood</option>
+                            <option value="clay">Clay</option>
+                            <option value="metal">Metal</option>
+                            <option value="glass">Glass</option>
                         </Form.Control>
                     </Form.Group>
                     {errors?.art_medium?.map((message, idx) => (
