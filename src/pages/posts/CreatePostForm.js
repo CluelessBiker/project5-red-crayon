@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Container, Form, Button, Col, Row } from "react-bootstrap";
+import { Container, Form, Button, Col, Row, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -80,51 +80,130 @@ function CreatePostForm() {
 
     return (
         <Container>
+            <h2>Inspired?</h2>
+            <p>We want to know what has those creative juices flowing!</p>
             <Form>
                 <Form.Group controlId="">
                     <Form.Label></Form.Label>
-                    <Form.Control type="" placeholder="" />
+                    <Form.Control
+                        type=""
+                        name=""
+                        value={}
+                        onChange={handleChange}
+                    />
                 </Form.Group>
+                {errors?..?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Form.Group controlId="">
                     <Form.Label></Form.Label>
-                    <Form.Control type="" placeholder="" />
+                    <Form.Control
+                        type=""
+                        name=""
+                        value={}
+                        onChange={handleChange}
+                    />
                 </Form.Group>
+                {errors?..?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Form.Group controlId="">
                     <Form.Label></Form.Label>
-                    <Form.Control type="" placeholder="" />
+                    <Form.Control
+                        type=""
+                        name=""
+                        value={}
+                        onChange={handleChange}
+                    />
                 </Form.Group>
+                {errors?..?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Form.Group controlId="">
                     <Form.Label></Form.Label>
-                    <Form.Control type="" placeholder="" />
+                    <Form.Control
+                        type=""
+                        name=""
+                        value={}
+                        onChange={handleChange}
+                    />
                 </Form.Group>
+                {errors?..?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
 
                 <Row>
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label></Form.Label>
-                        <Form.Control as="select" defaultValue="Choose...">
+                        <Form.Control
+                            as="select"
+                            defaultValue="Choose..."
+                            type=""
+                            name=""
+                            value={}
+                            onChange={handleChange}
+                        >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
+                    {errors?..?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label></Form.Label>
-                        <Form.Control as="select" defaultValue="Choose...">
+                        <Form.Control
+                            as="select"
+                            defaultValue="Choose..."
+                            type=""
+                            name=""
+                            value={}
+                            onChange={handleChange}
+                        >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
+                    {errors?..?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label></Form.Label>
-                        <Form.Control as="select" defaultValue="Choose...">
+                        <Form.Control
+                            as="select"
+                            defaultValue="Choose..."
+                            type=""
+                            name=""
+                            value={}
+                            onChange={handleChange}
+                        >
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
                     </Form.Group>
+                    {errors?..?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+
                 </Row>
 
                 <Form.Group controlId="">
@@ -132,6 +211,11 @@ function CreatePostForm() {
                     <Form.Control type="" placeholder="" />
                     <Form.File />
                 </Form.Group>
+                {errors?..?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
                 
                 <Row>
                     <Button variant="primary" type="submit">
