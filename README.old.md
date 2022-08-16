@@ -236,6 +236,7 @@ npm start
 react-bootstrap@1.6.3 bootstrap@4.6.0
 react-router-dom@5.3.0
 axios
+react-infinite-scroll-component
 ```
 3. Git add, commit, and push changes to gitpod.
 4. Create the project app on Heroku, and link the GitHub repository by lavigating to the 'Deploy' tab.
