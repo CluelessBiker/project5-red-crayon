@@ -39,7 +39,7 @@ function App() {
               render={() => (
                 <PostsPage
                   message="No results."
-                  filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                  filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_on&`}
                 />
               )}
             />
