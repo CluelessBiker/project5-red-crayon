@@ -96,7 +96,7 @@ const NavBar = () => {
                         ><i className="fa-solid fa-file-lines"></i> News</NavLink>
 
                         <NavLink
-                            to="/explore"
+                            to="/posts"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                         ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
