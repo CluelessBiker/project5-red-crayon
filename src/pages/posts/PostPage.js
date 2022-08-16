@@ -3,6 +3,7 @@ import { Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import postStyles from "../../styles/PostPage.module.css";
+import Post from "./Post";
 
 /**
 * Display single post details & post comments.
@@ -34,7 +35,7 @@ function PostPage() {
     return (
         <Container>
             <Col>
-                <h1>post</h1>
+                <Post {...post.results[0]} setPosts={setPost} postPage />
             </Col>
             <Col>
                 <h1>comments</h1>

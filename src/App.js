@@ -38,6 +38,7 @@ function App() {
         </Col>
 
         <Col md={3}>
+          <h2>popular profiles</h2>
         </Col>
       </Row>
 
