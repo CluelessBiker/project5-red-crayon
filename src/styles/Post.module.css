@@ -5,10 +5,18 @@
     margin-bottom: 16px;
     text-align: center;
   }
+
+  .PostBar {
+    text-align: center;
+  }
   
   .Post figure,
   h5 {
     margin: 0 0;
+  }
+
+  .TopRow{
+    justify-content: space-between;
   }
   
   .Heart {

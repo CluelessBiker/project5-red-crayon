@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -38,22 +38,28 @@ const Post = (props) => {
         <Container>
             <Card>
                 <Card.Body>
-                    <Media>
+                    <Media className={styles.TopRow}>
                         <Link to={`/profiles/${profile_id}`}>
                             <Avatar src={profile_image} height={40} />
                             {owner}
                         </Link>
+                        <Col>
+                            <div>
+                                {is_owner && postPage && "edit"}
+                            </div>
+                            <div>
+                                {created_on}
+                            </div>
+                        </Col>
                     </Media>
+
                     <div>
-                        {is_owner && postPage && "edit"}
-                        <p>Posted on: {created_on}</p>
-                        <p>Last modified on: {modified_on}</p>
-                        <p>{description}</p>
-                        <p>{music_medium}</p>
-                        <p>{owner} was listening to {song_name} by {artist_name}</p>
-                        <p>{beverage}</p>
-                        <p>{artistic_medium}</p>
+                        <p>Drinking: {beverage}</p>
+                        <p>Working with: {artistic_medium}</p>
+                        <p>Listening to {song_name} by {artist_name} on {music_medium}</p>
                         <Card.Img src={image} alt={title} />
+                        <p>{description}</p>
+                        <p>Last modified: {modified_on}</p>
                     </div>
                 </Card.Body>
 
@@ -64,26 +70,22 @@ const Post = (props) => {
                     <div className={styles.PostBar}>
                         {is_owner ? (
                             <OverlayTrigger
-                            placement="top"
-                            overlay={<Tooltip>Narcissist</Tooltip>}
-                            >
-                            <i className="far fa-heart" />
-                            </OverlayTrigger>
+                                placement="top"
+                                overlay={<Tooltip>Narcissist</Tooltip>}
+                            ><i className="far fa-heart" /></OverlayTrigger>
                         ) : like_id ? (
                             <span onClick={() => {}}>
                                 <i className={`fas fa-heart ${styles.Heart}`} />
                             </span>
                         ) : currentUser ? (
                             <span onClick={() => {}}>
-                            <i className={`far fa-heart ${styles.HeartOutline}`} />
+                                <i className={`far fa-heart ${styles.HeartOutline}`} />
                             </span>
                         ) : (
                             <OverlayTrigger
-                            placement="top"
-                            overlay={<Tooltip>Login to like!</Tooltip>}
-                            >
-                                <i className="far fa-heart" />
-                            </OverlayTrigger>
+                                placement="top"
+                                overlay={<Tooltip>Login to like!</Tooltip>}
+                            ><i className="far fa-heart" /></OverlayTrigger>
                         )}
                         {likes_count}
                         <Link to={`/posts/${id}`}>
