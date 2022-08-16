@@ -1,0 +1,32 @@
+/* DROPDOWN MENUS */
+.Choices{
+    align-items: flex-end;
+}
+
+/* FORM FIELDS */
+.Music{
+    justify-content: space-evenly;
+}
+
+/* FORM LABELS */
+label {
+    font-size: 120%;
+}
+
+.FormLabels{
+    text-align: center;
+}
+
+.UploadIcon{
+    font-size: 200%;
+    text-align: center;
+}
+
+/* FORM BUTTONS */
+.FormButtons{
+    justify-content: center;
+}
+
+.Button{
+    margin: 0 30px;
+}

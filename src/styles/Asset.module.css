@@ -6,5 +6,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 120px;
+    max-height: 50px;
+    margin-bottom: 30px;
+}
+
+p{
+    font-size: 100%;
 }

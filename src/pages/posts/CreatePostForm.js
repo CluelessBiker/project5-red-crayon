@@ -4,6 +4,8 @@ import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css"
+import formStyles from "../../styles/CreatePostForm.module.css"
 import Asset from "../../components/Asset";
 
 /**
@@ -34,27 +36,6 @@ function CreatePostForm() {
     * Populate postData strings.
     */
     const handleChange = (event) => {
-        setPostData({
-            ...postData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    const handleMusic = (event) => {
-        setPostData({
-            ...postData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    const handleBeverage = (event) => {
-        setPostData({
-            ...postData,
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    const handleArt = (event) => {
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
@@ -94,6 +75,7 @@ function CreatePostForm() {
         try {
             const { data } = await axiosReq.post("/posts/", formData);
             history.push(`/posts/${data.id}`);
+            console.log(formData);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -103,9 +85,9 @@ function CreatePostForm() {
     };
 
     return (
-        <Container>
-            <h2>Inspired?</h2>
-            <p>We want to know what has those creative juices flowing!</p>
+        <Container className={formStyles.FormLabels}>
+            <h2>Feeling inspired?</h2>
+            <p>We all have that perfect combination of elements that inspired us... Why not share yours?</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
@@ -138,7 +120,7 @@ function CreatePostForm() {
                     </Alert>
                 ))}
 
-                <Row>
+                <Row className={formStyles.Music}>
                     <Form.Group>
                         <Form.Label>Song name:</Form.Label>
                         <Form.Control
@@ -170,15 +152,14 @@ function CreatePostForm() {
                     ))}
                 </Row>
 
-                <Row>
+                <Row className={formStyles.Choices}>
                     <Form.Group as={Col}>
                         <Form.Label>What are you listening to it on?</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
                             name="music_medium"
-                            
-                            onChange={handleMusic}
+                            onChange={handleChange}
                         >
                             <option value="none">None</option>
                             <option value="cassette">Cassette</option>
@@ -201,8 +182,7 @@ function CreatePostForm() {
                             as="select"
                             defaultValue="Choose..."
                             name="beverage"
-                            
-                            onChange={handleBeverage}
+                            onChange={handleChange}
                         >
                             <option value="none">None</option>
                             <option value="water">Water</option>
@@ -228,8 +208,7 @@ function CreatePostForm() {
                             as="select"
                             defaultValue="Choose..."
                             name="art_medium"
-                            
-                            onChange={handleArt}
+                            onChange={handleChange}
                         >
                             <option value="none">None</option>
                             <option value="acrylic_paint">Acrylic paint</option>
@@ -265,21 +244,24 @@ function CreatePostForm() {
                             <div>
                                 <Form.Label
                                 htmlFor="image-upload"
+                                className={btnStyles.Button}
                                 >
-                                Change the image
+                                Change image
                                 </Form.Label>
                             </div>
                         </>
                     ) : (
                         <Form.Label
                         className="d-flex justify-content-center"
+                        // className={`${formStyles.UploadIcon} d-flex justify-content-center`}
                         htmlFor="image-upload"
                         >
-                            <i className="fa-solid fa-cloud-arrow-up"></i>
-                            <Asset
-                                // src={Upload}
-                                message="Click or tap to upload an image"
-                            />
+                            <Col>
+                                <span className={formStyles.UploadIcon}>
+                                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                                </span>
+                                <Asset message="Upload image" />
+                            </Col>
                         </Form.Label>
                     )}
 
@@ -288,6 +270,7 @@ function CreatePostForm() {
                         accept="image/*"
                         onChange={handleChangeImage}
                         ref={imageInput}
+                        className="d-none"
                     />
                 </Form.Group>
                 {errors?.image?.map((message, idx) => (
@@ -296,12 +279,12 @@ function CreatePostForm() {
                     </Alert>
                 ))}
                 
-                <Row>
-                    <Button type="submit">
+                <Row className={formStyles.FormButtons}>
+                    <Button type="submit" className={`${formStyles.Button} ${btnStyles.Button}`}>
                         Submit
                     </Button>
                     
-                    <Button onClick={() => history.goBack()}>
+                    <Button onClick={() => history.goBack()} className={`${formStyles.Button} ${btnStyles.Button}`}>
                         Cancel
                     </Button>
                 </Row>
