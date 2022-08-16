@@ -7,10 +7,19 @@ h1{
   font-size: 200%;
 }
 
-/* .NavBar {
+/* SITE HEADER & NAVBAR */
+.NavBar {
   position: fixed;
   top: 0;
-} */
+  right: 0;
+  left: 0;
+  z-index: 5;
+  background-color: white;
+}
+
+.HeaderLink {
+  padding: 10px;
+}
 
 .NavBar h1{
   font-family: 'Zilla Slab Highlight', cursive;
@@ -18,6 +27,17 @@ h1{
   font-size: 400%;
   color: black;
   text-align: center;
+}
+
+/* .NavPanel{
+  position: fixed;
+  top: 0;
+} */
+
+/* PAGE CONTENT */
+.MainContent{
+  position: relative;
+  top: 134px;
 }
 
 .Image {

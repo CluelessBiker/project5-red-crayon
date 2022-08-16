@@ -18,13 +18,14 @@ function App() {
   return (
     <div className={styles.App}>
 
-      <div fixed="top" className={styles.NavBar}>
-          <NavLink to="/">
+      <div className={styles.NavBar}>
+          <NavLink to="/" className={styles.HeaderLink}>
               <h1>The Red Crayon</h1>
           </NavLink>
       </div>
       <br />
-      <Row>
+
+      <Row className={styles.MainContent}>
         <Col md={3}>
           <NavBar />
         </Col>
@@ -45,7 +46,6 @@ function App() {
             />
             <Route exact path="/login" render={() => <LogInForm />} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
-            <Route exact path="/logout" render={() => <h1>Logout</h1>} />
             <Route exact path="/posts/create" render={() => <CreatePostForm />} />
             <Route exact path="/posts/:id" render={() => <PostPage />} />
             <Route render={() => <p>Page not found!</p>} />
