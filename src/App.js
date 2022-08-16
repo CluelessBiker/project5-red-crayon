@@ -6,17 +6,18 @@ import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
 import CreatePostForm from "./pages/posts/CreatePostForm";
+import PostPage from './pages/posts/PostPage';
 
 function App() {
   return (
     <div className={styles.App}>
 
-        <div fixed="top" className={styles.NavBar}>
-            <NavLink to="/">
-                <h1>The Red Crayon</h1>
-            </NavLink>
-        </div>
-
+      <div fixed="top" className={styles.NavBar}>
+          <NavLink to="/">
+              <h1>The Red Crayon</h1>
+          </NavLink>
+      </div>
+      <br />
       <Row>
         <Col md={3}>
           <NavBar />
@@ -31,6 +32,7 @@ function App() {
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/logout" render={() => <h1>Logout</h1>} />
             <Route exact path="/posts/create" render={() => <CreatePostForm />} />
+            <Route exact path="/posts/:id" render={() => <PostPage />} />
             <Route render={() => <p>Page not found!</p>} />
           </Switch>
         </Col>
