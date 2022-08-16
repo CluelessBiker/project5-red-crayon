@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 // import styles from "../../styles/PostsPage.module.css";
 import Post from "./Post";
 
@@ -53,13 +55,19 @@ function PostsPage({ message, filter="" }) {
                         placeholder="search posts"
                     />
                 </Form>
-                
+
                 {hasLoaded ? (
                 <>
                     {posts.results.length ? (
-                        posts.results.map((post) => (
-                            <Post key={post.id} {...post} setPosts={setPosts} />
-                        ))
+                        <InfiniteScroll
+                            children={posts.results.map((post) => (
+                                <Post key={post.id} {...post} setPosts={setPosts} />
+                            ))}
+                            dataLength={posts.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!posts.next}
+                            next={() => fetchMoreData(posts, setPosts)}
+                        />
                     ) : (
                     <Container>
                         <Asset message={message} />
