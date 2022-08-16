@@ -101,7 +101,9 @@ const Post = (props) => {
                         <p>Drinking: {beverage}</p>
                         <p>Working with: {artistic_medium}</p>
                         <p>Listening to {song_name} by {artist_name} on {music_medium}</p>
-                        <Card.Img src={image} alt={title} />
+                        <Link to={`/posts/${id}`}>
+                            <Card.Img src={image} alt={title} />
+                        </Link>
                         <p>{description}</p>
                         <p>Last modified: {modified_on}</p>
                     </div>
@@ -133,7 +135,7 @@ const Post = (props) => {
                         )}
                         {likes_count}
                         <Link to={`/posts/${id}`}>
-                            <i className="far fa-comments" />
+                            <i className="fa-solid fa-comment" />
                         </Link>
                         {comments_count}
                     </div>

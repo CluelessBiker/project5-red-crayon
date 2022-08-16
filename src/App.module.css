@@ -7,6 +7,11 @@ h1{
   font-size: 200%;
 }
 
+/* .NavBar {
+  position: fixed;
+  top: 0;
+} */
+
 .NavBar h1{
   font-family: 'Zilla Slab Highlight', cursive;
   text-transform: uppercase;
