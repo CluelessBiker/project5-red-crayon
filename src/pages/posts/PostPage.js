@@ -7,6 +7,9 @@ import CreateCommentForm from "../comments/CreateCommentForm";
 import Comment from "../comments/Comment";
 // import postStyles from "../../styles/PostPage.module.css";
 import Post from "./Post";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 /**
 * Display single post details & post comments.
@@ -62,14 +65,20 @@ function PostPage() {
                     "Comments"
                 ) : null}
                 {comments.results.length ? (
-                    comments.results.map((comment) => (
-                        <Comment
-                            key={comment.id}
-                            {...comment}
-                            setPost={setPost}
-                            setComments={setComments}
-                        />
-                    ))
+                    <InfiniteScroll
+                        children={comments.results.map((comment) => (
+                            <Comment
+                                key={comment.id}
+                                {...comment}
+                                setPost={setPost}
+                                setComments={setComments}
+                            />
+                        ))}
+                        dataLength={comments.results.length}
+                        loader={<Asset spinner />}
+                        hasMore={!!comments.next}
+                        next={() => fetchMoreData(comments, setComments)}
+                    />
                 ) : currentUser ? (
                     <span>No comments yet, be the first to comment!</span>
                 ) : (

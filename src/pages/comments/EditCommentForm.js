@@ -13,6 +13,9 @@ function EditCommentForm(props) {
         setFormContent(event.target.value);
     };
 
+    /**
+    * Update comment content data.
+    */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
