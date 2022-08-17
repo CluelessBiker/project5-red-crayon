@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import DropdownMenu from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import EditCommentForm from "./EditCommentForm";
 // import styles from "../../styles/Comment.module.css";
 
 /**
@@ -14,6 +15,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 const Comment = (props) => {
 
     const { profile_id, profile_image, owner, modified_on, content, id, setPost, setComments } = props;
+    const [showEditForm, setShowEditForm] = useState(false);
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
@@ -41,26 +43,40 @@ const Comment = (props) => {
     };
 
     return (
-        <div>
-            <hr />
-            <Media>
-                <Link to={`/profiles/${profile_id}`}>
-                    <Avatar src={profile_image} />
-                </Link>
+        <>
+            <div>
+                <hr />
+                <Media>
+                    <Link to={`/profiles/${profile_id}`}>
+                        <Avatar src={profile_image} />
+                    </Link>
 
-                <Media.Body>
-                    <span>{ owner }</span>
-                    <span>{ modified_on }</span>
-                    <p>{ content }</p>
-                </Media.Body>
+                    <Media.Body>
+                        <span>{ owner }</span>
+                        <span>{ modified_on }</span>
+                        {showEditForm ? (
+                            <EditCommentForm
+                                id={id}
+                                profile_id={profile_id}
+                                content={content}
+                                profileImage={profile_image}
+                                setComments={setComments}
+                                setShowEditForm={setShowEditForm}
+                            />
+                        ) : (
+                            <p>{ content }</p>
+                        )}
+                    </Media.Body>
 
-                {is_owner && (
-                    <DropdownMenu
-                        handleDelete={handleDelete}
-                    />
-                )}
-            </Media>
-        </div>
+                    {is_owner && (
+                        <DropdownMenu
+                            handleEdit={() => setShowEditForm(true)}
+                            handleDelete={handleDelete}
+                        />
+                    )}
+                </Media>
+            </div>
+        </>
     );
 };
 
