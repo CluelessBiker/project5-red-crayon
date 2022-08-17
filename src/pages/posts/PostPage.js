@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CreateCommentForm from "../comments/CreateCommentForm";
+import Comment from "../comments/Comment";
 // import postStyles from "../../styles/PostPage.module.css";
 import Post from "./Post";
 
@@ -22,15 +23,17 @@ function PostPage() {
 
     /**
     * Retrieve singular post data.
+    * Retrieve comments associated to post.
     */
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: post }] = await Promise.all([
-                axiosReq.get(`/posts/${id}`),
+                const [{ data: post }, { data: comments }] = await Promise.all([
+                    axiosReq.get(`/posts/${id}`),
+                    axiosReq.get(`/comments/?post=${id}`),
                 ]);
                 setPost({ results: [post] });
-                console.log(post);
+                setComments(comments);
             } catch (err) {
                 console.log(err);
             }
@@ -58,6 +61,15 @@ function PostPage() {
                 ) : comments.results.length ? (
                     "Comments"
                 ) : null}
+                {comments.results.length ? (
+                    comments.results.map((comment) => (
+                        <Comment key={comment.id} {...comment} />
+                    ))
+                ) : currentUser ? (
+                    <span>No comments yet, be the first to comment!</span>
+                ) : (
+                    <span>No comments... yet</span>
+                )}
             </Container>
         </Container>
     )
