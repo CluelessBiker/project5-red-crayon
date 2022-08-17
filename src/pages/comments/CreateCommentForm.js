@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Container, Form, Button, InputGroup } from "react-bootstrap";
+import { Card, Container, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
-// import styles from "../../styles/CreateCommentForm.module.css";
+import styles from "../../styles/CreateCommentForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 function CreateCommentForm(props) {
@@ -42,31 +42,33 @@ function CreateCommentForm(props) {
 
     return (
         <Container>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <InputGroup>
-                        <Link to={`/profiles/${profile_id}`}>
-                            <Avatar src={profileImage} />
-                        </Link>
-                    </InputGroup>
+            <Card className={styles.CommentBox}>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <InputGroup>
+                            <Link to={`/profiles/${profile_id}`}>
+                                <Avatar src={profileImage} />
+                            </Link>
+                        </InputGroup>
+                        
+                        <br />
+                        <Form.Control
+                            placeholder="comment"
+                            as="textarea"
+                            value={content}
+                            onChange={handleChange}
+                            rows={2}
+                        />
 
-                    <Form.Control
-                        placeholder="comment"
-                        as="textarea"
-                        value={content}
-                        onChange={handleChange}
-                        rows={2}
-                    />
-
-                    <Button
-                        className={btnStyles.Buttons}
-                        disabled={!content.trim()}
-                        type="submit"
-                    >
-                        Post
-                    </Button>
-                </Form.Group>
-            </Form>
+                        <br />
+                        <button
+                            className={btnStyles.Button}
+                            disabled={!content.trim()}
+                            type="submit"
+                        >Post</button>
+                    </Form.Group>
+                </Form>
+            </Card>
         </Container>
     )
 };
