@@ -109,7 +109,12 @@ const Post = (props) => {
                         </Link>
                         <Col>
                             <div>
-                                {is_owner && postPage && <DropdownMenu />}
+                                {is_owner && postPage && (
+                                    <DropdownMenu
+                                        handleEdit={handleEdit}
+                                        handleDelete={handleDelete}
+                                    />
+                                )}
                             </div>
                             <div>
                                 {created_on}
