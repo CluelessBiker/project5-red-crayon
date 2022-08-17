@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Container, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { DropdownMenu } from "../../components/DropdownMenu";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -9,6 +9,7 @@ import styles from "../../styles/Post.module.css";
 
 /**
 * Display single post content.
+* Function code provided by Moments walkthrough.
 */
 const Post = (props) => {
 
@@ -36,11 +37,30 @@ const Post = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    /** 
+    * Route user to Edit page.
+    */
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+    };
+
+    /** 
+    * Delete selected post from API
+    */
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     /** 
     * Return like count from API.
     * Increment count by 1.
-    * Code provided by Moments walkthrough.
     */
     const handleLike = async () => {
         try {
@@ -61,7 +81,6 @@ const Post = (props) => {
     /** 
     * Return like count from API.
     * Decrement count by 1.
-    * Code provided by Moments walkthrough.
     */
     const handleUnlike = async () => {
         try {
