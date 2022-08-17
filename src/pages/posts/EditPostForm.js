@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap";
-// import { useHistory } from "react-router-dom";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css"
 import formStyles from "../../styles/CreatePostForm.module.css"
-import Asset from "../../components/Asset";
 
 /**
 * Render CreatePostForm.
@@ -178,7 +176,6 @@ function EditPostForm() {
                         <Form.Label>Music player:</Form.Label>
                         <Form.Control
                             as="select"
-                            defaultValue="Choose..."
                             name="music_medium"
                             onChange={handleChange}
                         >
@@ -201,7 +198,6 @@ function EditPostForm() {
                         <Form.Label>Pick your poison:</Form.Label>
                         <Form.Control
                             as="select"
-                            defaultValue="Choose..."
                             name="beverage"
                             onChange={handleChange}
                         >
@@ -227,7 +223,6 @@ function EditPostForm() {
                         <Form.Label>Artistic medium:</Form.Label>
                         <Form.Control
                             as="select"
-                            defaultValue="Choose..."
                             name="artistic_medium"
                             onChange={handleChange}
                         >
@@ -257,34 +252,17 @@ function EditPostForm() {
                 </Row>
                 
                 <Form.Group className="text-center">
-                    {image ? (
-                        <>
-                            <figure>
-                                <Image className={appStyles.Image} src={image} rounded />
-                            </figure>
-                            <div>
-                                <Form.Label
-                                htmlFor="image-upload"
-                                className={btnStyles.Button}
-                                >
-                                Change image
-                                </Form.Label>
-                            </div>
-                        </>
-                    ) : (
+                    <figure>
+                        <Image className={appStyles.Image} src={image} rounded />
+                    </figure>
+                    <div>
                         <Form.Label
-                        className="d-flex justify-content-center"
-                        // className={`${formStyles.UploadIcon} d-flex justify-content-center`}
-                        htmlFor="image-upload"
-                        >
-                            <Col>
-                                <span className={formStyles.UploadIcon}>
-                                    <i className="fa-solid fa-cloud-arrow-up"></i>
-                                </span>
-                                <Asset message="Upload image" />
-                            </Col>
+                            htmlFor="image-upload"
+                            className={btnStyles.Button}
+                            >
+                            Change image
                         </Form.Label>
-                    )}
+                    </div>
 
                     <Form.File
                         id="image-upload"
