@@ -6,35 +6,34 @@ import Avatar from "../../components/Avatar";
 import styles from "../../styles/CreateCommentForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
-function CreateCommentForm(props) {
+function EditCommentForm(props) {
 
-    const { post, setPost, setComments, profileImage, profile_id } = props;
-    const [content, setContent] = useState("");
+    const { id, content, setShowEditForm, setComments } = props;
+    const [formContent, setFormContent] = useState(content);
 
     const handleChange = (event) => {
-        setContent(event.target.value);
+        setFormContent(event.target.value);
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axiosRes.post("/comments/", {
-                content,
-                post,
+            await axiosRes.put(`/comments/${id}/`, {
+                content: formContent.trim()
             });
             setComments((prevComments) => ({
                 ...prevComments,
-                results: [data, ...prevComments.results],
+                results: prevComments.results.map((comment) => {
+                    return comment.id === id
+                        ? {
+                            ...comment,
+                            content: formContent.trim(),
+                            modified_on: "now",
+                        }
+                        : comment;
+                }),
             }));
-            setPost((prevPost) => ({
-                results: [
-                {
-                    ...prevPost.results[0],
-                    comments_count: prevPost.results[0].comments_count + 1,
-                },
-                ],
-            }));
-            setContent("");
+            setShowEditForm(false);
         } catch (err) {
             console.log(err);
         }
@@ -45,17 +44,10 @@ function CreateCommentForm(props) {
             <Card className={styles.CommentBox}>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
-                        <InputGroup>
-                            <Link to={`/profiles/${profile_id}`}>
-                                <Avatar src={profileImage} />
-                            </Link>
-                        </InputGroup>
-                        
-                        <br />
                         <Form.Control
                             placeholder="comment"
                             as="textarea"
-                            value={content}
+                            value={formContent}
                             onChange={handleChange}
                             rows={2}
                         />
@@ -63,9 +55,15 @@ function CreateCommentForm(props) {
                         <br />
                         <button
                             className={btnStyles.Button}
+                            onClick={() => setShowEditForm(false)}
+                            type="button"
+                        >cancel</button>
+
+                        <button
+                            className={btnStyles.Button}
                             disabled={!content.trim()}
                             type="submit"
-                        >Post</button>
+                        >post</button>
                     </Form.Group>
                 </Form>
             </Card>
@@ -73,4 +71,4 @@ function CreateCommentForm(props) {
     )
 };
 
-export default CreateCommentForm;
+export default EditCommentForm;
