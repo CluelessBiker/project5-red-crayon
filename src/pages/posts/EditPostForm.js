@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap";
 // import { useHistory } from "react-router-dom";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css"
@@ -31,6 +31,25 @@ function EditPostForm() {
 
     const imageInput = useRef(null);
     const history = useHistory();
+    const { id } = useParams();
+
+    /**
+    * Populate form fields with post data.
+    */
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const { data } = await axiosReq.get(`/posts/${id}/`);
+                const { title, description, image, music_medium, song_name, artist_name, beverage, art_medium, is_owner } = data;
+
+                is_owner ? setPostData({ title, description, image, music_medium, song_name, artist_name, beverage, art_medium }) : history.push("/");
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        handleMount();
+    }, [history, id]);
 
     /**
     * Populate postData strings.
@@ -65,7 +84,10 @@ function EditPostForm() {
 
         formData.append("title", title);
         formData.append("description", description);
-        formData.append("image", imageInput.current.files[0]);
+        
+        if (imageInput?.current?.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
         formData.append("music_medium", music_medium);
         formData.append("song_name", song_name);
         formData.append("artist_name", artist_name);
@@ -73,9 +95,8 @@ function EditPostForm() {
         formData.append("art_medium", art_medium);
 
         try {
-            const { data } = await axiosReq.post("/posts/", formData);
-            history.push(`/posts/${data.id}`);
-            console.log(formData);
+            await axiosReq.put(`/posts/${id}/`, formData);
+            history.push(`/posts/${id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -87,7 +108,7 @@ function EditPostForm() {
     return (
         <Container className={formStyles.FormLabels}>
             <h2>Feeling inspired?</h2>
-            <p>We all have that perfect combination of elements that inspired us... Why not share yours?</p>
+            <p>We all have that perfect combination of elements that motivate us... Why not share yours?</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
@@ -105,7 +126,7 @@ function EditPostForm() {
                 ))}
 
                 <Form.Group>
-                    <Form.Label>Description:</Form.Label>
+                    <Form.Label>What are you working on?</Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={6}
@@ -154,7 +175,7 @@ function EditPostForm() {
 
                 <Row className={formStyles.Choices}>
                     <Form.Group as={Col}>
-                        <Form.Label>What are you listening to it on?</Form.Label>
+                        <Form.Label>Music player:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
@@ -203,7 +224,7 @@ function EditPostForm() {
                     ))}
 
                     <Form.Group as={Col}>
-                        <Form.Label>What are you working with?</Form.Label>
+                        <Form.Label>Artistic medium:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
@@ -281,7 +302,7 @@ function EditPostForm() {
                 
                 <Row className={formStyles.FormButtons}>
                     <Button type="submit" className={`${formStyles.Button} ${btnStyles.Button}`}>
-                        Submit
+                        Save
                     </Button>
                     
                     <Button onClick={() => history.goBack()} className={`${formStyles.Button} ${btnStyles.Button}`}>

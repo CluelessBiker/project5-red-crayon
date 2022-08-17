@@ -87,7 +87,7 @@ function CreatePostForm() {
     return (
         <Container className={formStyles.FormLabels}>
             <h2>Feeling inspired?</h2>
-            <p>We all have that perfect combination of elements that inspired us... Why not share yours?</p>
+            <p>We all have that perfect combination of elements that motivate us... Why not share yours?</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
@@ -105,7 +105,7 @@ function CreatePostForm() {
                 ))}
 
                 <Form.Group>
-                    <Form.Label>Description:</Form.Label>
+                    <Form.Label>What are you working on?</Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={6}
@@ -154,7 +154,7 @@ function CreatePostForm() {
 
                 <Row className={formStyles.Choices}>
                     <Form.Group as={Col}>
-                        <Form.Label>What are you listening to it on?</Form.Label>
+                        <Form.Label>Music player:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
@@ -203,7 +203,7 @@ function CreatePostForm() {
                     ))}
 
                     <Form.Group as={Col}>
-                        <Form.Label>What are you working with?</Form.Label>
+                        <Form.Label>Artistic medium:</Form.Label>
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
