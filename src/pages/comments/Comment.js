@@ -3,6 +3,7 @@ import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
+import DropdownMenu from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // import styles from "../../styles/Comment.module.css";
 
@@ -52,6 +53,12 @@ const Comment = (props) => {
                     <span>{ modified_on }</span>
                     <p>{ content }</p>
                 </Media.Body>
+
+                {is_owner && (
+                    <DropdownMenu
+                        handleDelete={handleDelete}
+                    />
+                )}
             </Media>
         </div>
     );
