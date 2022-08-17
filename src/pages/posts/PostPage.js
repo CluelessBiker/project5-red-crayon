@@ -45,6 +45,7 @@ function PostPage() {
                 <Post {...post.results[0]} setPosts={setPost} postPage />
             </Col>
 
+            <br />
             <Container>
                 {currentUser ? (
                     <CreateCommentForm

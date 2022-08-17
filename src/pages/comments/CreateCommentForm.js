@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, InputGroup } from "react-bootstrap";
+import { Container, Form, Button, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -18,27 +18,27 @@ function CreateCommentForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-          const { data } = await axiosRes.post("/comments/", {
-            content,
-            post,
-          });
-          setComments((prevComments) => ({
-            ...prevComments,
-            results: [data, ...prevComments.results],
-          }));
-          setPost((prevPost) => ({
-            results: [
-              {
-                ...prevPost.results[0],
-                comments_count: prevPost.results[0].comments_count + 1,
-              },
-            ],
-          }));
-          setContent("");
+            const { data } = await axiosRes.post("/comments/", {
+                content,
+                post,
+            });
+            setComments((prevComments) => ({
+                ...prevComments,
+                results: [data, ...prevComments.results],
+            }));
+            setPost((prevPost) => ({
+                results: [
+                {
+                    ...prevPost.results[0],
+                    comments_count: prevPost.results[0].comments_count + 1,
+                },
+                ],
+            }));
+            setContent("");
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
     return (
         <Container>
@@ -58,13 +58,13 @@ function CreateCommentForm(props) {
                         rows={2}
                     />
 
-                    <button
+                    <Button
                         className={btnStyles.Buttons}
                         disabled={!content.trim()}
                         type="submit"
                     >
                         Post
-                    </button>
+                    </Button>
                 </Form.Group>
             </Form>
         </Container>
