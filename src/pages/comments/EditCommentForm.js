@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Card, Container, Form, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Container, Form } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
-import Avatar from "../../components/Avatar";
 import styles from "../../styles/CreateCommentForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
