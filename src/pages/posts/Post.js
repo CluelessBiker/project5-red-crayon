@@ -125,7 +125,7 @@ const Post = (props) => {
                     <div>
                         <p>Drinking: {beverage}</p>
                         <p>Working with: {artistic_medium}</p>
-                        <p>Listening to {song_name} by {artist_name} on {music_medium}</p>
+                        <p>Listening to "{song_name}" by "{artist_name}" on {music_medium}</p>
                         <Link to={`/posts/${id}`}>
                             <Card.Img src={image} alt={title} />
                         </Link>

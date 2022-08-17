@@ -24,10 +24,10 @@ function EditPostForm() {
         song_name: "",
         artist_name: "",
         beverage: "",
-        art_medium: "",
+        artistic_medium: "",
     });
 
-    const { title, description, image, music_medium, song_name, artist_name, beverage, art_medium } = postData;
+    const { title, description, image, music_medium, song_name, artist_name, beverage, artistic_medium } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -40,9 +40,9 @@ function EditPostForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/posts/${id}/`);
-                const { title, description, image, music_medium, song_name, artist_name, beverage, art_medium, is_owner } = data;
+                const { title, description, image, music_medium, song_name, artist_name, beverage, artistic_medium, is_owner } = data;
 
-                is_owner ? setPostData({ title, description, image, music_medium, song_name, artist_name, beverage, art_medium }) : history.push("/");
+                is_owner ? setPostData({ title, description, image, music_medium, song_name, artist_name, beverage, artistic_medium }) : history.push("/");
             } catch (err) {
                 console.log(err)
             }
@@ -92,7 +92,7 @@ function EditPostForm() {
         formData.append("song_name", song_name);
         formData.append("artist_name", artist_name);
         formData.append("beverage", beverage);
-        formData.append("art_medium", art_medium);
+        formData.append("artistic_medium", artistic_medium);
 
         try {
             await axiosReq.put(`/posts/${id}/`, formData);
@@ -228,7 +228,7 @@ function EditPostForm() {
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
-                            name="art_medium"
+                            name="artistic_medium"
                             onChange={handleChange}
                         >
                             <option value="none">None</option>
@@ -248,7 +248,7 @@ function EditPostForm() {
                             <option value="glass">Glass</option>
                         </Form.Control>
                     </Form.Group>
-                    {errors?.art_medium?.map((message, idx) => (
+                    {errors?.artistic_medium?.map((message, idx) => (
                         <Alert variant="danger" key={idx}>
                             {message}
                         </Alert>

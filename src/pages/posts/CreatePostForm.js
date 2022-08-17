@@ -24,10 +24,10 @@ function CreatePostForm() {
         song_name: "",
         artist_name: "",
         beverage: "",
-        art_medium: "",
+        artistic_medium: "",
     });
 
-    const { title, description, image, music_medium, song_name, artist_name, beverage, art_medium } = postData;
+    const { title, description, image, music_medium, song_name, artist_name, beverage, artistic_medium } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -70,7 +70,7 @@ function CreatePostForm() {
         formData.append("song_name", song_name);
         formData.append("artist_name", artist_name);
         formData.append("beverage", beverage);
-        formData.append("art_medium", art_medium);
+        formData.append("artistic_medium", artistic_medium);
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -207,7 +207,7 @@ function CreatePostForm() {
                         <Form.Control
                             as="select"
                             defaultValue="Choose..."
-                            name="art_medium"
+                            name="artistic_medium"
                             onChange={handleChange}
                         >
                             <option value="none">None</option>
@@ -227,7 +227,7 @@ function CreatePostForm() {
                             <option value="glass">Glass</option>
                         </Form.Control>
                     </Form.Group>
-                    {errors?.art_medium?.map((message, idx) => (
+                    {errors?.artistic_medium?.map((message, idx) => (
                         <Alert variant="danger" key={idx}>
                             {message}
                         </Alert>
