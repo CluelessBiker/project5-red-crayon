@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container } from "react-bootstrap";
+import { Card, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CreateCommentForm from "../comments/CreateCommentForm";
 import Comment from "../comments/Comment";
-// import postStyles from "../../styles/PostPage.module.css";
+import styles from "../../styles/PostPage.module.css";
 import Post from "./Post";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
@@ -52,6 +52,7 @@ function PostPage() {
             </Col>
 
             <br />
+
             <Container>
                 {currentUser ? (
                     <CreateCommentForm
@@ -64,26 +65,30 @@ function PostPage() {
                 ) : comments.results.length ? (
                     "Comments"
                 ) : null}
-                {comments.results.length ? (
-                    <InfiniteScroll
-                        children={comments.results.map((comment) => (
-                            <Comment
-                                key={comment.id}
-                                {...comment}
-                                setPost={setPost}
-                                setComments={setComments}
+                <Container>
+                    <Card className={styles.CommentsBox}>
+                        {comments.results.length ? (
+                            <InfiniteScroll
+                                children={comments.results.map((comment) => (
+                                    <Comment
+                                        key={comment.id}
+                                        {...comment}
+                                        setPost={setPost}
+                                        setComments={setComments}
+                                    />
+                                ))}
+                                dataLength={comments.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!comments.next}
+                                next={() => fetchMoreData(comments, setComments)}
                             />
-                        ))}
-                        dataLength={comments.results.length}
-                        loader={<Asset spinner />}
-                        hasMore={!!comments.next}
-                        next={() => fetchMoreData(comments, setComments)}
-                    />
-                ) : currentUser ? (
-                    <span>No comments yet, be the first to comment!</span>
-                ) : (
-                    <span>No comments... yet</span>
-                )}
+                        ) : currentUser ? (
+                            <span>No comments yet, be the first to comment!</span>
+                        ) : (
+                            <span>No comments... yet</span>
+                        )}
+                    </Card>
+                </Container>
             </Container>
         </Container>
     )

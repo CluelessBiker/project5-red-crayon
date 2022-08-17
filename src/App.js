@@ -10,6 +10,7 @@ import PostPage from './pages/posts/PostPage';
 import PostsPage from './pages/posts/PostsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import EditPostForm from './pages/posts/EditPostForm';
+import PopularProfiles from './pages/profiles/PopularProfiles';
 
 function App() {
 
@@ -55,7 +56,7 @@ function App() {
         </Col>
 
         <Col md={3}>
-          <h2>popular profiles</h2>
+          <PopularProfiles />
         </Col>
       </Row>
 
