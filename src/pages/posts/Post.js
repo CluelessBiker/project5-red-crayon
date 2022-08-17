@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { DropdownMenu } from "../../components/DropdownMenu";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
@@ -89,7 +90,7 @@ const Post = (props) => {
                         </Link>
                         <Col>
                             <div>
-                                {is_owner && postPage && "edit"}
+                                {is_owner && postPage && <DropdownMenu />}
                             </div>
                             <div>
                                 {created_on}

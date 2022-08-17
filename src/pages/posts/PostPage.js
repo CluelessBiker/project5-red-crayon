@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import postStyles from "../../styles/PostPage.module.css";
+// import postStyles from "../../styles/PostPage.module.css";
 import Post from "./Post";
 
 /**
