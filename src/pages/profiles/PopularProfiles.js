@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
+import Asset from "../../components/Asset";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
@@ -39,8 +41,19 @@ const PopularProfiles = () => {
 
 
     return (
-        <h1>WHAT?!</h1>
-    )
+        <Container>
+            {popularProfiles.results.length ? (
+                <>
+                    <p>huh?</p>
+                    {popularProfiles.results.map((profile) => (
+                        <p key={profile.id}>{profile.owner}</p>
+                    ))}
+                </>
+            ) : (
+                <Asset spinner />
+            )}
+        </Container>
+    );
 };
 
 export default PopularProfiles;
