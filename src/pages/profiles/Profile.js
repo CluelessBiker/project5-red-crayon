@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 // import styles from "../../styles/Profile.module.css";
 
 /** 
@@ -15,6 +16,8 @@ const Profile = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const { handleFollow } = useSetProfileData();
 
     return (
         <div className={`my-3 d-flex align-items-center`}>
@@ -32,7 +35,9 @@ const Profile = (props) => {
                 {currentUser && !is_owner && (following_id ? (
                     <Button>unfollow</Button>
                 ) : (
-                    <Button>follow</Button>
+                    <Button
+                        onClick={() => handleFollow(profile)}
+                    >follow</Button>
                 ))}
             </div>
         </div>
