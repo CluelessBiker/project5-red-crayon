@@ -6,6 +6,7 @@ import Asset from "../../components/Asset";
 import PostsPage from "../posts/PostsPage";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
+import { EditProfileDropdown } from "../../components/DropdownMenu";
 // import styles from "../../styles.ProfilePage.module.css";
 
 function ProfilePage() {
@@ -49,15 +50,18 @@ function ProfilePage() {
                             roundedCircle
                             src={profile?.image}
                         />
-                        { currentUser && !is_owner && (profile?.following_id ? (
-                            <Button
-                                onClick={() => handleUnfollow(profile)}
-                            >unfollow</Button>
-                        ) : (
-                            <Button
-                                onClick={() => handleFollow(profile)}
-                            >follow</Button>
-                        ))}
+                        <Row>
+                            {profile?.is_owner && <EditProfileDropdown id={profile?.id} />}
+                            { currentUser && !is_owner && (profile?.following_id ? (
+                                <Button
+                                    onClick={() => handleUnfollow(profile)}
+                                >unfollow</Button>
+                            ) : (
+                                <Button
+                                    onClick={() => handleFollow(profile)}
+                                >follow</Button>
+                            ))}
+                        </Row>
                     </Col>
 
                     <Col>
