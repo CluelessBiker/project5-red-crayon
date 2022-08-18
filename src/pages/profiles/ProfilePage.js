@@ -17,7 +17,8 @@ function ProfilePage() {
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
-    const profile_id = currentUser?.profile_id || "";
+    // const profile_id = currentUser?.profile_id;
+    
 
     /**
      * Retrieve profile data from API.
@@ -95,7 +96,7 @@ function ProfilePage() {
             <Card>
                 <PostsPage
                     message="No results."
-                    filter={`owner__profile=${profile_id}&ordering=-created_on&`}
+                    // filter={`owner__profile=${profile_id}&ordering=-created_on&`}
                 />
             </Card>
         </>
