@@ -4,6 +4,9 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+* Render form to change username. 
+*/
 const UsernameForm = () => {
     const [username, setUsername] = useState("");
     const [errors, setErrors] = useState({});
@@ -22,6 +25,9 @@ const UsernameForm = () => {
         }
     }, [currentUser, history, id]);
 
+    /**
+    * Update API with edited username.
+    */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
