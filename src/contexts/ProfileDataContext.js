@@ -21,6 +21,10 @@ export const ProfileDataProvider = ({ children }) => {
 
     const currentUser = useCurrentUser();
 
+    /**
+    * Retrieve profile data from API
+    * Order profiles by highest follower count. 
+    */
     useEffect(() => {
         const handleMount = async () => {
             try {
