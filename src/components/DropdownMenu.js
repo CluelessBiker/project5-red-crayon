@@ -1,6 +1,7 @@
 import React from "react";
 // import styles from "../styles/DropdownMenu.module.css";
 import { Dropdown } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 /**
 * Position the menu correctly 
@@ -39,6 +40,36 @@ export const DropdownMenu = ({ handleEdit, handleDelete}) => {
             </Dropdown.Menu>
         </Dropdown>
     )
+};
+
+/**
+* Add edit button to each profile element.
+*/
+export const EditProfileDropdown = ({ id }) => {
+    const history = useHistory();
+
+    return (
+        <Dropdown className="ml-auto" drop="left">
+            <Dropdown.Toggle as={ThreeDots} />
+
+            <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+                <Dropdown.Item
+                    onClick={() => history.push(`/profiles/${id}/edit`)}
+                    aria-label="edit-profile"
+                ><i className="fa-solid fa-pencil"></i></Dropdown.Item>
+
+                <Dropdown.Item
+                    onClick={() => history.push(`/profiles/${id}/edit/username`)}
+                    aria-label="edit-username"
+                ><i className="fa-solid fa-pencil"></i></Dropdown.Item>
+
+                <Dropdown.Item
+                    onClick={() => history.push(`/profiles/${id}/edit/password`)}
+                    aria-label="edit-password"
+                ><i className="fa-solid fa-pencil"></i></Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    );
 };
 
 export default DropdownMenu;
