@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
