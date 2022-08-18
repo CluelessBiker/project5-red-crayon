@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
 /**
@@ -12,33 +13,34 @@ import Profile from "./Profile";
 */
 const PopularProfiles = () => {
 
-    const [profileData, setProfileData] = useState({
-        pageProfile: { results: [] },
-        popularProfiles: { results: [] },
-    });
+    // const [profileData, setProfileData] = useState({
+    //     pageProfile: { results: [] },
+    //     popularProfiles: { results: [] },
+    // });
 
-    const { popularProfiles } = profileData;
-    const currentUser = useSetCurrentUser();
+    // const { popularProfiles } = profileData;
+    // const currentUser = useSetCurrentUser();
+    const { popularProfiles } = useProfileData();
 
     /**
     * Retrieve profiles from API.
     * Order profiles in descending order by most followed.
     */
-    useEffect(() => {
-        const handleMount = async () => {
-            try {
-                const { data } = await axiosReq.get("profiles/?ordering=-followers_count");
-                setProfileData((prevState) => ({
-                    ...prevState,
-                    popularProfiles: data,
-                }));
-            } catch (err) {
-                console.log(err);
-            }
-        };
+    // useEffect(() => {
+    //     const handleMount = async () => {
+    //         try {
+    //             const { data } = await axiosReq.get("profiles/?ordering=-followers_count");
+    //             setProfileData((prevState) => ({
+    //                 ...prevState,
+    //                 popularProfiles: data,
+    //             }));
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
 
-        handleMount();
-    }, [currentUser]);
+    //     handleMount();
+    // }, [currentUser]);
 
 
     return (
