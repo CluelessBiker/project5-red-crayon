@@ -13,6 +13,7 @@ import EditPostForm from './pages/posts/EditPostForm';
 import PopularProfiles from './pages/profiles/PopularProfiles';
 import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameForm from './pages/profiles/UsernameForm';
+import PasswordForm from './pages/profiles/PasswordForm';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/posts/:id/edit" render={() => <EditPostForm />} />
             <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
             <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
+            <Route exact path="/profiles/:id/edit/password" render={() => <PasswordForm />} />
             <Route render={() => <p>Page not found!</p>} />
           </Switch>
         </Col>
