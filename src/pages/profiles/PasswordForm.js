@@ -50,6 +50,59 @@ const PasswordForm = () => {
             setErrors(err.response?.data);
         }
     };
+
+    /**
+    * Update password form.
+    */
+    return (
+        <Row>
+            <Col className="py-2 mx-auto text-center" md={6}>
+                <Container>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group>
+                            <Form.Label>New password</Form.Label>
+                            <Form.Control
+                                placeholder="new password"
+                                type="password"
+                                value={new_password1}
+                                onChange={handleChange}
+                                name="new_password1"
+                            />
+                        </Form.Group>
+                        {errors?.new_password1?.map((message, idx) => (
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Form.Group>
+                            <Form.Label>Confirm password</Form.Label>
+                            <Form.Control
+                                placeholder="confirm new password"
+                                type="password"
+                                value={new_password2}
+                                onChange={handleChange}
+                                name="new_password2"
+                            />
+                        </Form.Group>
+                        {errors?.new_password2?.map((message, idx) => (
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Button
+                            onClick={() => history.goBack()}
+                        >cancel</Button>
+
+                        <Button
+                            type="submit"
+                        >save</Button>
+                    </Form>
+                </Container>
+            </Col>
+        </Row>
+    );
 };
 
 export default PasswordForm;
