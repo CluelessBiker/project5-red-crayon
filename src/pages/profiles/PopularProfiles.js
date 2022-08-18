@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import Profile from "./Profile";
 
 /**
 * Obtain Profiles from API
@@ -46,7 +47,8 @@ const PopularProfiles = () => {
                 <>
                     <p>huh?</p>
                     {popularProfiles.results.map((profile) => (
-                        <p key={profile.id}>{profile.owner}</p>
+                        // <p key={profile.id}>{profile.owner}</p>
+                        <Profile key={profile.id} profile={profile} />
                     ))}
                 </>
             ) : (
