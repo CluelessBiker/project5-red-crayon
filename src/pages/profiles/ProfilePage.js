@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import PostsPage from "../posts/PostsPage";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 // import styles from "../../styles.ProfilePage.module.css";
@@ -75,12 +76,40 @@ function ProfilePage() {
         </>
     );
 
+    const profileBody = (
+        <>
+            <Card>
+                <p>User since: { profile?.created_on }</p>
+                <p>Last updated: { profile?.modified_on }</p>
+                <p>Name: { profile?.first_name } { profile?.last_name }</p>
+                <p>Nickname: { profile?.username }</p>
+                <p>Country: { profile?.country }</p>
+                <p>About: { profile?.description }</p>
+            </Card>
+        </>
+    )
+
+    const profilePosts = (
+        <>
+            <Card>
+                <PostsPage
+                    message="No results."
+                    // filter={`owner__profile=${profile_id}&ordering=-created_on&`}
+                />
+            </Card>
+        </>
+    )
+
     return (
         <Container>
             <h1>Testing....</h1>
             {hasLoaded ? (
                 <>
                     { profileHeader }
+                    <br />
+                    { profileBody }
+                    <br />
+                    { profilePosts }
                 </>
             ) : (
                 <Asset spinner />
