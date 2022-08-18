@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { axiosReq } from "../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../api/axiosDefaults";
+import { followHelper } from "../utils/utils";
 import { useCurrentUser } from "./CurrentUserContext";
-
 
 /**
 * Code provided in Moments walkthrough.
@@ -20,6 +20,31 @@ export const ProfileDataProvider = ({ children }) => {
     });
 
     const currentUser = useCurrentUser();
+
+    /**
+    * Map user follow count in API
+    * Update follow count when button clicked. 
+    */
+    const handleFollow = async (clickedProfile) => {
+        try {
+            const { data } = await axiosRes.post("/followers/", {followed: clickedProfile.id});
+
+            setProfileData((prevState) => ({
+                ...prevState,
+                pageProfile: {
+                    results: prevState.pageProfile.results.map((profile) =>
+                        followHelper(profile, clickedProfile, data.id)
+                    ),
+                },
+                popularProfiles: {
+                    ...prevState.popularProfiles,
+                    results: prevState.popularProfiles.results.map((profile) =>
+                    followHelper(profile, clickedProfile, data.id)
+                    ),
+                },
+            }));
+        } catch (err) {}
+    };
 
     /**
     * Retrieve profile data from API
@@ -41,7 +66,7 @@ export const ProfileDataProvider = ({ children }) => {
 
     return (
         <ProfileDataContext.Provider value={profileData}>
-            <SetProfileDataContext.Provider value={setProfileData}>
+            <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
                 { children }
             </SetProfileDataContext.Provider>
         </ProfileDataContext.Provider>
