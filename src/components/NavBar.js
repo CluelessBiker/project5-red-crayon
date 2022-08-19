@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import ToggleCollapse from '../hooks/ToggleCollapse';
 import styles from '../styles/NavBar.module.css';
+import { removeTokenTimestamp } from '../utils/utils';
 import Avatar from "./Avatar";
 
 /**
@@ -24,6 +25,7 @@ const NavBar = () => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
+            removeTokenTimestamp();
         } catch (err) {
             console.log(err);
         }
