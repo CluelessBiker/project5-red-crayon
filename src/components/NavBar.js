@@ -52,7 +52,7 @@ const NavBar = () => {
                 to="/"
                 className={styles.NavLink}
                 onClick={handleSignOut}
-            ><i className="fa-solid fa-right-from-bracket"></i> Log out</NavLink>
+            ><i className="fa-solid fa-right-from-bracket"></i> Logout</NavLink>
         </>
     );
 
