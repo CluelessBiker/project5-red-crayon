@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Container, Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+import Article from "./Article";
 
 /**
 * Display all articles.
@@ -21,7 +26,7 @@ function ArticlesPage({ message, filter="" }) {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(`/articles/?${filter}search=${query}`);
                 setArticles(data);
                 setHasLoaded(true);
             } catch (err) {}
@@ -39,7 +44,40 @@ function ArticlesPage({ message, filter="" }) {
     }, [filter, query, pathname]);
 
     return (
-        <h1>News</h1>
+        <Container>
+            <Form onSubmit={(event) => event.preventDefault()}>
+                <Form.Control
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    type="text"
+                    placeholder="search articles"
+                />
+            </Form>
+
+            {hasLoaded ? (
+                <>
+                    {articles.results.length ? (
+                        <InfiniteScroll
+                            children={articles.results.map((article) => (
+                                <Article key={article.id} {...article} setArticles={setArticles} />
+                            ))}
+                            dataLength={articles.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!articles.next}
+                            next={() => fetchMoreData(articles, setArticles)}
+                        />
+                    ) : (
+                        <Container>
+                            <Asset message={message} />
+                        </Container>
+                    )}
+                </>
+                ) : (
+                    <Container>
+                        <Asset spinner />
+                    </Container>
+                )}
+        </Container>
     )
 };
 
