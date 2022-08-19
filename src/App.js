@@ -15,6 +15,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameForm from './pages/profiles/UsernameForm';
 import PasswordForm from './pages/profiles/PasswordForm';
 import EditProfileForm from './pages/profiles/EditProfileForm';
+import CreateArticleForm from './pages/articles/CreateArticleForm';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Col md={6}>
           <Switch>
             <Route exact path="/" render={() => <h1>News</h1>} />
+            <Route exact path="/articles/create" render={() => <CreateArticleForm />} />
             <Route exact path="/posts" render={() => <PostsPage message="No results."/>} />
             <Route
               exact

@@ -6,7 +6,7 @@ import React from "react";
 */
 function CreateArticleForm() {
 
-    render (
+    return (
         <h1>In todays news!</h1>
     )
 };
