@@ -48,7 +48,39 @@ const Article = (props) => {
 
     
     return (
-    
+        <Container>
+            <Card>
+                <Media>
+                    <Link to={`profiles/${profile_id}`}>
+                        <Avatar src={profile_image} height={40} />
+                        { owner }
+                    </Link>
+
+                    <Col>
+                        <div>
+                            {is_owner && articlePage && (
+                                <DropdownMenu
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleDelete}
+                                />
+                            )}
+                        </div>
+                        <div>
+                            { created_on }
+                        </div>
+                    </Col>
+                </Media>
+
+                <Col>
+                    <h2>{ title }</h2>
+                    <Link to={`/articles/${id}`}>
+                        <Card.Img src={image} alt={title} />
+                    </Link>
+                    <p>{ content }</p>
+                    <p>Last updated: { modified_on }</p>
+                </Col>
+            </Card>
+        </Container>
     )
 };
 
