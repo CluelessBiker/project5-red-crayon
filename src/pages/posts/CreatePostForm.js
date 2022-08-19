@@ -7,12 +7,15 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css"
 import formStyles from "../../styles/CreatePostForm.module.css"
 import Asset from "../../components/Asset";
+import useRedirect from "../../hooks/useRedirect";
 
 /**
 * Render CreatePostForm.
 * Supply user with input fields to create a post.
 */
 function CreatePostForm() {
+
+    useRedirect("loggedOut");
 
     const [errors, setErrors] = useState({});
 

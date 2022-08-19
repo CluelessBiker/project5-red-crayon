@@ -47,7 +47,7 @@ const LogInForm = () => {
         try {
           const { data } = await axios.post("/dj-rest-auth/login/", logInData);
           setCurrentUser(data.user)
-          history.push("/");
+          history.goBack();
         } catch (err) {
           setErrors(err.response?.data);
         }
