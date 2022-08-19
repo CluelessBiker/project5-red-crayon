@@ -5,6 +5,7 @@ import styles from "../../styles/LogInForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import useRedirect from "../../hooks/useRedirect";
 
 /**
 * Render the SignUp form.
@@ -13,6 +14,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 const LogInForm = () => {
 
     const setCurrentUser = useSetCurrentUser();
+    useRedirect("loggedIn");
 
     const [logInData, setLogInData] = useState({
         username: "",
