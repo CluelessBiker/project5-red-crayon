@@ -6,6 +6,7 @@ import btnStyles from "../../styles/Buttons.module.css";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import useRedirect from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 /**
 * Render the SignUp form.
@@ -47,6 +48,7 @@ const LogInForm = () => {
         try {
           const { data } = await axios.post("/dj-rest-auth/login/", logInData);
           setCurrentUser(data.user)
+          setTokenTimestamp(data);
           history.goBack();
         } catch (err) {
           setErrors(err.response?.data);
