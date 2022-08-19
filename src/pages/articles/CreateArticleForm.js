@@ -1,6 +1,10 @@
 import React, { useRef, useState } from "react";
+import { Container, Form, Button, Col, Row, Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css"
+import Asset from "../../components/Asset";
 import useRedirect from "../../hooks/useRedirect";
 
 /**
@@ -73,7 +77,94 @@ function CreateArticleForm() {
     };
 
     return (
-        
+        <Container>
+
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Title:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.title?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>What are you working on?</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={6}
+                        name="content"
+                        value={content}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.content?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group className="text-center">
+                    {image ? (
+                        <>
+                            <figure>
+                                <Image className={appStyles.Image} src={image} rounded />
+                            </figure>
+                            <div>
+                                <Form.Label
+                                    htmlFor="image-upload"
+                                    className={btnStyles.Button}
+                                >
+                                Change image
+                                </Form.Label>
+                            </div>
+                        </>
+                    ) : (
+                        <Form.Label
+                        className="d-flex justify-content-center"
+                        htmlFor="image-upload"
+                        >
+                            <Col>
+                                <span>
+                                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                                </span>
+                                <Asset message="Upload image" />
+                            </Col>
+                        </Form.Label>
+                    )}
+
+                    <Form.File
+                        id="image-upload"
+                        accept="image/*"
+                        onChange={handleChangeImage}
+                        ref={imageInput}
+                        className="d-none"
+                    />
+                </Form.Group>
+                {errors?.image?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+                
+                <Row>
+                    <Button type="submit" className={btnStyles.Button}>
+                        Submit
+                    </Button>
+                    
+                    <Button onClick={() => history.goBack()} className={btnStyles.Button}>
+                        Cancel
+                    </Button>
+                </Row>
+            </Form>
+        </Container>
     )
 };
 
