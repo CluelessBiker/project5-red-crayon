@@ -4,6 +4,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
 // import styles from "../../styles/PostsPage.module.css";
 import Post from "./Post";
@@ -18,6 +19,8 @@ function PostsPage({ message, filter="" }) {
     const { pathname } = useLocation();
 
     const [query, setQuery] = useState("");
+
+    const currentUser = useCurrentUser();
 
     /**
     * Fetch posts from API.
@@ -43,7 +46,7 @@ function PostsPage({ message, filter="" }) {
             clearTimeout(timer);
         };
 
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, currentUser]);
 
     return (
             <Container>
