@@ -1,7 +1,7 @@
 .NavLink{
     color: #3a3a3a;
     font-family: 'Nixie One', cursive;
-    font-size: 150%;
+    font-size: 135%;
     line-height: 70px;
 }
 
@@ -16,4 +16,8 @@
 
 .Active{
     color: #DD798A;
+}
+
+.Navbar-Collapse{
+    background-color: black;
 }

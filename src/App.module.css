@@ -7,21 +7,28 @@ h1{
   font-size: 200%;
 }
 
-/* SITE HEADER & NAVBAR */
-.NavBar {
+/* LAYOUT */
+.App {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* SITE HEADER */
+.Header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 5;
   background-color: white;
+  border-bottom: 1px solid #000000;
 }
 
 .HeaderLink {
   padding: 10px;
 }
 
-.NavBar h1{
+.Header h1{
   font-family: 'Zilla Slab Highlight', cursive;
   text-transform: uppercase;
   font-size: 400%;
@@ -29,9 +36,18 @@ h1{
   text-align: center;
 }
 
-/* .NavPanel{
+/* NAVBAR */
+.NavSmScreen{
+  display: none;
+  z-index: 6;
   position: fixed;
-  top: 0;
+  top: 35px;
+}
+
+/* .NavLgScreen {
+  position: fixed;
+  top: 100px;
+  left: 0;
 } */
 
 /* PAGE CONTENT */
@@ -44,4 +60,13 @@ h1{
   max-height: 40vh;
   max-width: 100%;
   object-fit: contain;
+}
+
+@media screen and (max-width:991px) {
+  .NavLgScreen{
+    display: none;
+  }
+  .NavSmScreen{
+    display: block;
+  }
 }

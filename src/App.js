@@ -28,16 +28,20 @@ function App() {
 
   return (
     <div className={styles.App}>
-
-      <div className={styles.NavBar}>
-          <NavLink to="/" className={styles.HeaderLink}>
-              <h1>The Red Crayon</h1>
-          </NavLink>
-      </div>
+      <Row>
+        <Col md={2} className={styles.NavSmScreen}>
+          <NavBar />
+        </Col>
+        <Col className={styles.Header}>
+            <NavLink to="/" className={styles.HeaderLink}>
+                <h1>The Red Crayon</h1>
+            </NavLink>
+        </Col>
+      </Row>
       <br />
 
       <Row className={styles.MainContent}>
-        <Col md={3}>
+        <Col md={3} className={styles.NavLgScreen}>
           <NavBar />
         </Col>
 

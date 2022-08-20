@@ -78,8 +78,8 @@ const NavBar = () => {
     <div>
         <Container>
             <Navbar
-                bg="light"
-                expand="md"
+                // bg="light"
+                expand="lg"
                 expanded={expanded}
             >
                 <Navbar.Toggle
