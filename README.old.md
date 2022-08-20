@@ -250,6 +250,17 @@ jwt-decode
 2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
 3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
 
+### Deploy to Heorku:
+- In the `scripts` section of `package.json`, added the following command:
+```
+"heroku-prebuild": "npm install -g serve",
+```
+This will install a package needed to serve our single page application on heroku
+
+Add a Procfile at the root of the project with the following web command:
+
+web: serve -s build
+
 
 ## Credits
 
@@ -260,6 +271,6 @@ jwt-decode
 - [BobbyHadz](https://bobbyhadz.com/blog/react-you-are-importing-createroot-from-react-dom#:~:text=The%20error%20%22You%20are%20importing,js%20.): provided the answer on how to resolve a console error indicating that the createRoot render was not compatible with the current version of ReactJS.
 
 ### Media
-- 404 Error Graphic from [PNG Tree](https://pngtree.com/so/404)
+- 404 Error Graphic from [PNG Tree](https://pngtree.com/freepng/404-error-interface-art-word-design_4043816.html)
 
 #### Pexels:
