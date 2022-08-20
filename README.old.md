@@ -255,12 +255,10 @@ jwt-decode
 ```
 "heroku-prebuild": "npm install -g serve",
 ```
-This will install a package needed to serve our single page application on heroku
-
-Add a Procfile at the root of the project with the following web command:
-
+- Add Procfile to project root & populate with the following:
+```
 web: serve -s build
-
+```
 
 ## Credits
 
