@@ -47,7 +47,7 @@ function App() {
           <NavBar />
         </Col>
 
-        <Col md={9} lg={6} className={styles.MiddlePanel}>
+        <Col sm={12} md={8} lg={6} className={styles.MiddlePanel}>
           <Switch>
             <Route exact path="/" render={() => <ArticlesPage />} />
             <Route exact path="/articles/create" render={() => <CreateArticleForm />} />
@@ -77,7 +77,7 @@ function App() {
           </Switch>
         </Col>
 
-        <Col md={3} lg={3} className={styles.RightPanel}>
+        <Col md={4} lg={3} className={styles.RightPanel}>
           <PopularProfiles />
         </Col>
       </Row>
