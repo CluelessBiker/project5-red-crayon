@@ -260,6 +260,6 @@ jwt-decode
 - [BobbyHadz](https://bobbyhadz.com/blog/react-you-are-importing-createroot-from-react-dom#:~:text=The%20error%20%22You%20are%20importing,js%20.): provided the answer on how to resolve a console error indicating that the createRoot render was not compatible with the current version of ReactJS.
 
 ### Media
-- 
+- 404 Error Graphic from [PNG Tree](https://pngtree.com/so/404)
 
 #### Pexels:
