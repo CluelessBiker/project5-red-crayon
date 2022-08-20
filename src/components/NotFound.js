@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from "../styles/NotFound.module.css";
 import FourOFour from "../assets/notfound.png";
-// import Asset from './Asset';
 import { Container } from 'react-bootstrap';
 
+/**
+* Display error graphic for non-existent pages.
+*/
 const NotFound = () => {
 
     return (
