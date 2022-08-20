@@ -42,7 +42,7 @@ function EditPostForm() {
 
                 is_owner ? setPostData({ title, description, image, music_medium, song_name, artist_name, beverage, artistic_medium }) : history.push("/");
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
 
@@ -96,7 +96,7 @@ function EditPostForm() {
             await axiosReq.put(`/posts/${id}/`, formData);
             history.push(`/posts/${id}`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
               setErrors(err.response?.data);
             }

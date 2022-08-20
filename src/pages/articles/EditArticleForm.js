@@ -85,9 +85,9 @@ function EditArticleForm() {
         try {
             await axiosReq.put(`/articles/${id}/`, formData);
             history.push(`/articles/${id}`);
-            console.log(formData);
+            // console.log(formData);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
               setErrors(err.response?.data);
             }
