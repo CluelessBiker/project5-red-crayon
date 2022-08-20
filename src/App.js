@@ -19,6 +19,7 @@ import CreateArticleForm from './pages/articles/CreateArticleForm';
 import EditArticleForm from './pages/articles/EditArticleForm';
 import ArticlePage from './pages/articles/ArticlePage';
 import ArticlesPage from './pages/articles/ArticlesPage';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
             <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
             <Route exact path="/profiles/:id/edit/password" render={() => <PasswordForm />} />
             <Route exact path="/profiles/:id/edit" render={() => <EditProfileForm />} />
-            <Route render={() => <p>Page not found!</p>} />
+            <Route render={() => <NotFound />} />
           </Switch>
         </Col>
 
