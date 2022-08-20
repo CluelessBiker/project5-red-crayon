@@ -50,7 +50,7 @@ h1{
   left: 0;
 }
 
-/* PAGE CONTENT */
+/* PAGE PANELS */
 .MainContent{
   position: relative;
   top: 135px;
@@ -75,10 +75,25 @@ h1{
 }
 
 @media screen and (max-width:991px) {
+
+  /* HEADER */
+  .Header h1{
+    font-size: 200%;
+  }
+
+  /* NAVBAR */
   .NavLgScreen{
     display: none;
   }
   .NavSmScreen{
     display: block;
+  }
+
+  /* PAGE PANELS */
+  .MiddlePanel{
+    position: relative;
+    margin-left: 0;
+    border-right: 1px solid #000000;
+    border-left: 0px;
   }
 }

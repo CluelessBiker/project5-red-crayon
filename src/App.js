@@ -2,6 +2,7 @@ import { Col, Row } from 'react-bootstrap';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
+import NavBarMini from './components/NavBarMini';
 import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
@@ -30,7 +31,8 @@ function App() {
     <div className={styles.App}>
       <Row>
         <Col md={2} className={styles.NavSmScreen}>
-          <NavBar />
+          {/* <NavBar /> */}
+          <NavBarMini />
         </Col>
         <Col className={styles.Header}>
             <NavLink to="/" className={styles.HeaderLink}>
@@ -41,11 +43,11 @@ function App() {
       <br />
 
       <Row className={styles.MainContent}>
-        <Col md={3} className={styles.NavLgScreen}>
+        <Col lg={3} className={styles.NavLgScreen}>
           <NavBar />
         </Col>
 
-        <Col md={6} className={styles.MiddlePanel}>
+        <Col md={9} lg={6} className={styles.MiddlePanel}>
           <Switch>
             <Route exact path="/" render={() => <ArticlesPage />} />
             <Route exact path="/articles/create" render={() => <CreateArticleForm />} />
@@ -75,7 +77,7 @@ function App() {
           </Switch>
         </Col>
 
-        <Col md={3} className={styles.RightPanel}>
+        <Col md={3} lg={3} className={styles.RightPanel}>
           <PopularProfiles />
         </Col>
       </Row>
