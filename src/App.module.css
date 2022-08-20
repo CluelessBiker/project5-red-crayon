@@ -44,22 +44,34 @@ h1{
   top: 35px;
 }
 
-/* .NavLgScreen {
+.NavLgScreen {
   position: fixed;
-  top: 100px;
+  top: 135px;
   left: 0;
-} */
+}
 
 /* PAGE CONTENT */
 .MainContent{
   position: relative;
-  top: 134px;
+  top: 135px;
 }
 
 .Image {
   max-height: 40vh;
   max-width: 100%;
   object-fit: contain;
+}
+
+.MiddlePanel{
+  position: relative;
+  margin: 0 auto;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+
+.RightPanel {
+  position: fixed;
+  right: 0;
 }
 
 @media screen and (max-width:991px) {

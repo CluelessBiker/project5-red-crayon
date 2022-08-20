@@ -45,7 +45,7 @@ const PopularProfiles = () => {
         <Container>
             {popularProfiles.results.length ? (
                 <>
-                    <p>huh?</p>
+                    <p>Popular profiles</p>
                     {popularProfiles.results.map((profile) => (
                         // <p key={profile.id}>{profile.owner}</p>
                         <Profile key={profile.id} profile={profile} />
