@@ -5,6 +5,7 @@ import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 // import styles from "../../styles/Profile.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 
 /** 
 * Display profile avatar & un/follow button.
@@ -34,10 +35,12 @@ const Profile = (props) => {
             <div className={`text-right ml-auto`}>
                 {currentUser && !is_owner && (following_id ? (
                     <Button
+                        className={btnStyles.Button}
                         onClick={() => handleUnfollow(profile)}
                     >unfollow</Button>
                 ) : (
                     <Button
+                        className={btnStyles.Button}
                         onClick={() => handleFollow(profile)}
                     >follow</Button>
                 ))}
