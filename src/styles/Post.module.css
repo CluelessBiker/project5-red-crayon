@@ -1,3 +1,8 @@
+/* LAYOUT */
+.Container {
+  border-bottom: 1px solid #000000;
+}
+
 .Post {
     background-color: #ffffff;
     border: 1px solid #dadadf;
@@ -8,6 +13,11 @@
 
   .PostBar {
     text-align: center;
+    margin: 0 auto;
+  }
+
+  .PostBar p{
+    padding: 5px;
   }
   
   .Post figure,
@@ -19,14 +29,16 @@
     justify-content: space-between;
   }
   
-  .Heart {
+  /* LIKES & COMMENTS */
+  .Heart,
+  .CommentBubble,
+  .HeartOutline {
     color: #4D0307;
   }
   
-  .Heart:hover {
+  .Heart:hover,
+  .CommentBubble:hover,
+  .HeartOutline:hover {
     color: #DD798A;
   }
   
-  .HeartOutline:hover {
-    color: #4D0307;
-  }

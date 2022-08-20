@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -99,46 +99,44 @@ const Post = (props) => {
     };
 
     return (
-        <Container>
-            <Card>
-                <Card.Body>
-                    <Media className={styles.TopRow}>
-                        <Link to={`/profiles/${profile_id}`}>
-                            <Avatar src={profile_image} height={40} />
-                            {owner}
-                        </Link>
-                        <Col>
-                            <div>
-                                {is_owner && postPage && (
-                                    <DropdownMenu
-                                        handleEdit={handleEdit}
-                                        handleDelete={handleDelete}
-                                    />
-                                )}
-                            </div>
-                            <div>
-                                {created_on}
-                            </div>
-                        </Col>
-                    </Media>
-
+        <Container className={styles.Container}>
+            <br />
+            <Media className={styles.TopRow}>
+                <Link to={`/profiles/${profile_id}`}>
+                    <Avatar src={profile_image} height={40} />
+                    {owner}
+                </Link>
+                <Col>
                     <div>
-                        <p>Drinking: {beverage}</p>
-                        <p>Working with: {artistic_medium}</p>
-                        <p>Listening to "{song_name}" by "{artist_name}" on {music_medium}</p>
-                        <Link to={`/posts/${id}`}>
-                            <Card.Img src={image} alt={title} />
-                        </Link>
-                        <p>{description}</p>
-                        <p>Last modified: {modified_on}</p>
+                        {is_owner && postPage && (
+                            <DropdownMenu
+                                handleEdit={handleEdit}
+                                handleDelete={handleDelete}
+                            />
+                        )}
                     </div>
-                </Card.Body>
+                    <div>
+                        {created_on}
+                    </div>
+                </Col>
+            </Media>
 
-                {/* Code provided in Moments walkthrough. */}
-                <Card.Body>
-                    {/* {title && <Card.Title className="text-center">{title}</Card.Title>}
-                    {description && <Card.Text>{description}</Card.Text>} */}
-                    <div className={styles.PostBar}>
+            <div>
+                <p>Drinking: {beverage}</p>
+                <p>Working with: {artistic_medium}</p>
+                <p>Listening to "{song_name}" by "{artist_name}" on {music_medium}</p>
+                <Link to={`/posts/${id}`}>
+                    <Card.Img src={image} alt={title} />
+                </Link>
+                <p>{description}</p>
+                <p>Last modified: {modified_on}</p>
+            </div>
+
+
+        {/* Code provided in Moments walkthrough. */}
+            <div className={styles.PostBar}>
+                <Row>
+                    <p>
                         {is_owner ? (
                             <OverlayTrigger
                                 placement="top"
@@ -157,15 +155,15 @@ const Post = (props) => {
                                 placement="top"
                                 overlay={<Tooltip>Login to like!</Tooltip>}
                             ><i className="far fa-heart" /></OverlayTrigger>
-                        )}
-                        {likes_count}
-                        <Link to={`/posts/${id}`}>
-                            <i className="fa-solid fa-comment" />
-                        </Link>
-                        {comments_count}
-                    </div>
-                </Card.Body>
-            </Card>
+                        )} {likes_count}</p>
+                            
+                        
+                    <Link to={`/posts/${id}`}>
+                        <p><i className={`fa-solid fa-comment ${styles.CommentBubble}`} /> {comments_count}</p>
+                    </Link>
+                </Row>
+            </div>
+
         </Container>
     )
 };
