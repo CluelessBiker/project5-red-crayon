@@ -45,6 +45,7 @@ const Profile = (props) => {
                     >follow</Button>
                 ))}
             </div>
+            
         </div>
     )
 };

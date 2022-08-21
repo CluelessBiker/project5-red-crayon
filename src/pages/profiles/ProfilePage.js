@@ -7,7 +7,7 @@ import PostsPage from "../posts/PostsPage";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { EditProfileDropdown } from "../../components/DropdownMenu";
-// import styles from "../../styles.ProfilePage.module.css";
+import styles from "../../styles/ProfilePage.module.css";
 
 function ProfilePage() {
 
@@ -43,15 +43,48 @@ function ProfilePage() {
 
     const profileHeader = (
         <>
-            <Card>
+            <Container>
                 <Row>
                     <Col>
-                        <Image
-                            roundedCircle
-                            src={profile?.image}
-                        />
                         <Row>
                             {profile?.is_owner && <EditProfileDropdown id={profile?.id} />}
+                            <p> <strong>{ profile?.first_name } { profile?.last_name }</strong></p>
+                        </Row>
+                        <Row>
+                            <div>
+                                <p>a.k.a. { profile?.username }</p>
+                            </div>
+                        </Row>
+                        <Row>
+                            <p>@{ profile?.owner }</p>
+                        </Row>
+                        <Row>
+                            <p>{ profile?.description }</p>
+                        </Row>
+                        <Row>
+                            <p><i className="fa-light fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
+                        </Row>
+                        <Row>
+                            <p><strong>{ profile?.following_count }</strong> Following    <strong>{ profile?.followers_count }</strong> Followers</p>
+                        </Row>
+                    </Col>
+                    <Col>
+                        <Col>
+                            <Row>
+                                <p>{ profile?.owner }</p>
+                            </Row>
+                            <Row>
+                                <p>{ profile?.posts_count } Posts</p>
+                            </Row>
+                        </Col>
+                        <Row>
+                            <Image
+                                className={styles.ProfileImage}
+                                roundedCircle
+                                src={profile?.image}
+                            />
+                        </Row>
+                        <Row>
                             { currentUser && !is_owner && (profile?.following_id ? (
                                 <Button
                                     onClick={() => handleUnfollow(profile)}
@@ -63,41 +96,11 @@ function ProfilePage() {
                             ))}
                         </Row>
                     </Col>
-
-                    <Col>
-                        <h2>{ profile?.owner }</h2>
-                        <Row>
-                            <Col>
-                                <div>{ profile?.posts_count }</div>
-                                <div>posts</div>
-                            </Col>
-                            <Col>
-                                <div>{ profile?.followers_count }</div>
-                                <div>followers</div>
-                            </Col>
-                            <Col>
-                                <div>{ profile?.following_count }</div>
-                                <div>following</div>
-                            </Col>
-                        </Row>
-                    </Col>
                 </Row>
-            </Card>
+            </Container>
         </>
     );
 
-    const profileBody = (
-        <>
-            <Card>
-                <p>User since: { profile?.created_on }</p>
-                <p>Last updated: { profile?.modified_on }</p>
-                <p>Name: { profile?.first_name } { profile?.last_name }</p>
-                <p>Nickname: { profile?.username }</p>
-                <p>Country: { profile?.country }</p>
-                <p>About: { profile?.description }</p>
-            </Card>
-        </>
-    )
 
     const profilePosts = (
         <>
@@ -112,12 +115,9 @@ function ProfilePage() {
 
     return (
         <Container>
-            <h1>Testing....</h1>
             {hasLoaded ? (
                 <>
                     { profileHeader }
-                    <br />
-                    { profileBody }
                     <br />
                     { profilePosts }
                 </>
