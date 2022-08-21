@@ -32,7 +32,7 @@ function App() {
       <Row>
         <Col md={2} className={styles.NavSmScreen}>
           {/* <NavBar /> */}
-          <NavBarMini />
+          {/* <NavBarMini /> */}
         </Col>
         <Col className={styles.Header}>
             <NavLink to="/" className={styles.HeaderLink}>
