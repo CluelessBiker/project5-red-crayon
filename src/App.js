@@ -29,24 +29,31 @@ function App() {
 
   return (
     <div className={styles.App}>
+
+      {/* HEADER */}
       <Row>
-        <Col md={2} className={styles.NavSmScreen}>
-          {/* <NavBar /> */}
-          {/* <NavBarMini /> */}
+        {/* LARGE SCREENS */}
+        <Col className={`${styles.HeaderLgScreen} ${styles.Header}`}>
+          <NavLink to="/" className={styles.HeaderLink}>
+            <h1>The Red Crayon</h1>
+          </NavLink>
         </Col>
-        <Col className={styles.Header}>
-            <NavLink to="/" className={styles.HeaderLink}>
-                <h1>The Red Crayon</h1>
-            </NavLink>
+
+        {/* SMALL SCREENS */}
+        <Col sm={12} className={styles.NavSmScreen}>
+          <NavBarMini />
         </Col>
       </Row>
       <br />
 
       <Row className={styles.MainContent}>
+
+        {/* NAVBAR */}
         <Col lg={3} className={styles.NavLgScreen}>
           <NavBar />
         </Col>
 
+        {/* MAIN CONTENT */}
         <Col sm={12} md={8} lg={6} className={styles.MiddlePanel}>
           <Switch>
             <Route exact path="/" render={() => <ArticlesPage />} />
@@ -77,6 +84,7 @@ function App() {
           </Switch>
         </Col>
 
+        {/* POPULAR PROFILES */}
         <Col md={4} lg={3} className={styles.RightPanel}>
           <PopularProfiles />
         </Col>

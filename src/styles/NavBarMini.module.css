@@ -1,3 +1,53 @@
-.Button {
-    color: red;
+/* LAYOUT */
+.Container {
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    background-color: white;
+    /* height: 100px; */
+    margin: 0 auto;
+}
+
+/* HEADER */
+.Header {
+    margin: 0 auto;
+}
+
+.Header h1{
+    font-family: 'Zilla Slab Highlight', cursive;
+    text-transform: uppercase;
+    font-size: 250%;
+    color: black;
+    text-align: center;
+  }
+
+/* NAVBAR */
+.Navbar {
+    margin: 0 auto;
+    padding: 0px;
+}
+
+@media screen and (max-width:767px) {
+    /* HEADER */
+    .Header h1 {
+        font-size: 200%;
+    }
+}
+
+@media screen and (max-width:493px) {
+    /* HEADER */
+    .Header h1 {
+        font-size: 150%;
+    }
+}
+
+@media screen and (max-width:411px) {
+    /* HEADER */
+    .Header h1 {
+        font-size: 100%;
+        
+    }
+    .Test {
+        margin: 0 auto;
+        padding: 0px;
+    }
 }

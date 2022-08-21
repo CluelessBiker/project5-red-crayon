@@ -80,6 +80,9 @@ h1{
   .Header h1{
     font-size: 200%;
   }
+  .HeaderLgScreen {
+    display: none;
+  }
 
   /* NAVBAR */
   .NavLgScreen{
