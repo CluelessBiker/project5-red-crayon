@@ -43,7 +43,7 @@ function ProfilePage() {
 
     const profileHeader = (
         <>
-            <Container>
+            <Container className={styles.ProfileHeader}>
                 <Row>
                     <Col>
                         <Row>

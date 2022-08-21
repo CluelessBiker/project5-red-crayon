@@ -1,5 +1,5 @@
 import React from "react";
-// import styles from "../styles/DropdownMenu.module.css";
+import styles from "../styles/DropdownMenu.module.css";
 import { Dropdown } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -27,7 +27,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete}) => {
         <Dropdown className="ml-auto" drop="left">
             <Dropdown.Toggle as={ThreeDots} />
 
-            <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+            <Dropdown.Menu popperConfig={{ strategy: "fixed" }} >
                 <Dropdown.Item
                     onClick={handleEdit}
                     aria-label="edit"
@@ -49,24 +49,24 @@ export const EditProfileDropdown = ({ id }) => {
     const history = useHistory();
 
     return (
-        <Dropdown className="ml-auto" drop="left">
+        <Dropdown drop="left">
             <Dropdown.Toggle as={ThreeDots} />
-
             <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+                <Dropdown.Item>Edit:</Dropdown.Item>
                 <Dropdown.Item
                     onClick={() => history.push(`/profiles/${id}/edit`)}
                     aria-label="edit-profile"
-                ><i className="fa-solid fa-pencil" />update profile</Dropdown.Item>
+                >profile <i className="fa-solid fa-pencil" /></Dropdown.Item>
 
                 <Dropdown.Item
                     onClick={() => history.push(`/profiles/${id}/edit/username`)}
                     aria-label="edit-username"
-                ><i className="fa-solid fa-pencil" />change username</Dropdown.Item>
+                >username <i className="fa-solid fa-pencil" /></Dropdown.Item>
 
                 <Dropdown.Item
                     onClick={() => history.push(`/profiles/${id}/edit/password`)}
                     aria-label="edit-password"
-                ><i className="fa-solid fa-pencil" />change password</Dropdown.Item>
+                >password <i className="fa-solid fa-pencil" /></Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );
