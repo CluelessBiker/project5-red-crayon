@@ -53,8 +53,7 @@ const Comment = (props) => {
                     </Link>
 
                     <Media.Body>
-                        <span>{ owner }</span>
-                        <span>{ modified_on }</span>
+                        <p><strong>{ owner }</strong><br />{ modified_on }</p>
                         {showEditForm ? (
                             <EditCommentForm
                                 id={id}

@@ -42,33 +42,31 @@ function CreateCommentForm(props) {
 
     return (
         <Container className={styles.CommentBox}>
-            {/* <Card className={styles.CommentBox}> */}
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group>
-                        <InputGroup>
-                            <Link to={`/profiles/${profile_id}`}>
-                                <Avatar src={profileImage} />
-                            </Link>
-                        </InputGroup>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <InputGroup>
+                        <Link to={`/profiles/${profile_id}`}>
+                            <Avatar src={profileImage} />
+                        </Link>
+                    </InputGroup>
                         
-                        <br />
-                        <Form.Control
-                            placeholder="comment"
-                            as="textarea"
-                            value={content}
-                            onChange={handleChange}
-                            rows={2}
-                        />
+                    <br />
+                    <Form.Control
+                        placeholder="comment"
+                        as="textarea"
+                        value={content}
+                        onChange={handleChange}
+                        rows={2}
+                    />
 
-                        <br />
-                        <button
-                            className={btnStyles.Button}
-                            disabled={!content.trim()}
-                            type="submit"
-                        >Post</button>
-                    </Form.Group>
-                </Form>
-            {/* </Card> */}
+                    <br />
+                    <button
+                        className={btnStyles.Button}
+                        disabled={!content.trim()}
+                        type="submit"
+                    >Post</button>
+                </Form.Group>
+            </Form>
         </Container>
     )
 };
