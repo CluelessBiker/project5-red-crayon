@@ -105,7 +105,7 @@ const LogInForm = () => {
 
             <br />
             <div>
-                <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>
+                <p>Don't have an account? <Link to="/signup"  className={styles.Link}><strong>Sign up!</strong></Link></p>
             </div>
             <br />
         </Container>

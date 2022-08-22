@@ -117,7 +117,7 @@ const SignUpForm = () => {
 
             <br />
             <div>
-                <p>Have an account? <Link to="/login">Login here!</Link></p>
+                <p>Have an account? <Link to="/login" className={styles.Link}><strong>Login here!</strong></Link></p>
             </div>
             <br />
         </Container>
