@@ -40,7 +40,7 @@ function App() {
         </Col>
 
         {/* SMALL SCREENS */}
-        <Col sm={12} className={styles.NavSmScreen}>
+        <Col sm={12} className={`${styles.SmHeader} ${styles.NavSmScreen}`}>
           <NavBarMini />
         </Col>
       </Row>
