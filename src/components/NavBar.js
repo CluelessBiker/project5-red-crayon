@@ -40,10 +40,16 @@ const NavBar = () => {
             ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
 
             <NavLink
+                to="/articles/create"
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+            ><i className="fa-solid fa-file-pen" /> Add Article</NavLink>
+
+            <NavLink
                 to="/posts/create"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
-            ><i className="fa-solid fa-circle-plus"></i> Submit</NavLink>
+            ><i className="fa-solid fa-circle-plus"></i> Post</NavLink>
 
             <NavLink
                 to={`/profiles/${currentUser?.profile_id}`}

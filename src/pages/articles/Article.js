@@ -57,7 +57,7 @@ const Article = (props) => {
                     className={styles.Username}
                 >
                     <Avatar src={profile_image} height={30} />
-                    <h2>{ owner }</h2>
+                    <h2>by: { owner }</h2>
                     <p>{ created_on }</p>
                 </Link>
                 {is_owner && articlePage && (

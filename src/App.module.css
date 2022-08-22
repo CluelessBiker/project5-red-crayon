@@ -107,9 +107,14 @@ h2 {
   /* PAGE PANELS */
   .MiddlePanel{
     position: relative;
+    top: -45px;
     margin-left: 0;
     border-right: 1px solid #000000;
     border-left: 0px;
+  }
+
+  .RightPanel {
+    top: 95px;
   }
 }
 
