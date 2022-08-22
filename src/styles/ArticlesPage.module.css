@@ -1,0 +1,11 @@
+.SearchForm {
+    margin: auto;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.SearchField input{
+    border-radius: 20px;
+    
+}

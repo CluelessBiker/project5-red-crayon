@@ -6,6 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import Article from "./Article";
+import styles from "../../styles/ArticlesPage.module.css"
 
 /**
 * Display all articles.
@@ -45,14 +46,19 @@ function ArticlesPage({ message, filter="" }) {
 
     return (
         <Container>
-            <Form onSubmit={(event) => event.preventDefault()}>
-                <Form.Control
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    type="text"
-                    placeholder="search articles"
-                />
-            </Form>
+            <div className={styles.SearchForm}>
+                <Form
+                    className={styles.SearchField}
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        placeholder="search articles"
+                    />
+                </Form>
+            </div>
 
             {hasLoaded ? (
                 <>

@@ -51,17 +51,17 @@ function PostsPage({ message, filter="" }) {
     return (
             <Container>
                 <div className={styles.SearchForm}>
-                <Form
-                    className={styles.SearchField}
-                    onSubmit={(event) => event.preventDefault()}
-                >
-                    <Form.Control
-                        value={query}
-                        onChange={(event) => setQuery(event.target.value)}
-                        type="text"
-                        placeholder="search posts"
-                    />
-                </Form>
+                    <Form
+                        className={styles.SearchField}
+                        onSubmit={(event) => event.preventDefault()}
+                    >
+                        <Form.Control
+                            value={query}
+                            onChange={(event) => setQuery(event.target.value)}
+                            type="text"
+                            placeholder="search posts"
+                        />
+                    </Form>
                 </div>
 
                 {hasLoaded ? (
