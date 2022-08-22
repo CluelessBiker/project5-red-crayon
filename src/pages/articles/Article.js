@@ -3,8 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { axiosRes } from "../../api/axiosDefaults";
-import { Card, Col, Container, Media } from "react-bootstrap";
+import { Col, Container, Media } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
+import styles from "../../styles/Article.module.css"
 
 /**
 * Render the data of a single article.
@@ -48,38 +49,36 @@ const Article = (props) => {
 
     
     return (
-        <Container>
-            <Card>
-                <Media>
-                    <Link to={`profiles/${profile_id}`}>
-                        <Avatar src={profile_image} height={40} />
-                        { owner }
-                    </Link>
+        <Container className={styles.Container}>
+            <br />
+            <Media className={styles.TopRow}>
+                <Link
+                    to={`profiles/${profile_id}`}
+                    className={styles.Username}
+                >
+                    <Avatar src={profile_image} height={30} />
+                    <h2>{ owner }</h2>
+                    <p>{ created_on }</p>
+                </Link>
+                {is_owner && articlePage && (
+                    <DropdownMenu
+                        handleEdit={handleEdit}
+                        handleDelete={handleDelete}
+                    />
+                )}
+            </Media>
 
-                    <Col>
-                        <div>
-                            {is_owner && articlePage && (
-                                <DropdownMenu
-                                    handleEdit={handleEdit}
-                                    handleDelete={handleDelete}
-                                />
-                            )}
-                        </div>
-                        <div>
-                            { created_on }
-                        </div>
-                    </Col>
-                </Media>
-
-                <Col>
-                    <h2>{ title }</h2>
-                    <Link to={`/articles/${id}`}>
-                        <Card.Img src={image} alt={title} />
-                    </Link>
-                    <p>{ content }</p>
-                    <p>Last updated: { modified_on }</p>
-                </Col>
-            </Card>
+            <Col className={styles.Content}>
+                <Link to={`/articles/${id}`}>
+                    <img src={image} alt={title} />
+                </Link>
+                <br />
+                <br />
+                <h2><strong>{ title }</strong></h2>
+                <p>{ content }</p>
+                <p>Last updated: { modified_on }</p>
+            </Col>
+            <br />
         </Container>
     )
 };

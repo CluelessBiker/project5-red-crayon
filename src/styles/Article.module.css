@@ -1,0 +1,30 @@
+.Container {
+    border-bottom: 1px solid #000000;
+}
+
+/* USERNAME + AVATAR + EDIT */
+.Username h2,
+.Username p {
+  color: black; 
+}
+
+.Username h2 {
+  font-size: 150%;
+}
+
+.Username:hover {
+  color: #DD798A;
+}
+
+.TopRow {
+  justify-content: space-between;
+}
+
+/* ARTICLE BODY */
+.Content h2 {
+    text-transform: uppercase;
+}
+
+.Content img {
+    width: 100%;
+}
