@@ -1,10 +1,15 @@
+/* GLOBAL FONT RULES */
 p, h1, h2, label, input, button {
   font-family: 'Nixie One', cursive;
   font-size: 130%;
 }
 
-h1{
+h1 {
   font-size: 200%;
+}
+
+h2 {
+  font-size: 135%;
 }
 
 /* LAYOUT */
@@ -75,7 +80,8 @@ h1{
 
 .RightPanel {
   position: fixed;
-  right: 0;
+  right: 25px;
+  padding: 10px;
 }
 
 @media screen and (max-width:991px) {

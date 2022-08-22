@@ -21,18 +21,18 @@ const Profile = (props) => {
     const { handleFollow, handleUnfollow } = useSetProfileData();
 
     return (
-        <div className={`my-3 d-flex align-items-center`}>
+        <div className={`my-4 d-flex`}>
             <div>
-                <Link className={`align-self-center`} to={`/profiles/${id}`}>
+                <Link to={`/profiles/${id}`}>
                     <Avatar src={image} height={imageSize} />
                 </Link>
             </div>
 
-            <div className={`mx-2`}>
-                <strong>{ owner }</strong>
+            <div>
+                <p><strong>{ owner }</strong></p>
             </div>
 
-            <div className={`text-right ml-auto`}>
+            <div className={`ml-auto`}>
                 {currentUser && !is_owner && (following_id ? (
                     <Button
                         className={btnStyles.Button}
