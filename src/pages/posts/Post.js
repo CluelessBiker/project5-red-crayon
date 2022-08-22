@@ -102,33 +102,32 @@ const Post = (props) => {
         <Container className={styles.Container}>
             <br />
             <Media className={styles.TopRow}>
-                <Link to={`/profiles/${profile_id}`}>
+                <Link
+                    to={`/profiles/${profile_id}`}
+                    className={styles.Username}
+                >
                     <Avatar src={profile_image} height={40} />
-                    {owner}
+                    <h2>{ owner }</h2>
+                    <p>{ created_on } </p>
                 </Link>
-                <Col>
-                    <div>
-                        {is_owner && postPage && (
-                            <DropdownMenu
-                                handleEdit={handleEdit}
-                                handleDelete={handleDelete}
-                            />
-                        )}
-                    </div>
-                    <div>
-                        {created_on}
-                    </div>
-                </Col>
+
+                {is_owner && postPage && (
+                    <DropdownMenu
+                        handleEdit={handleEdit}
+                        handleDelete={handleDelete}
+                    />
+                )}
             </Media>
 
             <div>
-                <p>Drinking: {beverage}</p>
-                <p>Working with: {artistic_medium}</p>
+                <p>I'm currently drinking { beverage }, working with { artistic_medium }, and listening to "{ song_name }" by "{ artist_name }".</p>
+                <p>{description}</p> 
+                {/* <p>Working with: {artistic_medium}</p>
                 <p>Listening to "{song_name}" by "{artist_name}" on {music_medium}</p>
+                <p>{description}</p> */}
                 <Link to={`/posts/${id}`}>
                     <Card.Img src={image} alt={title} />
                 </Link>
-                <p>{description}</p>
                 <p>Last modified: {modified_on}</p>
             </div>
 
