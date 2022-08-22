@@ -19,9 +19,7 @@ function ProfilePage() {
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
-    // const profile_id = currentUser?.profile_id;
     
-
     /**
      * Retrieve profile data from API.
      */
@@ -51,7 +49,7 @@ function ProfilePage() {
                         <p>a.k.a. { profile?.username }</p>
                         <p>@{ profile?.owner }</p>
                         <p>{ profile?.description }</p>
-                        <p><i className="fa-light fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
+                        <p><i className="fa-solid fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
                         <p><strong>{ profile?.following_count }</strong> Following    <strong>{ profile?.followers_count }</strong> Followers</p>
                     </Col>
 
@@ -93,7 +91,7 @@ function ProfilePage() {
             <div>
                 <PostsPage
                     message="No results."
-                    // filter={`owner__profile=${profile_id}&ordering=-created_on&`}
+                    filter={`owner__profile=${id}&ordering=-created_on&`}
                 />
             </div>
         </>
