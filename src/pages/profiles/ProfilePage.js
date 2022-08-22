@@ -49,7 +49,7 @@ function ProfilePage() {
                         <p>a.k.a. { profile?.username }</p>
                         <p>@{ profile?.owner }</p>
                         <p>{ profile?.description }</p>
-                        <p><i className="fa-solid fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
+                        <p><i className="fa-solid fa-location-dot" /> { profile?.country }  <i className="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
                         <p><strong>{ profile?.following_count }</strong> Following    <strong>{ profile?.followers_count }</strong> Followers</p>
                     </Col>
 

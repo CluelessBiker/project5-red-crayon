@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import { Card, Container, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";

@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Alert, Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser} from "../../contexts/CurrentUserContext";
+import btnStyles from "../../styles/Buttons.module.css"
 
 const EditProfileForm = () => {
 
@@ -165,10 +166,12 @@ const EditProfileForm = () => {
             ))}
 
             <Button
+                className={btnStyles.Button}
                 onClick={() => history.goBack()}
             >cancel</Button>
 
             <Button
+                className={btnStyles.Button}
                 type="submit"
             >save</Button>
         </>
@@ -178,7 +181,6 @@ const EditProfileForm = () => {
     * Render form to browser. 
     */
     return (
-        // <h2>ok, now I'm disappointed.</h2>
         <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>

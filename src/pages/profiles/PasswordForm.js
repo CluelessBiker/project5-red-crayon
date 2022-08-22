@@ -3,6 +3,7 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import btnStyles from "../../styles/Buttons.module.css"
 
 const PasswordForm = () => {
     const history = useHistory();
@@ -92,10 +93,12 @@ const PasswordForm = () => {
                         ))}
 
                         <Button
+                            className={btnStyles.Button}
                             onClick={() => history.goBack()}
                         >cancel</Button>
 
                         <Button
+                            className={btnStyles.Button}
                             type="submit"
                         >save</Button>
                     </Form>

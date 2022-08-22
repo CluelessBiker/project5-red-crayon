@@ -3,6 +3,7 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import btnStyles from "../../styles/Buttons.module.css"
 
 /**
 * Render form to change username. 
@@ -64,10 +65,12 @@ const UsernameForm = () => {
                     ))}
                     
                     <Button
+                        className={btnStyles.Button}
                         onClick={() => history.goBack()}
                     >cancel</Button>
                     
                     <Button
+                        className={btnStyles.Button}
                         type="submit"
                     >save</Button>
                 </Form>
