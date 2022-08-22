@@ -106,7 +106,7 @@ const Post = (props) => {
                     to={`/profiles/${profile_id}`}
                     className={styles.Username}
                 >
-                    <Avatar src={profile_image} height={40} />
+                    <Avatar src={profile_image} height={50} />
                     <h2>{ owner }</h2>
                     <p>{ created_on } </p>
                 </Link>
@@ -120,14 +120,14 @@ const Post = (props) => {
             </Media>
 
             <div>
-                <p>I'm currently drinking { beverage }, working with { artistic_medium }, and listening to "{ song_name }" by "{ artist_name }".</p>
-                <p>{description}</p> 
-                {/* <p>Working with: {artistic_medium}</p>
-                <p>Listening to "{song_name}" by "{artist_name}" on {music_medium}</p>
-                <p>{description}</p> */}
+                <p>I'm currently drinking { beverage }, working with { artistic_medium }, and listening to "{ song_name }" by "{ artist_name }" on { music_medium }.</p>
+                <p>{ description }</p> 
                 <Link to={`/posts/${id}`}>
-                    <Card.Img src={image} alt={title} />
+                    <Card.Img src={ image } alt={ title } />
                 </Link>
+                <br />
+                <br />
+                <h2>{ title }</h2>
                 <p>Last modified: {modified_on}</p>
             </div>
 
