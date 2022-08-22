@@ -6,7 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
-// import styles from "../../styles/PostsPage.module.css";
+import styles from "../../styles/PostsPage.module.css";
 import Post from "./Post";
 
 /**
@@ -50,7 +50,11 @@ function PostsPage({ message, filter="" }) {
 
     return (
             <Container>
-                <Form onSubmit={(event) => event.preventDefault()}>
+                <div className={styles.SearchForm}>
+                <Form
+                    className={styles.SearchField}
+                    onSubmit={(event) => event.preventDefault()}
+                >
                     <Form.Control
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
@@ -58,6 +62,7 @@ function PostsPage({ message, filter="" }) {
                         placeholder="search posts"
                     />
                 </Form>
+                </div>
 
                 {hasLoaded ? (
                 <>
