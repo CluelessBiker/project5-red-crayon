@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
@@ -8,6 +8,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { EditProfileDropdown } from "../../components/DropdownMenu";
 import styles from "../../styles/ProfilePage.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 
 function ProfilePage() {
 
@@ -45,56 +46,41 @@ function ProfilePage() {
         <>
             <Container className={styles.ProfileHeader}>
                 <Row>
-                    <Col>
-                        <Row>
-                            {profile?.is_owner && <EditProfileDropdown id={profile?.id} />}
-                            <p> <strong>{ profile?.first_name } { profile?.last_name }</strong></p>
-                        </Row>
-                        <Row>
-                            <div>
-                                <p>a.k.a. { profile?.username }</p>
-                            </div>
-                        </Row>
-                        <Row>
-                            <p>@{ profile?.owner }</p>
-                        </Row>
-                        <Row>
-                            <p>{ profile?.description }</p>
-                        </Row>
-                        <Row>
-                            <p><i className="fa-light fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
-                        </Row>
-                        <Row>
-                            <p><strong>{ profile?.following_count }</strong> Following    <strong>{ profile?.followers_count }</strong> Followers</p>
-                        </Row>
+                    <Col sm={6}>
+                        <p><strong>{ profile?.first_name } { profile?.last_name }</strong></p>
+                        <p>a.k.a. { profile?.username }</p>
+                        <p>@{ profile?.owner }</p>
+                        <p>{ profile?.description }</p>
+                        <p><i className="fa-light fa-location-dot" /> { profile?.country }  <i class="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
+                        <p><strong>{ profile?.following_count }</strong> Following    <strong>{ profile?.followers_count }</strong> Followers</p>
                     </Col>
-                    <Col>
-                        <Col>
-                            <Row>
-                                <p>{ profile?.owner }</p>
+
+                    <Col sm={6} className={`text-lg-right ${styles.RightColumn}`}>
+                        <Col className={styles.ProfileName}>
+                            <Row className={styles.NameAndEdit}>
+                                <h2><strong>{ profile?.owner } </strong></h2>
+                                {profile?.is_owner && <EditProfileDropdown id={profile?.id} />}
                             </Row>
-                            <Row>
-                                <p>{ profile?.posts_count } Posts</p>
-                            </Row>
+                            <p>{ profile?.posts_count } Posts</p>
                         </Col>
-                        <Row>
-                            <Image
-                                className={styles.ProfileImage}
-                                roundedCircle
-                                src={profile?.image}
-                            />
-                        </Row>
-                        <Row>
+                        <Image
+                            className={styles.ProfileImage}
+                            roundedCircle
+                            src={profile?.image}
+                        />
+                        <Col>
                             { currentUser && !is_owner && (profile?.following_id ? (
                                 <Button
+                                    className={`${btnStyles.Button} ${styles.Button}`}
                                     onClick={() => handleUnfollow(profile)}
                                 >unfollow</Button>
                             ) : (
                                 <Button
+                                    className={`${btnStyles.Button} ${styles.Button}`}
                                     onClick={() => handleFollow(profile)}
                                 >follow</Button>
                             ))}
-                        </Row>
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -104,12 +90,12 @@ function ProfilePage() {
 
     const profilePosts = (
         <>
-            <Card>
+            <div>
                 <PostsPage
                     message="No results."
                     // filter={`owner__profile=${profile_id}&ordering=-created_on&`}
                 />
-            </Card>
+            </div>
         </>
     )
 

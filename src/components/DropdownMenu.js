@@ -1,5 +1,5 @@
 import React from "react";
-// import styles from "../styles/DropdownMenu.module.css";
+import styles from "../styles/DropdownMenu.module.css";
 import { Dropdown } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 */
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
-        className="fa-solid fa-ellipsis-vertical"
+        className={`fa-solid fa-ellipsis-vertical ${styles.Elipses}`}
         ref={ref}
         onClick={(e) => {
             e.preventDefault();
