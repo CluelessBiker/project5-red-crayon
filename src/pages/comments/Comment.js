@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Container, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import DropdownMenu from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import EditCommentForm from "./EditCommentForm";
-// import styles from "../../styles/Comment.module.css";
+import styles from "../../styles/Comment.module.css";
 
 /**
 * Comment display.
@@ -44,8 +44,9 @@ const Comment = (props) => {
 
     return (
         <>
-            <div>
+            <Container className={styles.CommentBox}>
                 <hr />
+                <br />
                 <Media>
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profile_image} />
@@ -75,7 +76,8 @@ const Comment = (props) => {
                         />
                     )}
                 </Media>
-            </div>
+                
+            </Container>
         </>
     );
 };

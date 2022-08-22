@@ -1,0 +1,8 @@
+.CommentBox {
+    padding: 20px 0px;
+    margin: 0;
+}
+
+.CommentBox hr {
+    border: 0.5px solid #000000;
+}

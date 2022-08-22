@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Container, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CreateCommentForm.module.css";
 import btnStyles from "../../styles/Buttons.module.css";

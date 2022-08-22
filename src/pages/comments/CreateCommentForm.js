@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Container, Form, InputGroup } from "react-bootstrap";
+import { Container, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
