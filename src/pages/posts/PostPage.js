@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -65,8 +65,8 @@ function PostPage() {
                 ) : comments.results.length ? (
                     "Comments"
                 ) : null}
-                <Container>
-                    <Card className={styles.CommentsBox}>
+                <Container className={styles.CommentsBox}>
+                    
                         {comments.results.length ? (
                             <InfiniteScroll
                                 children={comments.results.map((comment) => (
@@ -87,7 +87,7 @@ function PostPage() {
                         ) : (
                             <span>No comments... yet</span>
                         )}
-                    </Card>
+                   
                 </Container>
             </Container>
         </Container>

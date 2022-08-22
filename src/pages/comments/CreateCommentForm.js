@@ -41,8 +41,8 @@ function CreateCommentForm(props) {
     };
 
     return (
-        <Container>
-            <Card className={styles.CommentBox}>
+        <Container className={styles.CommentBox}>
+            {/* <Card className={styles.CommentBox}> */}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <InputGroup>
@@ -68,7 +68,7 @@ function CreateCommentForm(props) {
                         >Post</button>
                     </Form.Group>
                 </Form>
-            </Card>
+            {/* </Card> */}
         </Container>
     )
 };

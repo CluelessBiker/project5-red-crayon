@@ -41,8 +41,8 @@ function EditCommentForm(props) {
     };
 
     return (
-        <Container>
-            <Card className={styles.CommentBox}>
+        <Container className={styles.CommentBox}>
+            {/* <Card className={styles.CommentBox}> */}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Control
@@ -67,7 +67,7 @@ function EditCommentForm(props) {
                         >post</button>
                     </Form.Group>
                 </Form>
-            </Card>
+            {/* </Card> */}
         </Container>
     )
 };
