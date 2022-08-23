@@ -49,7 +49,7 @@ const EditProfileForm = () => {
     }, [currentUser, history, id]);
 
     /**
-    * Updata empty key/value pairs in variable.
+    * Update empty key/value pairs in variable.
     */
     const handleChange = (event) => {
         setProfileData({
