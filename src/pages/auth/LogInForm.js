@@ -93,9 +93,11 @@ const LogInForm = () => {
                     </Alert>
                 ))}
 
-                <Button variant="primary" type="submit" className={btnStyles.Button}>
-                    login
-                </Button>
+                <Button
+                    variant="primary"
+                    type="submit"
+                    className={btnStyles.Button}
+                >login</Button>
                 {errors.non_field_errors?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
@@ -105,12 +107,11 @@ const LogInForm = () => {
 
             <br />
             <div>
-                <p>Don't have an account? <Link to="/signup"  className={styles.Link}><strong>Sign up!</strong></Link></p>
+                <p>Don't have an account? <Link to="/signup" className={styles.Link}><strong>Sign up!</strong></Link></p>
             </div>
             <br />
         </Container>
-    )
-
-}
+    );
+};
 
 export default LogInForm;
