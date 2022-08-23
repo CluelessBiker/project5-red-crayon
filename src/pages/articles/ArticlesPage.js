@@ -78,13 +78,13 @@ function ArticlesPage({ message, filter="" }) {
                         </Container>
                     )}
                 </>
-                ) : (
-                    <Container>
-                        <Asset spinner />
-                    </Container>
-                )}
+            ) : (
+                <Container>
+                    <Asset spinner />
+                </Container>
+            )}
         </Container>
-    )
+    );
 };
 
 export default ArticlesPage;
