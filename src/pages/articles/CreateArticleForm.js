@@ -21,9 +21,10 @@ function CreateArticleForm() {
         title: "",
         content: "",
         image: "",
+        category: "",
     });
 
-    const { title, content, image } = articleData;
+    const { title, content, image, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -63,6 +64,7 @@ function CreateArticleForm() {
         formData.append("title", title);
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
+        formData.append("category", category);
 
         try {
             const { data } = await axiosReq.post("/articles/", formData);
@@ -105,6 +107,27 @@ function CreateArticleForm() {
                     />
                 </Form.Group>
                 {errors?.content?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Category:</Form.Label>
+                    <Form.Control
+                        as="select"
+                        defaultValue="Choose..."
+                        name="category"
+                        onChange={handleChange}
+                    >
+                        <option value="entertainment">Entertainment</option>
+                        <option value="events">Events</option>
+                        <option value="in_depth">In Depth</option>
+                        <option value="opinion">Opinion</option>
+                        <option value="news">News</option>
+                    </Form.Control>
+                </Form.Group>
+                {errors?.category?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
