@@ -1,7 +1,5 @@
-/**
-* Code provided in Moments walkthrough.
-*/
-.Asset{
+/* Code provided in Moments walkthrough. */
+.Asset {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +8,6 @@
     margin-bottom: 30px;
 }
 
-p{
+p {
     font-size: 100%;
 }
