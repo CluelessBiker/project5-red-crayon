@@ -42,32 +42,30 @@ function EditCommentForm(props) {
 
     return (
         <Container className={styles.CommentBox}>
-            {/* <Card className={styles.CommentBox}> */}
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group>
-                        <Form.Control
-                            placeholder="comment"
-                            as="textarea"
-                            value={formContent}
-                            onChange={handleChange}
-                            rows={2}
-                        />
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Control
+                        placeholder="comment"
+                        as="textarea"
+                        value={formContent}
+                        onChange={handleChange}
+                        rows={2}
+                    />
 
-                        <br />
-                        <button
-                            className={btnStyles.Button}
-                            onClick={() => setShowEditForm(false)}
-                            type="button"
-                        >cancel</button>
+                    <br />
+                    <button
+                        className={btnStyles.Button}
+                        onClick={() => setShowEditForm(false)}
+                        type="button"
+                    >cancel</button>
 
-                        <button
-                            className={btnStyles.Button}
-                            disabled={!content.trim()}
-                            type="submit"
-                        >post</button>
-                    </Form.Group>
-                </Form>
-            {/* </Card> */}
+                    <button
+                        className={btnStyles.Button}
+                        disabled={!content.trim()}
+                        type="submit"
+                    >post</button>
+                </Form.Group>
+            </Form>
         </Container>
     )
 };
