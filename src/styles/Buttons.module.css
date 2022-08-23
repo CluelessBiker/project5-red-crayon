@@ -1,35 +1,35 @@
 .Button {
-    font-size: 1em;
-    align-self: center;
-    border-radius: 100px;
-    border-color: transparent;
-    padding: 0px 5px;
-    margin: 0 2px;
-    min-width: 75px;
-    background-color: #DD798A;
-    color: white;
-  }
+  font-size: 1em;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 0px 5px;
+  margin: 0 2px;
+  min-width: 75px;
+  background-color: #DD798A;
+  color: white;
+}
   
-  .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-    background-color: #4D0307;
-  }
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: #4D0307;
+}
   
-  .Button:hover:active {
-    background-color: #4D0307 !important;
-  }
+.Button:hover:active {
+  background-color: #4D0307 !important;
+}
   
-  .Button:active {
-    background-color: #4D0307 !important;
-  }
+.Button:active {
+  background-color: #4D0307 !important;
+}
   
-  .Button:focus {
-    background-color: #4D0307;
-  }
+.Button:focus {
+  background-color: #4D0307;
+}
   
-  .Wide {
-    padding: 10px 50px;
-    width: 100%;
-  }
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
