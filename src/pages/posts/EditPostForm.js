@@ -82,7 +82,6 @@ function EditPostForm() {
 
         formData.append("title", title);
         formData.append("description", description);
-        
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
@@ -98,7 +97,7 @@ function EditPostForm() {
         } catch (err) {
             // console.log(err);
             if (err.response?.status !== 401) {
-              setErrors(err.response?.data);
+                setErrors(err.response?.data);
             }
         }
     };
@@ -248,7 +247,6 @@ function EditPostForm() {
                             {message}
                         </Alert>
                     ))}
-
                 </Row>
                 
                 <Form.Group className="text-center">
