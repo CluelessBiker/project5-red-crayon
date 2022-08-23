@@ -71,14 +71,13 @@ function CreateArticleForm() {
         } catch (err) {
             // console.log(err);
             if (err.response?.status !== 401) {
-              setErrors(err.response?.data);
+                setErrors(err.response?.data);
             }
         }
     };
 
     return (
         <Container>
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
@@ -121,15 +120,13 @@ function CreateArticleForm() {
                                 <Form.Label
                                     htmlFor="image-upload"
                                     className={btnStyles.Button}
-                                >
-                                Change image
-                                </Form.Label>
+                                >Change image</Form.Label>
                             </div>
                         </>
                     ) : (
                         <Form.Label
-                        className="d-flex justify-content-center"
-                        htmlFor="image-upload"
+                            className="d-flex justify-content-center"
+                            htmlFor="image-upload"
                         >
                             <Col>
                                 <span>
@@ -155,17 +152,19 @@ function CreateArticleForm() {
                 ))}
                 
                 <Row>
-                    <Button type="submit" className={btnStyles.Button}>
-                        Submit
-                    </Button>
+                    <Button
+                        type="submit"
+                        className={btnStyles.Button}
+                    >Submit</Button>
                     
-                    <Button onClick={() => history.goBack()} className={btnStyles.Button}>
-                        Cancel
-                    </Button>
+                    <Button
+                        onClick={() => history.goBack()}
+                        className={btnStyles.Button}
+                    >Cancel</Button>
                 </Row>
             </Form>
         </Container>
-    )
+    );
 };
 
 export default CreateArticleForm;
