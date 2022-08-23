@@ -200,6 +200,7 @@ const EditProfileForm = () => {
                             <div>
                                 <Form.Label
                                     htmlFor="image-upload"
+                                    className={btnStyles.Button}
                                 >Change image</Form.Label>
                             </div>
                             
@@ -207,6 +208,7 @@ const EditProfileForm = () => {
                                 id="image-upload"
                                 ref={imageFile}
                                 accept="image/*"
+                                className="d-none"
                                 onChange={(e) => {
                                     if (e.target.files.length) {
                                         setProfileData({
