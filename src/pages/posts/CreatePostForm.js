@@ -81,7 +81,7 @@ function CreatePostForm() {
         } catch (err) {
             // console.log(err);
             if (err.response?.status !== 401) {
-              setErrors(err.response?.data);
+                setErrors(err.response?.data);
             }
         }
     };
@@ -245,18 +245,15 @@ function CreatePostForm() {
                             </figure>
                             <div>
                                 <Form.Label
-                                htmlFor="image-upload"
-                                className={btnStyles.Button}
-                                >
-                                Change image
-                                </Form.Label>
+                                    htmlFor="image-upload"
+                                    className={btnStyles.Button}
+                                >Change image</Form.Label>
                             </div>
                         </>
                     ) : (
                         <Form.Label
-                        className="d-flex justify-content-center"
-                        // className={`${formStyles.UploadIcon} d-flex justify-content-center`}
-                        htmlFor="image-upload"
+                            className="d-flex justify-content-center"
+                            htmlFor="image-upload"
                         >
                             <Col>
                                 <span className={formStyles.UploadIcon}>
