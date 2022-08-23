@@ -41,7 +41,7 @@ const SignUpForm = () => {
     * Reroute user to the login page.
     * Display error message for invalid data.
     */
-     const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
           await axios.post("/dj-rest-auth/registration/", signUpData);
@@ -105,9 +105,11 @@ const SignUpForm = () => {
                     </Alert>
                 ))}
 
-                <Button variant="primary" type="submit" className={btnStyles.Button}>
-                    sign up
-                </Button>
+                <Button
+                    variant="primary"
+                    type="submit"
+                    className={btnStyles.Button}
+                >sign up</Button>
                 {errors.non_field_errors?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
@@ -121,8 +123,7 @@ const SignUpForm = () => {
             </div>
             <br />
         </Container>
-    )
-
-}
+    );
+};
 
 export default SignUpForm;
