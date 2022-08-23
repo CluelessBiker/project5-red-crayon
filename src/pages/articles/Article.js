@@ -23,7 +23,6 @@ const Article = (props) => {
         content,
         image,
         articlePage,
-        // setArticle,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -47,7 +46,6 @@ const Article = (props) => {
         } catch (err) {}
     };
 
-    
     return (
         <Container className={styles.Container}>
             <br />
@@ -80,7 +78,7 @@ const Article = (props) => {
             </Col>
             <br />
         </Container>
-    )
+    );
 };
 
 export default Article;
