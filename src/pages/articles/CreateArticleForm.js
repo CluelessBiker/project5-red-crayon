@@ -97,7 +97,7 @@ function CreateArticleForm() {
                 ))}
 
                 <Form.Group>
-                    <Form.Label>What are you working on?</Form.Label>
+                    <Form.Label>Content:</Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={6}
