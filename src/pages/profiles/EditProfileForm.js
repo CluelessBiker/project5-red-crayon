@@ -18,11 +18,10 @@ const EditProfileForm = () => {
         image: "",
         first_name: "",
         last_name: "",
-        username: "",
         country: "",
     });
 
-    const { description, image, first_name, last_name, username, country } = profileData;
+    const { description, image, first_name, last_name, country } = profileData;
 
     const [errors, setErrors] = useState({});
 
@@ -35,8 +34,8 @@ const EditProfileForm = () => {
             if (currentUser?.profile_id?.toString() === id) {
                 try {
                     const { data } = await axiosReq.get(`/profiles/${id}/`);
-                    const { description, image, first_name, last_name, username, country } = data;
-                    setProfileData({ description, image, first_name, last_name, username, country });
+                    const { description, image, first_name, last_name, country } = data;
+                    setProfileData({ description, image, first_name, last_name, country });
                 } catch (err) {
                     history.push("/");
                 }
@@ -72,7 +71,6 @@ const EditProfileForm = () => {
         }
         formData.append("first_name", first_name);
         formData.append("last_name", last_name);
-        formData.append("username", username);
         formData.append("country", country);
 
         try {
@@ -114,21 +112,6 @@ const EditProfileForm = () => {
                 />
             </Form.Group>
             {errors?.last_name?.map((message, idx) => (
-                <Alert variant="danger" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-
-            <Form.Group>
-                <Form.Label>Nickname:</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors?.username?.map((message, idx) => (
                 <Alert variant="danger" key={idx}>
                     {message}
                 </Alert>
