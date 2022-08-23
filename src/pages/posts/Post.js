@@ -131,7 +131,6 @@ const Post = (props) => {
                 <p>Last modified: {modified_on}</p>
             </div>
 
-
         {/* Code provided in Moments walkthrough. */}
             <div className={styles.PostBar}>
                 <Row>
@@ -162,7 +161,6 @@ const Post = (props) => {
                     </Link>
                 </Row>
             </div>
-
         </Container>
     )
 };
