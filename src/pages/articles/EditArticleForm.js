@@ -96,7 +96,6 @@ function EditArticleForm() {
 
     return (
         <Container>
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
@@ -138,9 +137,7 @@ function EditArticleForm() {
                         <Form.Label
                             htmlFor="image-upload"
                             className={btnStyles.Button}
-                        >
-                        Change image
-                        </Form.Label>
+                        >Change image</Form.Label>
                     </div>
 
                     <Form.File
@@ -158,17 +155,19 @@ function EditArticleForm() {
                 ))}
                 
                 <Row>
-                    <Button type="submit" className={btnStyles.Button}>
-                        Submit
-                    </Button>
+                    <Button
+                        type="submit"
+                        className={btnStyles.Button}
+                    >Submit</Button>
                     
-                    <Button onClick={() => history.goBack()} className={btnStyles.Button}>
-                        Cancel
-                    </Button>
+                    <Button
+                        onClick={() => history.goBack()}
+                        className={btnStyles.Button}
+                    >Cancel</Button>
                 </Row>
             </Form>
         </Container>
-    )
+    );
 };
 
 export default EditArticleForm;
