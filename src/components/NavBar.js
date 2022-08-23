@@ -80,11 +80,9 @@ const NavBar = () => {
         </>
     );
 
-  return (
-    <div>
+    return (
         <Container>
             <Navbar
-                // bg="light"
                 expand="lg"
                 expanded={expanded}
             >
@@ -114,8 +112,7 @@ const NavBar = () => {
                 </Navbar.Collapse>
             </Navbar>
         </Container>
-    </div>
-  )
-}
+    );
+};
 
 export default NavBar;
