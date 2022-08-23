@@ -20,9 +20,10 @@ function EditArticleForm() {
         title: "",
         content: "",
         image: "",
+        category: "",
     });
 
-    const { title, content, image } = articleData;
+    const { title, content, image, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -35,9 +36,9 @@ function EditArticleForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/articles/${id}/`);
-                const { title, content, image, is_owner } = data;
+                const { title, content, image, category, is_owner } = data;
 
-                is_owner ? setArticleData({ title, content, image }) : history.push("/");
+                is_owner ? setArticleData({ title, content, image, category }) : history.push("/");
             } catch (err) {}
         };
 
@@ -81,6 +82,7 @@ function EditArticleForm() {
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
+        formData.append("category", category);
 
         try {
             await axiosReq.put(`/articles/${id}/`, formData);
@@ -113,7 +115,7 @@ function EditArticleForm() {
                 ))}
 
                 <Form.Group>
-                    <Form.Label>What are you working on?</Form.Label>
+                    <Form.Label>Content:</Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={6}
@@ -123,6 +125,27 @@ function EditArticleForm() {
                     />
                 </Form.Group>
                 {errors?.content?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Category:</Form.Label>
+                    <Form.Control
+                        as="select"
+                        defaultValue="Choose..."
+                        name="category"
+                        onChange={handleChange}
+                    >
+                        <option value="entertainment">Entertainment</option>
+                        <option value="events">Events</option>
+                        <option value="in_depth">In Depth</option>
+                        <option value="opinion">Opinion</option>
+                        <option value="news">News</option>
+                    </Form.Control>
+                </Form.Group>
+                {errors?.category?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>

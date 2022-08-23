@@ -120,11 +120,11 @@ function CreateArticleForm() {
                         name="category"
                         onChange={handleChange}
                     >
-                        <option value="entertainment">Entertainment</option>
-                        <option value="events">Events</option>
-                        <option value="in_depth">In Depth</option>
-                        <option value="opinion">Opinion</option>
-                        <option value="news">News</option>
+                        <option value="1">Entertainment</option>
+                        <option value="2">Events</option>
+                        <option value="3">In Depth</option>
+                        <option value="4">Opinion</option>
+                        <option value="5">News</option>
                     </Form.Control>
                 </Form.Group>
                 {errors?.category?.map((message, idx) => (
