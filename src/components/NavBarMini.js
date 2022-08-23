@@ -75,13 +75,12 @@ const NavBar = () => {
         </>
     );
 
-  return (
+    return (
         <div className={styles.Container}>
             <Navbar
                 bg="white"
                 expand="lg"
                 expanded={expanded}
-                // fixed="top"
             >
                 <Container className={styles.Navbar}>
                     <Link to="/" className={styles.Header}>
@@ -117,7 +116,7 @@ const NavBar = () => {
                 </Container>
             </Navbar>
         </div>
-  )
-}
+    );
+};
 
 export default NavBar;
