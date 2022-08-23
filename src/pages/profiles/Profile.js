@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
-// import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 /** 
