@@ -22,6 +22,7 @@ const Article = (props) => {
         title,
         content,
         image,
+        category,
         articlePage,
     } = props;
 
@@ -73,6 +74,7 @@ const Article = (props) => {
                 <br />
                 <br />
                 <h2><strong>{ title }</strong></h2>
+                <p>{ category }</p>
                 <p>{ content }</p>
                 <p>Last updated: { modified_on }</p>
             </Col>
