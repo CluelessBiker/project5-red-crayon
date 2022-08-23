@@ -46,7 +46,6 @@ function ProfilePage() {
                 <Row>
                     <Col sm={6}>
                         <p><strong>{ profile?.first_name } { profile?.last_name }</strong></p>
-                        <p>a.k.a. { profile?.username }</p>
                         <p>@{ profile?.owner }</p>
                         <p>{ profile?.description }</p>
                         <p><i className="fa-solid fa-location-dot" /> { profile?.country }  <i className="fa-regular fa-calendar" /> Joined { profile?.modified_on }</p>
