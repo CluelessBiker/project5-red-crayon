@@ -49,22 +49,22 @@ function PostsPage({ message, filter="" }) {
     }, [filter, query, pathname, currentUser]);
 
     return (
-            <Container>
-                <div className={styles.SearchForm}>
-                    <Form
-                        className={styles.SearchField}
-                        onSubmit={(event) => event.preventDefault()}
-                    >
-                        <Form.Control
-                            value={query}
-                            onChange={(event) => setQuery(event.target.value)}
-                            type="text"
-                            placeholder="search posts"
-                        />
-                    </Form>
-                </div>
+        <Container>
+            <div className={styles.SearchForm}>
+                <Form
+                    className={styles.SearchField}
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        placeholder="search posts"
+                    />
+                </Form>
+            </div>
 
-                {hasLoaded ? (
+            {hasLoaded ? (
                 <>
                     {posts.results.length ? (
                         <InfiniteScroll
@@ -77,17 +77,17 @@ function PostsPage({ message, filter="" }) {
                             next={() => fetchMoreData(posts, setPosts)}
                         />
                     ) : (
-                    <Container>
-                        <Asset message={message} />
-                    </Container>
+                        <Container>
+                            <Asset message={message} />
+                        </Container>
                     )}
                 </>
-                ) : (
-                    <Container>
-                        <Asset spinner />
-                    </Container>
-                )}
-            </Container>
+            ) : (
+                <Container>
+                    <Asset spinner />
+                </Container>
+            )}
+        </Container>
     )
 };
 
