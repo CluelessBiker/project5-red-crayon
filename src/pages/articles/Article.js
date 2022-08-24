@@ -72,8 +72,8 @@ const Article = (props) => {
                 <Link to={`/articles/${id}`}>
                     <img src={image} alt={title} />
                 </Link>
-                <p>{ image_credit }</p>
                 <br />
+                <p>Image credit: { image_credit }</p>
                 <br />
                 <h2><strong>{ title }</strong></h2>
                 <p>In: { category }</p>
