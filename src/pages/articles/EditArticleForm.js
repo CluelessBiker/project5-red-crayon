@@ -20,10 +20,11 @@ function EditArticleForm() {
         title: "",
         content: "",
         image: "",
+        image_credit: "",
         category: "",
     });
 
-    const { title, content, image, category } = articleData;
+    const { title, content, image, image_credit, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -36,9 +37,9 @@ function EditArticleForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/articles/${id}/`);
-                const { title, content, image, category, is_owner } = data;
+                const { title, content, image, image_credit, category, is_owner } = data;
 
-                is_owner ? setArticleData({ title, content, image, category }) : history.push("/");
+                is_owner ? setArticleData({ title, content, image, image_credit, category }) : history.push("/");
             } catch (err) {}
         };
 
@@ -82,6 +83,7 @@ function EditArticleForm() {
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
+        formData.append("image_credit", image_credit);
         formData.append("category", category);
 
         try {
@@ -141,8 +143,8 @@ function EditArticleForm() {
                         <option value="1">Entertainment</option>
                         <option value="2">Events</option>
                         <option value="3">In Depth</option>
-                        <option value="4">Opinion</option>
-                        <option value="5">News</option>
+                        <option value="4">News</option>
+                        <option value="5">Opinion</option>
                     </Form.Control>
                 </Form.Group>
                 {errors?.category?.map((message, idx) => (
@@ -172,6 +174,21 @@ function EditArticleForm() {
                     />
                 </Form.Group>
                 {errors?.image?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Image credit:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="image_credit"
+                        value={image_credit}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.image_credit?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
