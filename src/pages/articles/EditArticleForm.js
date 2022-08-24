@@ -21,11 +21,10 @@ function EditArticleForm() {
         content: "",
         image: "",
         image_credit: "",
-        // category: "",
+        category: "",
     });
 
-    const { title, content, image, image_credit } = articleData;
-    // const { title, content, image, image_credit, category } = articleData;
+    const { title, content, image, image_credit, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -38,11 +37,9 @@ function EditArticleForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/articles/${id}/`);
-                const { title, content, image, image_credit, is_owner } = data;
-                // const { title, content, image, image_credit, category, is_owner } = data;
+                const { title, content, image, image_credit, category, is_owner } = data;
 
-                is_owner ? setArticleData({ title, content, image, image_credit }) : history.push("/");
-                // is_owner ? setArticleData({ title, content, image, image_credit, category }) : history.push("/");
+                is_owner ? setArticleData({ title, content, image, image_credit, category }) : history.push("/");
             } catch (err) {}
         };
 
@@ -87,7 +84,7 @@ function EditArticleForm() {
             formData.append("image", imageInput.current.files[0]);
         }
         formData.append("image_credit", image_credit);
-        // formData.append("category", category);
+        formData.append("category", category);
 
         try {
             await axiosReq.put(`/articles/${id}/`, formData);
@@ -135,7 +132,7 @@ function EditArticleForm() {
                     </Alert>
                 ))}
 
-                {/* <Form.Group>
+                <Form.Group>
                     <Form.Label>Category:</Form.Label>
                     <Form.Control
                         as="select"
@@ -143,18 +140,18 @@ function EditArticleForm() {
                         name="category"
                         onChange={handleChange}
                     >
-                        <option value="1">Entertainment</option>
-                        <option value="2">Events</option>
-                        <option value="3">In Depth</option>
-                        <option value="4">News</option>
-                        <option value="5">Opinion</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="events">Events</option>
+                        <option value="in_depth">In-depth</option>
+                        <option value="opinion">Opinion</option>
+                        <option value="news">News</option>
                     </Form.Control>
                 </Form.Group>
                 {errors?.category?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
-                ))} */}
+                ))}
 
                 <Form.Group className="text-center">
 

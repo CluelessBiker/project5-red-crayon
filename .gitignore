@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# articles: category removed
+Article-copy.js
+ArticlePage-copy.js
+ArticlesPage-copy.js
+CreateArticleForm-copy.js
+EditArticleForm-copy.js

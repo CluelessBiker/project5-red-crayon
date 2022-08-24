@@ -22,12 +22,10 @@ function CreateArticleForm() {
         content: "",
         image: "",
         image_credit: "",
-        // category: "",
+        category: "",
     });
 
-    // const { title, content, image } = articleData;
-    const { title, content, image, image_credit } = articleData;
-    // const { title, content, image, image_credit, category } = articleData;
+    const { title, content, image, image_credit, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -68,7 +66,7 @@ function CreateArticleForm() {
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
         formData.append("image_credit", image_credit);
-        // formData.append("category", category);
+        formData.append("category", category);
 
         try {
             const { data } = await axiosReq.post("/articles/", formData);
@@ -116,7 +114,7 @@ function CreateArticleForm() {
                     </Alert>
                 ))}
 
-                {/* <Form.Group>
+                <Form.Group>
                     <Form.Label>Category:</Form.Label>
                     <Form.Control
                         as="select"
@@ -124,18 +122,18 @@ function CreateArticleForm() {
                         name="category"
                         onChange={handleChange}
                     >
-                        <option value="1">Entertainment</option>
-                        <option value="2">Events</option>
-                        <option value="3">In Depth</option>
-                        <option value="4">News</option>
-                        <option value="5">Opinion</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="events">Events</option>
+                        <option value="in_depth">In-depth</option>
+                        <option value="opinion">Opinion</option>
+                        <option value="news">News</option>
                     </Form.Control>
                 </Form.Group>
                 {errors?.category?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
-                ))} */}
+                ))}
 
                 <Form.Group className="text-center">
                     {image ? (
