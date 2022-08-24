@@ -22,10 +22,12 @@ function CreateArticleForm() {
         content: "",
         image: "",
         image_credit: "",
-        category: "",
+        // category: "",
     });
 
-    const { title, content, image, image_credit, category } = articleData;
+    // const { title, content, image } = articleData;
+    const { title, content, image, image_credit } = articleData;
+    // const { title, content, image, image_credit, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -66,7 +68,7 @@ function CreateArticleForm() {
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
         formData.append("image_credit", image_credit);
-        formData.append("category", category);
+        // formData.append("category", category);
 
         try {
             const { data } = await axiosReq.post("/articles/", formData);
@@ -114,7 +116,7 @@ function CreateArticleForm() {
                     </Alert>
                 ))}
 
-                <Form.Group>
+                {/* <Form.Group>
                     <Form.Label>Category:</Form.Label>
                     <Form.Control
                         as="select"
@@ -133,7 +135,7 @@ function CreateArticleForm() {
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
-                ))}
+                ))} */}
 
                 <Form.Group className="text-center">
                     {image ? (

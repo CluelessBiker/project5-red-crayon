@@ -23,7 +23,7 @@ const Article = (props) => {
         content,
         image,
         image_credit,
-        category,
+        // category,
         articlePage,
     } = props;
 
@@ -76,7 +76,7 @@ const Article = (props) => {
                 <br />
                 <br />
                 <h2><strong>{ title }</strong></h2>
-                <p>In: { category }</p>
+                {/* <p>In: { category }</p> */}
                 <p>{ content }</p>
                 <p>Last updated: { modified_on }</p>
             </Col>
