@@ -49,7 +49,7 @@ function App() {
       <Row className={styles.MainContent}>
 
         {/* NAVBAR */}
-        <Col lg={3} className={styles.NavLgScreen}>
+        <Col lg={3} className={` ${styles.LeftPanel} ${styles.NavLgScreen}`}>
           <NavBar />
         </Col>
 

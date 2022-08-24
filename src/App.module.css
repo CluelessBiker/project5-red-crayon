@@ -71,18 +71,23 @@ h2 {
   object-fit: contain;
 }
 
-.MiddlePanel{
+.LeftPanel {
+  border-right: 1px solid #000000;
+  height: 1000px;
+}
+
+.MiddlePanel {
   position: relative;
   margin: 0 auto;
-  border-right: 1px solid #000000;
-  border-left: 1px solid #000000;
-  height: 900px;
 }
 
 .RightPanel {
   position: fixed;
   right: 25px;
+  top: 135px;
   padding: 10px;
+  border-left: 1px solid #000000;
+  height: 1000px;
 }
 
 @media screen and (max-width:991px) {
@@ -110,8 +115,6 @@ h2 {
     position: relative;
     top: -45px;
     margin-left: 0;
-    border-right: 1px solid #000000;
-    border-left: 0px;
   }
 
   .RightPanel {
