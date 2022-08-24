@@ -22,6 +22,7 @@ const Article = (props) => {
         title,
         content,
         image,
+        image_credit,
         category,
         articlePage,
     } = props;
@@ -71,6 +72,7 @@ const Article = (props) => {
                 <Link to={`/articles/${id}`}>
                     <img src={image} alt={title} />
                 </Link>
+                <p>{ image_credit }</p>
                 <br />
                 <br />
                 <h2><strong>{ title }</strong></h2>

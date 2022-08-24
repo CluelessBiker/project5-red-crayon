@@ -21,10 +21,11 @@ function CreateArticleForm() {
         title: "",
         content: "",
         image: "",
+        image_credit: "",
         category: "",
     });
 
-    const { title, content, image, category } = articleData;
+    const { title, content, image, image_credit, category } = articleData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -64,6 +65,7 @@ function CreateArticleForm() {
         formData.append("title", title);
         formData.append("content", content);
         formData.append("image", imageInput.current.files[0]);
+        formData.append("image_credit", image_credit);
         formData.append("category", category);
 
         try {
@@ -123,8 +125,8 @@ function CreateArticleForm() {
                         <option value="1">Entertainment</option>
                         <option value="2">Events</option>
                         <option value="3">In Depth</option>
-                        <option value="4">Opinion</option>
-                        <option value="5">News</option>
+                        <option value="4">News</option>
+                        <option value="5">Opinion</option>
                     </Form.Control>
                 </Form.Group>
                 {errors?.category?.map((message, idx) => (
@@ -169,6 +171,21 @@ function CreateArticleForm() {
                     />
                 </Form.Group>
                 {errors?.image?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Image credit:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="image_credit"
+                        value={image_credit}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.image_credit?.map((message, idx) => (
                     <Alert variant="danger" key={idx}>
                         {message}
                     </Alert>
