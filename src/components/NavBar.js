@@ -37,35 +37,41 @@ const NavBar = () => {
                 to="/favourites"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="favourite posts"
             ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
 
             <NavLink
                 to="/articles/create"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="post an article"
             ><i className="fa-solid fa-file-pen" /> Add Article</NavLink>
 
             <NavLink
                 to="/events/create"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="create an event"
             ><i className="fa-regular fa-calendar-plus" /> Add Event</NavLink>
 
             <NavLink
                 to="/posts/create"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="create post"
             ><i className="fa-solid fa-circle-plus"></i> Post</NavLink>
 
             <NavLink
                 to={`/profiles/${currentUser?.profile_id}`}
                 className={`${styles.NavLink} ${styles.ProfileAvatar}`}
+                aria-label="user profile"
             ><Avatar src={currentUser?.profile_image} text="Profile" height={35} /></NavLink>
 
             <NavLink
                 to="/"
                 className={styles.NavLink}
                 onClick={handleSignOut}
+                aria-label="signout"
             ><i className="fa-solid fa-right-from-bracket"></i> Logout</NavLink>
         </>
     );
@@ -76,12 +82,14 @@ const NavBar = () => {
                 to="/login"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="login"
             ><i className="fa-solid fa-right-to-bracket"></i> Login</NavLink>
 
             <NavLink
                 to="/signup"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="sign up"
             ><i className="fa-solid fa-user-pen"></i> Sign up</NavLink>
         </>
     );
@@ -105,18 +113,21 @@ const NavBar = () => {
                             to="/"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
+                            aria-label="home page"
                         ><i className="fa-solid fa-file-lines"></i> News</NavLink>
 
                         <NavLink
                             to="/events"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
+                            aria-label="events"
                         ><i className="fa-solid fa-calendar-days" /> Events</NavLink>
 
                         <NavLink
                             to="/posts"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
+                            aria-label="user posts"
                         ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
 
                         { currentUser ? loggedInIcons : loggedOutIcons }
@@ -125,6 +136,7 @@ const NavBar = () => {
                             to="/about"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
+                            aria-label="about page"
                         ><i className="fa-solid fa-book-open" /> About</NavLink>
                     </Nav>
                 </Navbar.Collapse>
