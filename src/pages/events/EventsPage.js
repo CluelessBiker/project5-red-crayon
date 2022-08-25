@@ -6,6 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import Event from "./Event";
+import styles from "../../styles/EventsPage.module.css"
 
 /**
 * Display all events
@@ -46,12 +47,9 @@ function EventsPage({ message, filter="" }) {
 
     return (
         <Container>
-            <br />
-            <h2>Browse upcoming events!</h2>
-            <br />
-
-            <div>
+            <div className={styles.SearchForm}>
                 <Form
+                    className={styles.SearchField}
                     onSubmit={(event) => event.preventDefault()}
                 >
                     <Form.Control
