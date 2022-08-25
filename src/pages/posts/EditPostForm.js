@@ -104,8 +104,7 @@ function EditPostForm() {
 
     return (
         <Container className={formStyles.FormLabels}>
-            <h2>Feeling inspired?</h2>
-            <p>We all have that perfect combination of elements that motivate us... Why not share yours?</p>
+            <br />
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Title:</Form.Label>
