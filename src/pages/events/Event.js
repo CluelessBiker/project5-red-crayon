@@ -55,31 +55,34 @@ const Event = (props) => {
     return (
         <Container>
             <br />
-            <Media>
-                <Link
-                    to={`events/${profile_id}`}
-                >
-                    <Avatar src={profile_image} height={30} />
-                    <p>By: { owner }</p>
-                    <p>Last updated: {modified_on }</p>
-                </Link>
-                {is_owner && eventPage && (
-                    <DropdownMenu
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                    />
-                )}
-            </Media>
+            <Col>
+                <Media>
+                    <Link
+                        to={`events/${profile_id}`}
+                    >
+                        <Avatar src={profile_image} height={30} />
+                        <p>By: { owner }</p>
+                    </Link>
+                    
+                    {is_owner && eventPage && (
+                        <DropdownMenu
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                        />
+                    )}
+                </Media>
+            </Col>
 
             <Col>
                 <Link to={`/events/${id}`}>
                     <h2>{ title }</h2>
                 </Link>
+                <p>Last updated: {modified_on }</p>
                 <br />
                 <p>{ content }</p>
-                <p>Date: <i className="fa-solid fa-calendar-lines" /> { date } | Time: <i className="fa-solid fa-watch" />{ time } | Admission: <i className="fa-solid fa-tag" /> €{ price }</p>
+                <p>Date: { date } | Time: { time } | Admission: €{ price }</p>
                 <p>Location: { city }, { country }</p>
-                <p>For more information, visit the event page: <i className="fa-solid fa-link" /> { event_link }</p>
+                <p>For more information, visit the event page: <a target="_blank" href={ event_link }>HERE</a></p>
                 <p>Submitted: { created_on }</p>
             </Col>
         </Container>
