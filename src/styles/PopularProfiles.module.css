@@ -2,3 +2,7 @@
     text-align: center;
     justify-content: flex-start;
 }
+
+.Header h2 {
+    text-transform: uppercase;
+}

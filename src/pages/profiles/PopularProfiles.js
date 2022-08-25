@@ -18,7 +18,8 @@ const PopularProfiles = () => {
         <Container className={styles.Header}>
             {popularProfiles.results.length ? (
                 <>
-                    <h2>...who to follow:</h2>
+                    <br />
+                    <h2><strong>The cool kids:</strong></h2>
                     {popularProfiles.results.map((profile) => (
                         <Profile key={profile.id} profile={profile} />
                     ))}
