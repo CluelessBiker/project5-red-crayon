@@ -3,7 +3,7 @@ import { Col, Container, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
-import DropdownMenu from "../../components/DropdownMenu";
+import { DropdownMenu } from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Event = (props) => {
@@ -28,7 +28,7 @@ const Event = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
-    const history = useHistory;
+    const history = useHistory();
 
     /**
     * Route user to Edit page for Event 
