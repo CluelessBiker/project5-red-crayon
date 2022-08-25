@@ -69,7 +69,10 @@ function CreateEventForm(){
     };
 
     return (
-        <Container>
+        <Container className={styles.FormAlignment}>
+            <br />
+            <h2><strong>Submit an event!</strong></h2>
+            <br />
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Event Name:</Form.Label>
@@ -102,7 +105,7 @@ function CreateEventForm(){
                     </Alert>
                 ))}
 
-                <Row>
+                <Row className={styles.RowSpacing}>
                     <Form.Group>
                         <Form.Label>City:</Form.Label>
                         <Form.Control
@@ -134,7 +137,7 @@ function CreateEventForm(){
                     ))}
                 </Row>
 
-                <Row>
+                <Row className={styles.RowSpacing}>
                     <Form.Group>
                         <Form.Label>Date:</Form.Label>
                         <Form.Control
@@ -197,7 +200,8 @@ function CreateEventForm(){
                     </Alert>
                 ))}
 
-                <Row>
+                <br />
+                <Row className={styles.RowSpacing}>
                     <Button
                         type="submit"
                         className={btnStyles.Button}
@@ -208,7 +212,7 @@ function CreateEventForm(){
                         className={btnStyles.Button}
                     >Cancel</Button>
                 </Row>
-                
+                <br />
             </Form>
         </Container>
     );
