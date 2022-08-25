@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, Form, Row } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import useRedirect from "../../hooks/useRedirect";
 import styles from "../../styles/CreateEventForm.module.css"
 import btnStyles from "../../styles/Buttons.module.css"
 
 /**
-* Render Create Events form.
+* Render Edit Events form.
 */
-function CreateEventForm(){
+function EditEventForm(){
 
     useRedirect("loggedout");
     const [errors, setErrors] = useState({});
@@ -28,6 +28,25 @@ function CreateEventForm(){
     const { title, content, date, time, city, country, price, event_link } = eventData;
 
     const history = useHistory();
+    const { id } = useParams();
+
+    /**
+    * Populate EditForm fields with previously inserted data. 
+    */
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const { data } = await axiosReq.get(`/events/${id}/`);
+                const { title, content, date, time, city, country, price, event_link, is_owner } = data;
+
+                is_owner ? setEventData({ title, content, date, time, city, country, price, event_link }) : history.push("/");
+            } catch (err) {
+                // console.log(err);
+            }
+        };
+
+        handleMount();
+    }, [history, id]);
 
     /**
     * Push submitted data into empty strings.
@@ -57,8 +76,8 @@ function CreateEventForm(){
         formData.append("event_link", event_link);
 
         try {
-            const { data } = await axiosReq.post("/events/", formData);
-            history.push(`/events/${data.id}`);
+            await axiosReq.put(`/events/${id}/`, formData);
+            history.push(`/events/${id}`);
             // console.log(formData);
         } catch (err) {
             // console.log(err)
@@ -218,4 +237,4 @@ function CreateEventForm(){
     );
 };
 
-export default CreateEventForm;
+export default EditEventForm;
