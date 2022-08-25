@@ -1,7 +1,6 @@
 /* GLOBAL FONT RULES */
 p, h1, h2, label, input, button {
   font-family: 'Nixie One', cursive;
-  font-size: 130%;
 }
 
 h1 {
@@ -10,6 +9,10 @@ h1 {
 
 h2 {
   font-size: 135%;
+}
+
+p {
+  font-size: 110%;
 }
 
 /* LAYOUT */
@@ -79,6 +82,10 @@ h2 {
 .MiddlePanel {
   position: relative;
   margin: 0 auto;
+}
+
+.MiddlePanel p {
+  font-size: 120%;
 }
 
 .RightPanel {
