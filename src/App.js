@@ -24,6 +24,7 @@ import NotFound from './components/NotFound';
 import CreateEventForm from './pages/events/CreateEventForm';
 import EditEventForm from './pages/events/EditEventForm';
 import EventPage from './pages/events/EventPage';
+import EventsPage from './pages/events/EventsPage';
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/articles/create" render={() => <CreateArticleForm />} />
             <Route exact path="/articles/:id/edit" render={() => <EditArticleForm />} />
             <Route exact path="/articles/:id" render={() => <ArticlePage />} />
+            <Route exact path="/events" render={() => <EventsPage message="No results."/>} />
             <Route exact path="/events/create" render={() => <CreateEventForm />} />
             <Route exact path="/events/:id/edit" render={() => <EditEventForm />} />
             <Route exact path="/events/:id" render={() => <EventPage />} />
