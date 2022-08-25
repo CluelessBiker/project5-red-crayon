@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Media, Row } from "react-bootstrap";
+import { Col, Container, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
