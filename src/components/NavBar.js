@@ -108,6 +108,12 @@ const NavBar = () => {
                         ><i className="fa-solid fa-file-lines"></i> News</NavLink>
 
                         <NavLink
+                            to="/events"
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                        ><i className="fa-solid fa-calendar-days" /> Events</NavLink>
+
+                        <NavLink
                             to="/posts"
                             className={styles.NavLink}
                             activeClassName={styles.Active}
