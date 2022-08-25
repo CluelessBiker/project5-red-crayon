@@ -88,7 +88,9 @@ function CreatePostForm() {
 
     return (
         <Container className={formStyles.FormLabels}>
-            <h2>Feeling inspired?</h2>
+            <br />
+            <h2><strong>Share your inspiration</strong></h2>
+            <br />
             <p>We all have that perfect combination of elements that motivate us... Why not share yours?</p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>

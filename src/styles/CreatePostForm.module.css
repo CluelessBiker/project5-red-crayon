@@ -1,3 +1,8 @@
+/* TITLE */
+.FormLabels h2 {
+    text-transform: uppercase;
+}
+
 /* DROPDOWN MENUS */
 .Choices{
     align-items: flex-end;
