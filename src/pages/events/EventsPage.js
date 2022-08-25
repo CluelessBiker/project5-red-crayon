@@ -48,7 +48,44 @@ function EventsPage({ message, filter="" }) {
         <Container>
             <br />
             <h2>Browse upcoming events!</h2>
+            <br />
 
+            <div>
+                <Form
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        placeholder="search events by country, city or name"
+                    />
+                </Form>
+            </div>
+
+            {hasLoaded ? (
+                <>
+                    {events.results.length ? (
+                        <InfiniteScroll
+                            children={events.results.map((event) => (
+                                <Event key={event.id} {...event} setEvents={setEvents} />
+                            ))}
+                            dataLength={events.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!events.next}
+                            next={() => fetchMoreData(events, setEvents)}
+                        />
+                    ) : (
+                        <Container>
+                            <Asset message={message} />
+                        </Container>
+                    )}
+                </>
+            ) : (
+                <Container>
+                    <Asset spinner />
+                </Container>
+            )}
         </Container>
     );
 };
