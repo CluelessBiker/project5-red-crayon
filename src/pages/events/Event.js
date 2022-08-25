@@ -6,6 +6,9 @@ import Avatar from "../../components/Avatar";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+* Display Event data in browser.
+*/
 const Event = (props) => {
 
     const {
