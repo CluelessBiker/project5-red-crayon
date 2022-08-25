@@ -288,6 +288,7 @@ function CreatePostForm() {
                     </Button>
                 </Row>
             </Form>
+            <br />
         </Container>
     )
 };

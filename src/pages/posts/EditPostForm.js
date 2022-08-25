@@ -286,6 +286,7 @@ function EditPostForm() {
                     </Button>
                 </Row>
             </Form>
+            <br />
         </Container>
     )
 };
