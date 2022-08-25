@@ -5,6 +5,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/Event.module.css";
 
 /**
 * Display Event data in browser.
@@ -53,38 +54,36 @@ const Event = (props) => {
     };
 
     return (
-        <Container>
+        <Container className={styles.Container}>
             <br />
-            <Col>
-                <Media>
-                    <Link
-                        to={`events/${profile_id}`}
-                    >
-                        <Avatar src={profile_image} height={30} />
-                        <p>By: { owner }</p>
-                    </Link>
-                    
-                    {is_owner && eventPage && (
-                        <DropdownMenu
-                            handleEdit={handleEdit}
-                            handleDelete={handleDelete}
-                        />
-                    )}
-                </Media>
-            </Col>
-
-            <Col>
-                <Link to={`/events/${id}`}>
-                    <h2>{ title }</h2>
+            <Link
+                className={styles.OnHover}
+                to={`/events/${id}`}
+            >
+                <h2 className={styles.OnHover}><strong>{ title }</strong></h2>
+            </Link>
+            <p>Last updated: {modified_on }</p>
+            <Media>
+                <Link
+                    to={`events/${profile_id}`}
+                    className={styles.OnHover}
+                >
+                    <Avatar src={profile_image} height={30} />
+                    <p className={styles.OnHover}>By: { owner }</p>
                 </Link>
-                <p>Last updated: {modified_on }</p>
-                <br />
-                <p>{ content }</p>
-                <p>Date: { date } | Time: { time } | Admission: €{ price }</p>
-                <p>Location: { city }, { country }</p>
-                <p>For more information, visit the event page: <a target="_blank" href={ event_link }>HERE</a></p>
-                <p>Submitted: { created_on }</p>
-            </Col>
+                    
+                {is_owner && eventPage && (
+                    <DropdownMenu
+                        handleEdit={handleEdit}
+                        handleDelete={handleDelete}
+                    />
+                )}
+            </Media>
+            <p>{ content }</p>
+            <p>Date: { date } | Time: { time } | Admission: €{ price }</p>
+            <p>Location: { city }, { country }</p>
+            <p>For more information, visit the event page: <a target="_blank" href={ event_link } className={styles.OnHover}><strong>HERE</strong></a></p>
+            <p>Submitted: { created_on }</p>
         </Container>
     );
 };

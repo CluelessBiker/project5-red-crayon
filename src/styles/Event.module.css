@@ -1,0 +1,19 @@
+/* LAYOUT */
+.Container {
+    border-bottom: 1px solid #000000;
+}
+
+/* EVENT HEADER */
+.Container h2 {
+    text-transform: uppercase;
+}
+
+/* LINKS */
+.OnHover {
+    color: #000000;
+}
+
+.OnHover:hover {
+    color: #DD798A;
+    text-decoration: none;
+}
