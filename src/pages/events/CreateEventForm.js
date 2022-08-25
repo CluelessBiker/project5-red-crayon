@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Alert, Button, Container, Form, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import useRedirect from "../../hooks/useRedirect";
+import btnStyles from "../../styles/Buttons.module.css"
 
 /**
 * Render Create Events form.
@@ -66,7 +68,148 @@ function CreateEventForm(){
     };
 
     return (
-        <h1>Events!</h1>
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Event Name:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.title?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Content:</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={6}
+                        name="content"
+                        value={content}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.content?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Row>
+                    <Form.Group>
+                        <Form.Label>City:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="city"
+                            value={city}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.city?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                    
+                    <Form.Group>
+                        <Form.Label>Country:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="country"
+                            value={country}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.country?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                </Row>
+
+                <Row>
+                    <Form.Group>
+                        <Form.Label>Date:</Form.Label>
+                        <Form.Control
+                            type="date"
+                            name="date"
+                            value={date}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.date?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                    
+                    <Form.Group>
+                        <Form.Label>Time:</Form.Label>
+                        <Form.Control
+                            type="time"
+                            name="time"
+                            value={time}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.time?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                    
+                    <Form.Group>
+                        <Form.Label>Price in €:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="price"
+                            value={price}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    {errors?.price?.map((message, idx) => (
+                        <Alert variant="danger" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                    
+                </Row>
+
+                <Form.Group>
+                    <Form.Label>Event URL:</Form.Label>
+                    <Form.Control
+                        type="url"
+                        name="event_link"
+                        value={event_link}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.event_link?.map((message, idx) => (
+                    <Alert variant="danger" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Row>
+                    <Button
+                        type="submit"
+                        className={btnStyles.Button}
+                    >Submit</Button>
+                    
+                    <Button
+                        onClick={() => history.goBack()}
+                        className={btnStyles.Button}
+                    >Cancel</Button>
+                </Row>
+                
+            </Form>
+        </Container>
     );
 };
 
