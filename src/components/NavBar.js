@@ -49,7 +49,7 @@ const NavBar = () => {
                 to="/events/create"
                 className={styles.NavLink}
                 activeClassName={styles.Active}
-            ><i class="fa-regular fa-calendar-plus" /> Add Event</NavLink>
+            ><i className="fa-regular fa-calendar-plus" /> Add Event</NavLink>
 
             <NavLink
                 to="/posts/create"
