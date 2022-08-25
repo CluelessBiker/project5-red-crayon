@@ -1,0 +1,21 @@
+/* PAGE CONTENT */
+.Content {
+    text-align: center;
+}
+
+.Content h2 {
+    text-transform: uppercase;
+}
+.SocialIconsAlign {
+    justify-content: center;
+}
+
+.SocialIconsAlign a {
+    font-size: 175%;
+    padding: 0 5px;
+    color: #000000;
+}
+
+.SocialIconsAlign a:hover {
+    color: #DD798A;
+}

@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+import styles from "../styles/About.module.css";
 
 function About() {
 
     return (
-        <Container>
-            <h2>About us:</h2>
+        <Container className={styles.Content}>
+            <h2><strong>About us:</strong></h2>
             <hr />
             <p>Here at The Red Crayon, we pride ourselver on catering to the Art community.</p>
             <p>We strive to provide you the lasted News on the art scene, as well as a list of all the upcoming, MUST SEE events.</p>
@@ -13,7 +14,8 @@ function About() {
             <p>Users can follow each other, like each others posts, and leave a friendly comment should they wish. Tying together that feeling of "togetherness" we all crave so much.</p>
             <p>So get stuck in and have some fun!</p>
             <br />
-            <h2>Social Media:</h2>
+            <h2><strong>Social Media:</strong></h2>
+            <hr />
             <Row className={styles.SocialIconsAlign}>
                 <a
                     href="https://facebook.com/popich.red"
