@@ -113,6 +113,7 @@ function EditPostForm() {
                         name="title"
                         value={title}
                         onChange={handleChange}
+                        aria-label="title"
                     />
                 </Form.Group>
                 {errors?.title?.map((message, idx) => (
@@ -129,6 +130,7 @@ function EditPostForm() {
                         name="description"
                         value={description}
                         onChange={handleChange}
+                        aria-label="description"
                     />
                 </Form.Group>
                 {errors?.description?.map((message, idx) => (
@@ -145,6 +147,7 @@ function EditPostForm() {
                             name="song_name"
                             value={song_name}
                             onChange={handleChange}
+                            aria-label="song name"
                         />
                     </Form.Group>
                     {errors?.song_name?.map((message, idx) => (
@@ -160,6 +163,7 @@ function EditPostForm() {
                             name="artist_name"
                             value={artist_name}
                             onChange={handleChange}
+                            aria-label="artist name"
                         />
                     </Form.Group>
                     {errors?.artist_name?.map((message, idx) => (
@@ -176,6 +180,7 @@ function EditPostForm() {
                             as="select"
                             name="music_medium"
                             onChange={handleChange}
+                            aria-label="music medium"
                         >
                             <option value="none">None</option>
                             <option value="cassette">Cassette</option>
@@ -198,6 +203,7 @@ function EditPostForm() {
                             as="select"
                             name="beverage"
                             onChange={handleChange}
+                            aria-label="beverage"
                         >
                             <option value="none">None</option>
                             <option value="water">Water</option>
@@ -223,6 +229,7 @@ function EditPostForm() {
                             as="select"
                             name="artistic_medium"
                             onChange={handleChange}
+                            aria-label="artistic medium"
                         >
                             <option value="none">None</option>
                             <option value="acrylic_paint">Acrylic paint</option>

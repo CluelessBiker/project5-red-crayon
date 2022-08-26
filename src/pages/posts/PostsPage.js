@@ -60,6 +60,7 @@ function PostsPage({ message, filter="" }) {
                         onChange={(event) => setQuery(event.target.value)}
                         type="text"
                         placeholder="search posts"
+                        aria-label="search posts"
                     />
                 </Form>
             </div>

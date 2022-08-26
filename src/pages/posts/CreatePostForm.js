@@ -100,6 +100,7 @@ function CreatePostForm() {
                         name="title"
                         value={title}
                         onChange={handleChange}
+                        aria-label="title"
                     />
                 </Form.Group>
                 {errors?.title?.map((message, idx) => (
@@ -116,6 +117,7 @@ function CreatePostForm() {
                         name="description"
                         value={description}
                         onChange={handleChange}
+                        aria-label="description"
                     />
                 </Form.Group>
                 {errors?.description?.map((message, idx) => (
@@ -132,6 +134,7 @@ function CreatePostForm() {
                             name="song_name"
                             value={song_name}
                             onChange={handleChange}
+                            aria-label="song name"
                         />
                     </Form.Group>
                     {errors?.song_name?.map((message, idx) => (
@@ -147,6 +150,7 @@ function CreatePostForm() {
                             name="artist_name"
                             value={artist_name}
                             onChange={handleChange}
+                            aria-label="artist name"
                         />
                     </Form.Group>
                     {errors?.artist_name?.map((message, idx) => (
@@ -164,6 +168,7 @@ function CreatePostForm() {
                             defaultValue="Choose..."
                             name="music_medium"
                             onChange={handleChange}
+                            aria-label="music medium"
                         >
                             <option value="none">None</option>
                             <option value="cassette">Cassette</option>
@@ -187,6 +192,7 @@ function CreatePostForm() {
                             defaultValue="Choose..."
                             name="beverage"
                             onChange={handleChange}
+                            aria-label="beverage"
                         >
                             <option value="none">None</option>
                             <option value="water">Water</option>
@@ -213,6 +219,7 @@ function CreatePostForm() {
                             defaultValue="Choose..."
                             name="artistic_medium"
                             onChange={handleChange}
+                            aria-label="artistic medium"
                         >
                             <option value="none">None</option>
                             <option value="acrylic_paint">Acrylic paint</option>
