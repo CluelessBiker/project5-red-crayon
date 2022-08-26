@@ -94,6 +94,7 @@ const EditProfileForm = () => {
                     name="first_name"
                     value={first_name}
                     onChange={handleChange}
+                    aria-label="first name"
                 />
             </Form.Group>
             {errors?.first_name?.map((message, idx) => (
@@ -109,6 +110,7 @@ const EditProfileForm = () => {
                     name="last_name"
                     value={last_name}
                     onChange={handleChange}
+                    aria-label="last name"
                 />
             </Form.Group>
             {errors?.last_name?.map((message, idx) => (
@@ -124,6 +126,7 @@ const EditProfileForm = () => {
                     name="country"
                     value={country}
                     onChange={handleChange}
+                    aria-label="country"
                 />
             </Form.Group>
             {errors?.country?.map((message, idx) => (
@@ -139,6 +142,7 @@ const EditProfileForm = () => {
                     value={description}
                     onChange={handleChange}
                     name="description"
+                    aria-label="description"
                     rows={5}
                 />
             </Form.Group>

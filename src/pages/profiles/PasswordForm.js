@@ -68,6 +68,7 @@ const PasswordForm = () => {
                                 value={new_password1}
                                 onChange={handleChange}
                                 name="new_password1"
+                                aria-label="new password"
                             />
                         </Form.Group>
                         {errors?.new_password1?.map((message, idx) => (
@@ -84,6 +85,7 @@ const PasswordForm = () => {
                                 value={new_password2}
                                 onChange={handleChange}
                                 name="new_password2"
+                                aria-label=" new password 2"
                             />
                         </Form.Group>
                         {errors?.new_password2?.map((message, idx) => (
