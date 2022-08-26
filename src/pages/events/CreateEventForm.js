@@ -81,6 +81,7 @@ function CreateEventForm(){
                         name="title"
                         value={title}
                         onChange={handleChange}
+                        aria-label="title"
                     />
                 </Form.Group>
                 {errors?.title?.map((message, idx) => (
@@ -97,6 +98,7 @@ function CreateEventForm(){
                         name="content"
                         value={content}
                         onChange={handleChange}
+                        aria-label="content"
                     />
                 </Form.Group>
                 {errors?.content?.map((message, idx) => (
@@ -113,6 +115,7 @@ function CreateEventForm(){
                             name="city"
                             value={city}
                             onChange={handleChange}
+                            aria-label="city"
                         />
                     </Form.Group>
                     {errors?.city?.map((message, idx) => (
@@ -128,6 +131,7 @@ function CreateEventForm(){
                             name="country"
                             value={country}
                             onChange={handleChange}
+                            aria-label="country"
                         />
                     </Form.Group>
                     {errors?.country?.map((message, idx) => (
@@ -145,6 +149,7 @@ function CreateEventForm(){
                             name="date"
                             value={date}
                             onChange={handleChange}
+                            aria-label="date"
                         />
                     </Form.Group>
                     {errors?.date?.map((message, idx) => (
@@ -160,6 +165,7 @@ function CreateEventForm(){
                             name="time"
                             value={time}
                             onChange={handleChange}
+                            aria-label="time"
                         />
                     </Form.Group>
                     {errors?.time?.map((message, idx) => (
@@ -175,6 +181,7 @@ function CreateEventForm(){
                             name="price"
                             value={price}
                             onChange={handleChange}
+                            aria-label="price"
                         />
                     </Form.Group>
                     {errors?.price?.map((message, idx) => (
@@ -192,6 +199,7 @@ function CreateEventForm(){
                         name="event_link"
                         value={event_link}
                         onChange={handleChange}
+                        aria-label="event url"
                     />
                 </Form.Group>
                 {errors?.event_link?.map((message, idx) => (

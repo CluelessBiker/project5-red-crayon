@@ -57,6 +57,7 @@ function EventsPage({ message, filter="" }) {
                         onChange={(event) => setQuery(event.target.value)}
                         type="text"
                         placeholder="search events by country, city or name"
+                        aria-label="search by country city name"
                     />
                 </Form>
             </div>
