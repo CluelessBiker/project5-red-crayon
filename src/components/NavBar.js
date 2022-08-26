@@ -38,6 +38,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="favourite posts"
+                rel="noreferrer"
             ><i className="fa-regular fa-bookmark"></i> Favourites</NavLink>
 
             <NavLink
@@ -45,6 +46,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="post an article"
+                rel="noreferrer"
             ><i className="fa-solid fa-file-pen" /> Add Article</NavLink>
 
             <NavLink
@@ -52,6 +54,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="create an event"
+                rel="noreferrer"
             ><i className="fa-regular fa-calendar-plus" /> Add Event</NavLink>
 
             <NavLink
@@ -59,12 +62,14 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="create post"
+                rel="noreferrer"
             ><i className="fa-solid fa-circle-plus"></i> Post</NavLink>
 
             <NavLink
                 to={`/profiles/${currentUser?.profile_id}`}
                 className={`${styles.NavLink} ${styles.ProfileAvatar}`}
                 aria-label="user profile"
+                rel="noreferrer"
             ><Avatar src={currentUser?.profile_image} text="Profile" height={35} /></NavLink>
 
             <NavLink
@@ -72,6 +77,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 onClick={handleSignOut}
                 aria-label="signout"
+                rel="noreferrer"
             ><i className="fa-solid fa-right-from-bracket"></i> Logout</NavLink>
         </>
     );
@@ -83,6 +89,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="login"
+                rel="noreferrer"
             ><i className="fa-solid fa-right-to-bracket"></i> Login</NavLink>
 
             <NavLink
@@ -90,6 +97,7 @@ const NavBar = () => {
                 className={styles.NavLink}
                 activeClassName={styles.Active}
                 aria-label="sign up"
+                rel="noreferrer"
             ><i className="fa-solid fa-user-pen"></i> Sign up</NavLink>
         </>
     );
@@ -114,6 +122,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             aria-label="home page"
+                            rel="noreferrer"
                         ><i className="fa-solid fa-file-lines"></i> News</NavLink>
 
                         <NavLink
@@ -121,6 +130,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             aria-label="events"
+                            rel="noreferrer"
                         ><i className="fa-solid fa-calendar-days" /> Events</NavLink>
 
                         <NavLink
@@ -128,6 +138,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             aria-label="user posts"
+                            rel="noreferrer"
                         ><i className="fa-solid fa-hashtag"></i> Explore</NavLink>
 
                         { currentUser ? loggedInIcons : loggedOutIcons }
@@ -137,6 +148,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             aria-label="about page"
+                            rel="noreferrer"
                         ><i className="fa-solid fa-book-open" /> About</NavLink>
                     </Nav>
                 </Navbar.Collapse>

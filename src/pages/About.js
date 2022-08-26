@@ -20,42 +20,42 @@ function About() {
                 <a
                     href="https://facebook.com/popich.red"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit our Facebook page (opens in a new tab)"
                 ><i class="fa-brands fa-facebook-f" /></a>
 
                 <a
                     href="https://twitter.com/bikesandbaking"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit our Twitter page (opens in a new tab)"
                 ><i class="fa-brands fa-twitter" /></a>
 
                 <a
                     href="https://www.instagram.com/bikesandbaking"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit our Instagram page (opens in a new tab)"
                 ><i class="fa-brands fa-instagram" /></a>
 
                 <a
                     href="https://www.youtube.com/bikesandbaking"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit our YouTube page (opens in a new tab)"
                 ><i class="fa-brands fa-youtube" /></a>
 
                 <a
                     href="https://github.com/CluelessBiker"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit my Github page (opens in a new tab)"
                 ><i class="fa-brands fa-github" /></a>
 
                 <a
                     href="https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     aria-label="Visit my Linkedin page (opens in a new tab)"
                 ><i class="fa-brands fa-linkedin-in" /></a>
             </Row>

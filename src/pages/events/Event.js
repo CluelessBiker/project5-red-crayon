@@ -82,7 +82,7 @@ const Event = (props) => {
             <p>{ content }</p>
             <p>Date: { date } | Time: { time } | Admission: €{ price }</p>
             <p>Location: { city }, { country }</p>
-            <p>For more information, visit the event page: <a target="_blank" href={ event_link } className={styles.OnHover}><strong>HERE</strong></a></p>
+            <p>For more information, visit the event page: <a target="_blank" rel="noreferrer" href={ event_link } className={styles.OnHover}><strong>HERE</strong></a></p>
             <p>Submitted: { created_on }</p>
         </Container>
     );
