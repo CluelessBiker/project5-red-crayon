@@ -69,6 +69,7 @@ const LogInForm = () => {
                         name="username"
                         value={username}
                         onChange={handleChange}
+                        aria-label="username"
                     />
                 </Form.Group>
                 {errors.username?.map((message, idx) => (
@@ -85,6 +86,7 @@ const LogInForm = () => {
                         name="password"
                         value={password}
                         onChange={handleChange}
+                        aria-label="password"
                     />
                 </Form.Group>
                 {errors.password?.map((message, idx) => (
