@@ -56,6 +56,7 @@ function ArticlesPage({ message, filter="" }) {
                         onChange={(event) => setQuery(event.target.value)}
                         type="text"
                         placeholder="search articles"
+                        aria-label="search articles"
                     />
                 </Form>
             </div>

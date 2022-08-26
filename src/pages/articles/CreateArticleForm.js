@@ -90,6 +90,7 @@ function CreateArticleForm() {
                         name="title"
                         value={title}
                         onChange={handleChange}
+                        aria-label="title"
                     />
                 </Form.Group>
                 {errors?.title?.map((message, idx) => (
@@ -106,6 +107,7 @@ function CreateArticleForm() {
                         name="content"
                         value={content}
                         onChange={handleChange}
+                        aria-label="content"
                     />
                 </Form.Group>
                 {errors?.content?.map((message, idx) => (
@@ -121,6 +123,7 @@ function CreateArticleForm() {
                         defaultValue="Choose..."
                         name="category"
                         onChange={handleChange}
+                        aria-label="category"
                     >
                         <option value="entertainment">Entertainment</option>
                         <option value="events">Events</option>
@@ -183,6 +186,7 @@ function CreateArticleForm() {
                         name="image_credit"
                         value={image_credit}
                         onChange={handleChange}
+                        aria-label="image credit"
                     />
                 </Form.Group>
                 {errors?.image_credit?.map((message, idx) => (
