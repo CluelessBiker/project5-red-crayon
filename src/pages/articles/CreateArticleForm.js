@@ -8,12 +8,12 @@ import {
   Alert,
   Image,
 } from 'react-bootstrap';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Buttons.module.css';
 import Asset from '../../components/Asset';
-import useRedirect from '../../hooks/useRedirect';
+import { useRedirect } from '../../hooks/useRedirect';
 
 /**
  * Render CreateArticleForm.

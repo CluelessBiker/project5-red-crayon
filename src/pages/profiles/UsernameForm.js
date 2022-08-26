@@ -6,7 +6,7 @@ import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserCon
 import btnStyles from "../../styles/Buttons.module.css"
 
 /**
-* Render form to change username. 
+* Render form to change username.
 */
 const UsernameForm = () => {
     const [username, setUsername] = useState("");

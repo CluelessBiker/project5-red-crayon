@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   Container, Form, Button, Row, Alert, Image,
 } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Buttons.module.css';
-import useRedirect from '../../hooks/useRedirect';
+import { useRedirect } from '../../hooks/useRedirect';
 
 /**
  * Render CreateArticleForm.
