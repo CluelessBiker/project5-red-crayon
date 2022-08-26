@@ -239,6 +239,7 @@ axios
 react-infinite-scroll-component
 msw --save-dev
 jwt-decode
+-g eslint
 ```
 3. Git add, commit, and push changes to gitpod.
 4. Create the project app on Heroku, and link the GitHub repository by lavigating to the 'Deploy' tab.
