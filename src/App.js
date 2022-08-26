@@ -3,10 +3,10 @@ import { Route, Switch, NavLink } from 'react-router-dom';
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import NavBarMini from './components/NavBarMini';
-import "./api/axiosDefaults";
+import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
-import CreatePostForm from "./pages/posts/CreatePostForm";
+import CreatePostForm from './pages/posts/CreatePostForm';
 import PostPage from './pages/posts/PostPage';
 import PostsPage from './pages/posts/PostsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
@@ -30,7 +30,7 @@ import About from './pages/About';
 function App() {
 
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
+  const profile_id = currentUser?.profile_id || '';
 
   return (
     <div className={styles.App}>
@@ -65,11 +65,11 @@ function App() {
             <Route exact path="/articles/create" render={() => <CreateArticleForm />} />
             <Route exact path="/articles/:id/edit" render={() => <EditArticleForm />} />
             <Route exact path="/articles/:id" render={() => <ArticlePage />} />
-            <Route exact path="/events" render={() => <EventsPage message="No results."/>} />
+            <Route exact path="/events" render={() => <EventsPage message="No results." />} />
             <Route exact path="/events/create" render={() => <CreateEventForm />} />
             <Route exact path="/events/:id/edit" render={() => <EditEventForm />} />
             <Route exact path="/events/:id" render={() => <EventPage />} />
-            <Route exact path="/posts" render={() => <PostsPage message="No results."/>} />
+            <Route exact path="/posts" render={() => <PostsPage message="No results." />} />
             <Route
               exact
               path="/favourites"
