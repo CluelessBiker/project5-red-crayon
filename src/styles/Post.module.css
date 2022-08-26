@@ -23,7 +23,7 @@
 }
 
 .Username:hover {
-  color: #DD798A;
+  color: #D2042D;
 }
 
 .TopRow {
@@ -40,5 +40,5 @@
 .Heart:hover,
 .CommentBubble:hover,
 .HeartOutline:hover {
-  color: #DD798A;
+  color: #D2042D;
 }
