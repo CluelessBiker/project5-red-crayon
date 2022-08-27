@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
+import styles from '../../styles/CreateArticleForm.module.css';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Buttons.module.css';
 import Asset from '../../components/Asset';
@@ -91,7 +92,10 @@ function CreateArticleForm() {
   };
 
   return (
-    <Container>
+    <Container className={styles.FormAlignment}>
+      <br />
+      <h2><strong>Submit an article!</strong></h2>
+      <br />
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Title:</Form.Label>
@@ -203,8 +207,8 @@ function CreateArticleForm() {
             {message}
           </Alert>
         ))}
-
-        <Row>
+        <br />
+        <Row className={styles.RowSpacing}>
           <Button type="submit" className={btnStyles.Button}>
             Submit
           </Button>
@@ -213,6 +217,7 @@ function CreateArticleForm() {
             Cancel
           </Button>
         </Row>
+        <br />
       </Form>
     </Container>
   );
