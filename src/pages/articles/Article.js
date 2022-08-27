@@ -56,8 +56,8 @@ function Article(props) {
       <Media className={styles.TopRow}>
         <Link to={`profiles/${profile_id}`} className={styles.Username}>
           <Avatar src={profile_image} height={30} />
-          <h2>by: {owner}</h2>
-          <p>{created_on}</p>
+          <h2 className={styles.OnHover}>By: {owner}</h2>
+          <p className={styles.OnHover}>{created_on}</p>
         </Link>
         {is_owner && articlePage && (
           <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />

@@ -10,10 +10,16 @@
 
 .Username h2 {
   font-size: 150%;
+  text-transform: uppercase;
 }
 
 .Username:hover {
+  text-decoration: none;
+}
+
+.OnHover:hover {
   color: #D2042D;
+  text-decoration: none;
 }
 
 .TopRow {
