@@ -36,6 +36,7 @@ The live link for "The Red Crayon" can be found [HERE](https://red-crayon.heroku
 + [Technologies Used](#technologies-used "Technologies Used")
   + [Main Languages Used](#main-languages-used "Main Languages Used")
   + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used "Frameworks, Libraries & Programs Used")
++ [Components](#oomponents "Components")
 + [Deployment](#deployment "Deployment")
 + [Credits](#credits "Credits")
   + [Content](#content "Content")
@@ -249,6 +250,17 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - React-Bootstrap
 - DrawSQL
 - ReactJS
+
+## Components
+Several components have been implemented within this project that have been reused throughout the project:
+1. axiosDefault.js : for ease of communication with the backend API.
+2. Asset.js : to supply the loading spinner & user avatar throughout the site.
+3. DropdownMenu.js : to allow users to edit/delete their Articles, Events & Posts.
+4. CurrentUserContext.js : confirm users logged-in status to determine what functionality is available to that user.
+5. ProfileDataContext.js : provide un/follow ability to other users across PopProf & ProfPage components.
+6. ToggleCollapse.js : whilst this component has only been applied to the NavBarMini, it could in theory be applied to additional dropdown menus installed into the site in the future to allow for the automatic collapse of an element upon mouse click.
+7. useRedirect.js : redirects a user to another page if they are not authorised to be on the page they are trying to access.
+8. utils.js : supplies functionality to all of the components that utilise the Infinite Scroll.
 
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
