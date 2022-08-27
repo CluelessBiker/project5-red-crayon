@@ -61,7 +61,7 @@ function LogInForm() {
     <Container className={styles.Container}>
       <Form onSubmit={handleSubmit}>
         <br />
-        <h1>Login!</h1>
+        <h2><strong>Login!</strong></h2>
         <br />
         <Form.Group controlId="username">
           <Form.Label>username</Form.Label>
