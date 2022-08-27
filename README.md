@@ -5,7 +5,7 @@ The Red Crayon is a news & social media platform for Artists & Art-lovers alike.
 
 #### DEPLOYED API HEROKU [LINK](https://project5-drf-api.herokuapp.com)
 #### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
-#### DEPLOYED FRONTEND GITHUB [REPOSITORY](https://github.com/CluelessBiker/project5-red-crayon)
+#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/CluelessBiker/project5-drf-api)
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
@@ -69,7 +69,7 @@ To engage the user in a meaningful way, and encourage them to explore everything
 ## User Stories
 I have included links to the [GitHub Issues](https://github.com/CluelessBiker/project5-red-crayon/issues) for this project, as well as the [KANBAN board](https://github.com/users/CluelessBiker/projects/2).
 
-Please also find a full list of the Epics, and User stories typed up [HERE](src/assets/userstories.md).
+Please also find a full list of the Epics, User stories, & story points typed up [HERE](src/assets/userstories.md).
 
 ## Design
 
@@ -77,7 +77,7 @@ Please also find a full list of the Epics, and User stories typed up [HERE](src/
 
 ##### Home Page - Desktop: 
 
-![Desktop Home](src/assets/images-readme/readme-wireframe-form.png)
+![Desktop Home](src/assets/images-readme/readme-wireframe-home.png)
 
 ##### Home Page - Mobile: 
 
@@ -92,7 +92,7 @@ Please also find a full list of the Epics, and User stories typed up [HERE](src/
 ![Site Navigation](src/assets/images-readme/readme-wireframe-sitenav.png)
 
 ### Database Schema:
-This has been uploaded to the Backend README, which can be found [LHERE](https://project5-drf-api.herokuapp.com).
+This has been uploaded to the Backend README, which can be found [HERE](https://github.com/CluelessBiker/project5-drf-api).
 
 ### Colour Scheme:
 
@@ -174,11 +174,11 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
  - Resolved by changing `password` to `password1` in form fields & variable keys.
 2. 500 server error:
  - Resolved with the aid of tutor support. All database migrations for both the Django project & apps needed to be cleared & remigrated. The precise steps for this have been documented in the README for the deployed backend API.
-3. CRUD functionality has been tested for each of the following: Posts | Articles | Comments | Events | Comments | Likes | Follow | Profile
+3. CRUD functionality has been tested for each of the following: Posts | Articles | Events | Comments | Likes | Follow | Profile
  - Likes & Follow may only be created & deleted
  - Profile may only be updated
 4. All nav links open to the correct page.
-5. All external links open to a new tab.
+5. All external links open to a new browser window.
 6. Pages intended for logged-in users only will redirect logged-out users back to the home page.
 7. Users attempting to edit content that they did not publish are redirected back to the home page.
 8. Users are able to create a new account.
@@ -186,24 +186,24 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 10. Each user has the ability to log out.
 
 ### Validator Testing
-- CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues found.
+1. CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues found.
 
 ![Jigsaw validator message](src/assets/images-readme/readme-w3c.png)
 
-- Javascript files pass through [ESLint](https://eslint.org/). The following issues were raised, and have been intentionally ignored as they are in relation to code that was provided in the Moments Walkthrough project:
-1. Props spreading is forbidden
-2. Do not pass children as props. 
-3. Do not use Array index in keys
-4. 'a_name' is already declared in the upper scope
-5. Expected an assignment or function call and instead saw an expression
-6. Do not nest ternary expressions
-7. Fragments should contain more than one child
+2. a. Javascript files pass through [ESLint](https://eslint.org/). The following issues were raised, and have been intentionally ignored as they are in relation to code that was provided in the Moments Walkthrough project:
+ - Props spreading is forbidden
+ - Do not pass children as props. 
+ - Do not use Array index in keys
+ - 'a_name' is already declared in the upper scope
+ - Expected an assignment or function call and instead saw an expression
+ - Do not nest ternary expressions
+ - Fragments should contain more than one child
 
 
-- Additionally, these errors have also been ignored:
-1. Identifier 'field_name' is not in camel case 
+2. b. Additionally, these errors have also been ignored:
+ - Identifier 'field_name' is not in camel case 
  - relates to a database field in the API, case cannot be changed.
-2. All instances where a newline has been asked for, eg:
+2. c. All instances where a newline has been asked for, eg:
  - `<p>{owner} doesn't like the {drink}</p>` should be written as:
 ```
 <p>
@@ -215,14 +215,14 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 </p>
 ```
  - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
- 3. All `console.log(err);` has been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
+2. d. All `console.log(err);` have been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
 
-- page has an excellent Accessibility rating in Lighthouse
+3. page has an excellent Accessibility rating in Lighthouse
 
 ![Accessibility score](src/assets/images-readme/readme-lighthouse.png)
 
-- Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
-- All social links open to external pages as intended.
+4. Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
+5. All social links open to external pages as intended.
 
 ### Unfixed Bugs
 
