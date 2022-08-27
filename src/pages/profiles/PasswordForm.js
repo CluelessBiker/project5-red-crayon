@@ -1,113 +1,116 @@
-import React, { useEffect, useState } from "react";
-import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import btnStyles from "../../styles/Buttons.module.css"
+import React, { useEffect, useState } from 'react';
+import {
+  Alert, Button, Col, Container, Form, Row,
+} from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom';
+import { axiosRes } from '../../api/axiosDefaults';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import btnStyles from '../../styles/Buttons.module.css';
 
-const PasswordForm = () => {
-    const history = useHistory();
-    const { id } = useParams();
-    const currentUser = useCurrentUser();
+function PasswordForm() {
+  const history = useHistory();
+  const { id } = useParams();
+  const currentUser = useCurrentUser();
 
-    const [userData, setUserData] = useState({
-        new_password1: "",
-        new_password2: "",
+  const [userData, setUserData] = useState({
+    new_password1: '',
+    new_password2: '',
+  });
+
+  const { new_password1, new_password2 } = userData;
+
+  const [errors, setErrors] = useState({});
+
+  /**
+   * Populate empty variable strings.
+   */
+  const handleChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
     });
+  };
 
-    const { new_password1, new_password2 } = userData;
+  /**
+   * Reroute user if they are not the correct user.
+   */
+  useEffect(() => {
+    if (currentUser?.profile_id?.toString() !== id) {
+      history.push('/');
+    }
+  }, [currentUser, history, id]);
 
-    const [errors, setErrors] = useState({});
+  /**
+   * Update API with new password data.
+   */
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axiosRes.post('/dj-rest-auth/password/change/', userData);
+      history.goBack();
+    } catch (err) {
+      // console.log(err);
+      setErrors(err.response?.data);
+    }
+  };
 
-    /**
-    * Populate empty variable strings.
-    */
-    const handleChange = (event) => {
-        setUserData({
-            ...userData,
-            [event.target.name]: event.target.value,
-        });
-    };
+  /**
+   * Update password form.
+   */
+  return (
+    <Row>
+      <Col className="py-2 mx-auto text-center" md={6}>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>New password</Form.Label>
+              <Form.Control
+                placeholder="new password"
+                type="password"
+                value={new_password1}
+                onChange={handleChange}
+                name="new_password1"
+                aria-label="new password"
+              />
+            </Form.Group>
+            {errors?.new_password1?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
-    /**
-    * Reroute user if they are not the correct user.
-    */
-    useEffect(() => {
-        if (currentUser?.profile_id?.toString() !== id) {
-            history.push("/");
-        }
-    }, [currentUser, history, id]);
+            <Form.Group>
+              <Form.Label>Confirm password</Form.Label>
+              <Form.Control
+                placeholder="confirm new password"
+                type="password"
+                value={new_password2}
+                onChange={handleChange}
+                name="new_password2"
+                aria-label=" new password 2"
+              />
+            </Form.Group>
+            {errors?.new_password2?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
-    /**
-    * Update API with new password data.
-    */
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await axiosRes.post("/dj-rest-auth/password/change/", userData);
-            history.goBack();
-        } catch (err) {
-            // console.log(err);
-            setErrors(err.response?.data);
-        }
-    };
+            <Button
+              className={btnStyles.Button}
+              onClick={() => history.goBack()}
+            >
+              cancel
+            </Button>
 
-    /**
-    * Update password form.
-    */
-    return (
-        <Row>
-            <Col className="py-2 mx-auto text-center" md={6}>
-                <Container>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group>
-                            <Form.Label>New password</Form.Label>
-                            <Form.Control
-                                placeholder="new password"
-                                type="password"
-                                value={new_password1}
-                                onChange={handleChange}
-                                name="new_password1"
-                                aria-label="new password"
-                            />
-                        </Form.Group>
-                        {errors?.new_password1?.map((message, idx) => (
-                            <Alert key={idx} variant="warning">
-                                {message}
-                            </Alert>
-                        ))}
-
-                        <Form.Group>
-                            <Form.Label>Confirm password</Form.Label>
-                            <Form.Control
-                                placeholder="confirm new password"
-                                type="password"
-                                value={new_password2}
-                                onChange={handleChange}
-                                name="new_password2"
-                                aria-label=" new password 2"
-                            />
-                        </Form.Group>
-                        {errors?.new_password2?.map((message, idx) => (
-                            <Alert key={idx} variant="warning">
-                                {message}
-                            </Alert>
-                        ))}
-
-                        <Button
-                            className={btnStyles.Button}
-                            onClick={() => history.goBack()}
-                        >cancel</Button>
-
-                        <Button
-                            className={btnStyles.Button}
-                            type="submit"
-                        >save</Button>
-                    </Form>
-                </Container>
-            </Col>
-        </Row>
-    );
-};
+            <Button className={btnStyles.Button} type="submit">
+              save
+            </Button>
+          </Form>
+        </Container>
+      </Col>
+    </Row>
+  );
+}
 
 export default PasswordForm;
