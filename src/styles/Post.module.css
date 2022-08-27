@@ -20,14 +20,25 @@
 
 .Username h2 {
   font-size: 150%;
+  text-transform: uppercase;
 }
 
 .Username:hover {
+  text-decoration: none;
+}
+
+.OnHover:hover {
   color: #D2042D;
+  text-decoration: none;
 }
 
 .TopRow {
   justify-content: space-between;
+}
+
+/* PPOST TITLE */
+.Title {
+  text-transform: uppercase;
 }
 
 /* LIKES & COMMENTS */
@@ -41,4 +52,9 @@
 .CommentBubble:hover,
 .HeartOutline:hover {
   color: #D2042D;
+}
+
+.CommentCount {
+  color: #000000;
+  text-decoration: none;
 }

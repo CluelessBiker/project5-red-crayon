@@ -111,8 +111,8 @@ function Post(props) {
       <Media className={styles.TopRow}>
         <Link to={`/profiles/${profile_id}`} className={styles.Username}>
           <Avatar src={profile_image} height={50} />
-          <h2>{owner}</h2>
-          <p>{created_on} </p>
+          <h2 className={styles.OnHover}>{owner}</h2>
+          <p className={styles.OnHover}>{created_on} </p>
         </Link>
 
         {is_owner && postPage && (
@@ -125,14 +125,14 @@ function Post(props) {
           I&apos;m currently drinking {beverage}, working with {artistic_medium}, and
           listening to &quot;{song_name}&quot; by &quot;{artist_name}&quot; on {music_medium}.
         </p>
-        <p>{description}</p>
         <Link to={`/posts/${id}`}>
           <Card.Img src={image} alt={title} />
         </Link>
         <br />
         <br />
-        <h2>{title}</h2>
+        <h2 className={styles.Title}><strong>{title}</strong></h2>
         <p>Last modified: {modified_on}</p>
+        <p>{description}</p>
       </div>
 
       {/* Code provided in Moments walkthrough. */}
@@ -167,7 +167,7 @@ function Post(props) {
           </p>
 
           <Link to={`/posts/${id}`}>
-            <p>
+            <p className={`${styles.CommentCount} ${styles.OnHover}`}>
               <i className={`fa-solid fa-comment ${styles.CommentBubble}`} />
               {' '}
               {comments_count}
