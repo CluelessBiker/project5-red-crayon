@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { Container, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

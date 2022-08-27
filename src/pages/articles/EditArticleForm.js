@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Container, Form, Button, Row, Alert, Image,

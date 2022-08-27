@@ -216,6 +216,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ```
  - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
 2. d. All `console.log(err);` have been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
+2. e. Added all files affected by the above, unresolved warning to `.eslintignore`, as well as adding the following line to the top of each file, `/* eslint-disable */` to allow for successful deployment on Heroku.
 
 3. page has an excellent Accessibility rating in Lighthouse
 

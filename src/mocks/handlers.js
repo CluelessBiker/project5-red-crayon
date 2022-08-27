@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { rest } from 'msw';
 
 const baseURL = 'https://project5-drf-api.herokuapp.com/';

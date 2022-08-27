@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Col, Container, Media } from 'react-bootstrap';

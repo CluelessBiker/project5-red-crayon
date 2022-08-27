@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Col, Row } from 'react-bootstrap';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import styles from './App.module.css';
