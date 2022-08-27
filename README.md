@@ -1,12 +1,13 @@
 # The Red Crayon
+The Red Crayon is a news & social media platform for Artists & Art-lovers alike. Here, users can find the latest articles relating to the art world, along with up & comming events in their local cities. We also invite users to interact with each other by sharing posts that inform others what they are working on, and what inspirational tools they are working with.
 
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/CluelessBiker/project5-drf-api). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
 #### DEPLOYED API HEROKU [LINK](https://project5-drf-api.herokuapp.com)
-#### DEPLOYED FRONTEND HEORKU [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
+#### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
 #### DEPLOYED FRONTEND GITHUB [REPOSITORY](https://github.com/CluelessBiker/project5-red-crayon)
 
-![Site view across devices]()
+![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
 The live link for "The Red Crayon" can be found [HERE](https://red-crayon.herokuapp.com/)
 
@@ -43,156 +44,184 @@ The live link for "The Red Crayon" can be found [HERE](https://red-crayon.heroku
 ## UX
 
 ### Site Purpose:
-
+To bring interactivity to the art community by sharing the latest news, events, and feedback from other artists & users.
 
 ### Site Goal:
-
+The Red Crayon is intended to keep the community informed about the ongoings in the artworld, and to share inspiration & events with each other, as well as bring people together.
 
 ### Audience:
-
+Everyone with an interest in Art, and the desire to reach out & connect with like-minded individuals.
 
 ### Communication:
-
+The layout is intended to represent a news tabloid, whilst at the same time having a playful, interactive feel to it. With the navigation pannel being present at all times, the users can quickly navigate through the site to arrive at their intended destination.
 
 ### Current User Goals:
-
+To keep users coming back again & again to see what is new in terms of news & events, as well as to follow up with other users that they follow.
 
 ### New User Goals:
-
+To engage the user in a meaningful way, and encourage them to explore everything that the site has to offer.
 
 ### Future Goals:
-- 
+- To provide different types of user accounts, so that access is restricted for who may publish specific types of content, such as news articles & events.
+- Provide the ability for users to send private messages to either another user, or a group of users.
+- To expand the events section & provide a google maps location for each event, so that users may understand in more detail where an even is to be hosted.
 
 ## User Stories
 I have included links to the [GitHub Issues](https://github.com/CluelessBiker/project5-red-crayon/issues) for this project, as well as the [KANBAN board](https://github.com/users/CluelessBiker/projects/2).
 
-![]()
+Please also find a full list of the Epics, and User stories typed up [HERE](src/assets/userstories.md).
 
 ## Design
 
 ### Wireframes:
 
-##### Home Page: 
+##### Home Page - Desktop: 
 
-![Desktop Home]()
+![Desktop Home](src/assets/images-readme/readme-wireframe-form.png)
 
-##### Blog Page:
+##### Home Page - Mobile: 
 
-![Desktop Blog]()
+![Desktop Mobile](src/assets/images-readme/readme-wireframe-mobile.png)
 
-##### Blod Post Details:
+##### Form Page:
 
-![Desktop Blog Post]()
+![Form Page](src/assets/images-readme/readme-wireframe-form.png)
 
 ##### Site Navigation:
 
-![Site Navigation]()
+![Site Navigation](src/assets/images-readme/readme-wireframe-sitenav.png)
 
 ### Database Schema:
-
-- This has been uploaded to the Backend README, which can be found [HERE]().
+This has been uploaded to the Backend README, which can be found [LHERE](https://project5-drf-api.herokuapp.com).
 
 ### Colour Scheme:
 
-![Colour Palette]()
+![Colour Palette](src/assets/images-readme/readme-colourpalette.png)
 
 ### Typography:
 All fonts were obtained from the Google Fonts library. I chose the following fonts for the page:
-1. 
-
-### Imagery:
-- 
+1. Zilla Slab Highlight : Site header
+2. Nixie One : Site content
 
 ## Features
 
 ### Existing Features:
 
-#### Home Page:
+#### Header:
 
-![Home page]()
+![Header](src/assets/images-readme/readme-header.png)
 
-#### Navigation Bar:
+##### Navigation - Desktop:
 
-![]()
+![Navbar desktop](src/assets/images-readme/readme-navigation-desktop.png)
 
-##### Desktop:
+##### Navigation - Mobile:
 
-![Navbar desktop]()
+![Navbar mobile](src/assets/images-readme/readme-navigation-tablet-mobile.png)
 
-##### Mobile:
+#### About Page:
 
-![Navbar mobile]()
+![About Page](src/assets/images-readme/readme-about.png)
 
-#### :
+#### Articles Page:
 
-![]()
+![Articles Page](src/assets/images-readme/readme-articles.png)
 
-#### :
+#### Submission Form:
 
-![]()
+![Submission Form](src/assets/images-readme/readme-forms.png)
 
-#### :
+#### 404 Page Not Found:
 
-![]()
+![404 Page Not Found](src/assets/images-readme/readme-notfound.png)
 
-#### :
+#### Popular Profiles:
 
-![]()
+![Popular Profiles](src/assets/images-readme/readme-populareprofiles.png)
 
-#### :
+#### Social Links:
 
-![]()
+![Social Links](src/assets/images-readme/readme-sociallinks.png)
 
 #### Log in, Log out & Sign up:
 
 ##### Login:
 
-![Login]()
+![Login](src/assets/images-readme/readme-login.png)
 
 ##### Logout:
 
-![Logout]()
+![Logout](src/assets/images-readme/readme-logout.png)
 
 ##### Sign-up:
 
-![Sign-up]()
+![Sign-up](src/assets/images-readme/readme-signup.png)
 
-#### Social Links:
-
-![Social Links]()
-
-
-### Features Left to Implement
-- 
+### Features Left to Implement:
+- The ability to like articles & events.
+- The ability to leave comments on articles & events
+- Notifications when a user receives a new follower, comment, or like.
+- Email notification when a new Article has been published to the site.
+- Private messaging between users.
+- Group messaging between users.
+- Restrict profile & posts views to only an approved list of users, should a user wish.
+- A contact form so that users can provide feedback.
 
 ## Testing
--
 
 ### Manual Testing:
 1. SignUpForm gives 400 error:
-- Resolved by changing `password` to `password1` in form fields & variable keys.
+ - Resolved by changing `password` to `password1` in form fields & variable keys.
+2. 500 server error:
+ - Resolved with the aid of tutor support. All database migrations for both the Django project & apps needed to be cleared & remigrated. The precise steps for this have been documented in the README for the deployed backend API.
+3. CRUD functionality has been tested for each of the following: Posts | Articles | Comments | Events | Comments | Likes | Follow | Profile
+ - Likes & Follow may only be created & deleted
+ - Profile may only be updated
+4. All nav links open to the correct page.
+5. All external links open to a new tab.
+6. Pages intended for logged-in users only will redirect loggedout users back to the home page.
+7. Users attempting to edit content that they did not publish are redirected back to the home page.
+8. Users are able to create a new account.
+9. Users with an existing account are able to log in.
+10. Each user has the ability to log out.
 
 ### Validator Testing
-- html files pass through the [W3C validator](https://validator.w3.org/) with no html issues found
-- Errors listed only reference {%%} & {{}} tags.
-
 - CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues found.
 
-![Jigsaw validator message]()
+![Jigsaw validator message](src/assets/images-readme/readme-w3c.png)
 
-- JS files pass through [JSHint](https://jshint.com/) with no issues found.
+- Javascript files pass through [ESLint](https://eslint.org/). The following issues were raised, and have been intentionally ignored as they are in relation to code that was provided in the Moments Walkthrough project:
+1. Props spreading is forbidden
+2. Do not pass children as props. 
+3. Do not use Array index in keys
+4. 'a_name' is already declared in the upper scope
+5. Expected an assignment or function call and instead saw an expression
+6. Do not nest ternary expressions
+7. Fragments should contain more than one child
 
-![JSHint overview]()
+
+- Additionally, these errors have also been ignored:
+1. Identifier 'field_name' is not in camel case 
+ - relates to a database field in the API, case cannot be changed.
+2. All instances where a newline has been asked for, eg:
+ - `<p>{owner} doesn't like the {drink}</p>` should be wirtten as:
+```
+<p>
+  {owner}
+  {' '}
+  doesn't like this
+  {' '}
+  {drink}
+</p>
+```
+ - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
+ 3. All `console.log(err);` has been left in place & commented out, as it was suggested that this is also done in real-world scenarioes.
 
 - page has an excellent Accessibility rating in Lighthouse
 
-![Accessibility score]()
+![Accessibility score](src/assets/images-readme/readme-lighthouse.png)
 
-- Python files passed through [PEP8 Online](http://pep8online.com/) with no issues found.
-
-![PEP8 message]()
-
-- Tested the site opens in Brave, Chrome & Safari without issues.
+- Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
 - All social links open to external pages as intended.
 
 ### Unfixed Bugs
@@ -220,12 +249,9 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - DrawSQL
 - ReactJS
 
-### Installed Packages:
-- 
-
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
-1. Launch the gipod workspace.
+1. Launch the gitpod workspace.
 2. Install ReactJS:
 ```
 npx create-react-app . --use-npm
@@ -242,7 +268,7 @@ jwt-decode
 -g eslint
 ```
 3. Git add, commit, and push changes to gitpod.
-4. Create the project app on Heroku, and link the GitHub repository by lavigating to the 'Deploy' tab.
+4. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
 
 ### Connecting to the API:
 1. Navigated to the Heroku app of the project DRF-API, and under the Settings tab, added the following configvars:
@@ -252,24 +278,25 @@ jwt-decode
 3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
 
 ### Deploy to Heorku:
-- In the `scripts` section of `package.json`, added the following command:
+1. In the `scripts` section of `package.json` in gitpod, added the following command:
 ```
 "heroku-prebuild": "npm install -g serve",
 ```
-- Add Procfile to project root & populate with the following:
+2. Add Procfile to project root & populate with the following:
 ```
 web: serve -s build
 ```
+3. Repeat the steps of git add/commit/push.
+4. Deploy the project via the deploy button on Heroku.
 
 ## Credits
 
 ### Content
-- Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. As evident from the numerous docstrings within my files crediting the walkthrough.
-- [Mats Simonsson](https://github.com/Pelikantapeten): A fellow student & friend who consistently helps me to troubleshoot when needed, support me constantly, and be my rubber duck.
+- Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
+- [Mats Simonsson](https://github.com/Pelikantapeten): A fellow student & friend who consistently helps me to troubleshoot when needed, supports me constantly, and is my rubber duck.
 - [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
 - [BobbyHadz](https://bobbyhadz.com/blog/react-you-are-importing-createroot-from-react-dom#:~:text=The%20error%20%22You%20are%20importing,js%20.): provided the answer on how to resolve a console error indicating that the createRoot render was not compatible with the current version of ReactJS.
 
 ### Media
 - 404 Error Graphic from [PNG Tree](https://pngtree.com/freepng/404-error-interface-art-word-design_4043816.html)
-
-#### Pexels:
+- Images for the Articles, Events & Posts made on the site have been accumulated from numerous sources on Twitter & Instgram. I do not have the information of the original content cresator for these memes.

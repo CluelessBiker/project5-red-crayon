@@ -45,7 +45,9 @@ function EditArticleForm() {
         } = data;
 
         is_owner
-          ? setArticleData({ title, content, image, image_credit, category })
+          ? setArticleData({
+            title, content, image, image_credit, category
+          })
           : history.push('/');
       } catch (err) {
         // console.log(err);
