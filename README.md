@@ -1,5 +1,5 @@
 # The Red Crayon
-The Red Crayon is a news & social media platform for Artists & Art-lovers alike. Here, users can find the latest articles relating to the art world, along with up & comming events in their local cities. We also invite users to interact with each other by sharing posts that inform others what they are working on, and what inspirational tools they are working with.
+The Red Crayon is a news & social media platform for Artists & Art-lovers alike. Here, users can find the latest articles relating to the art world, along with up & coming events in their local cities. We also invite users to interact with each other by sharing posts that inform others what they are working on, and what inspirational tools they are working with.
 
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/CluelessBiker/project5-drf-api). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
@@ -47,13 +47,13 @@ The live link for "The Red Crayon" can be found [HERE](https://red-crayon.heroku
 To bring interactivity to the art community by sharing the latest news, events, and feedback from other artists & users.
 
 ### Site Goal:
-The Red Crayon is intended to keep the community informed about the ongoings in the artworld, and to share inspiration & events with each other, as well as bring people together.
+The Red Crayon is intended to keep the community informed about the ongoings in the art-world, and to share inspiration & events with each other, as well as bring people together.
 
 ### Audience:
 Everyone with an interest in Art, and the desire to reach out & connect with like-minded individuals.
 
 ### Communication:
-The layout is intended to represent a news tabloid, whilst at the same time having a playful, interactive feel to it. With the navigation pannel being present at all times, the users can quickly navigate through the site to arrive at their intended destination.
+The layout is intended to represent a news tabloid, whilst at the same time having a playful, interactive feel to it. With the navigation panel being present at all times, the users can quickly navigate through the site to arrive at their intended destination.
 
 ### Current User Goals:
 To keep users coming back again & again to see what is new in terms of news & events, as well as to follow up with other users that they follow.
@@ -179,7 +179,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
  - Profile may only be updated
 4. All nav links open to the correct page.
 5. All external links open to a new tab.
-6. Pages intended for logged-in users only will redirect loggedout users back to the home page.
+6. Pages intended for logged-in users only will redirect logged-out users back to the home page.
 7. Users attempting to edit content that they did not publish are redirected back to the home page.
 8. Users are able to create a new account.
 9. Users with an existing account are able to log in.
@@ -204,7 +204,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 1. Identifier 'field_name' is not in camel case 
  - relates to a database field in the API, case cannot be changed.
 2. All instances where a newline has been asked for, eg:
- - `<p>{owner} doesn't like the {drink}</p>` should be wirtten as:
+ - `<p>{owner} doesn't like the {drink}</p>` should be written as:
 ```
 <p>
   {owner}
@@ -215,7 +215,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 </p>
 ```
  - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
- 3. All `console.log(err);` has been left in place & commented out, as it was suggested that this is also done in real-world scenarioes.
+ 3. All `console.log(err);` has been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
 
 - page has an excellent Accessibility rating in Lighthouse
 
@@ -257,7 +257,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 npx create-react-app . --use-npm
 npm start
 ```
-2. Install the following packages unsing the command `npm install`:
+2. Install the following packages using the command `npm install`:
 ```
 react-bootstrap@1.6.3 bootstrap@4.6.0
 react-router-dom@5.3.0
@@ -277,7 +277,7 @@ jwt-decode
 2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
 3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
 
-### Deploy to Heorku:
+### Deploy to Heroku:
 1. In the `scripts` section of `package.json` in gitpod, added the following command:
 ```
 "heroku-prebuild": "npm install -g serve",
@@ -299,4 +299,4 @@ web: serve -s build
 
 ### Media
 - 404 Error Graphic from [PNG Tree](https://pngtree.com/freepng/404-error-interface-art-word-design_4043816.html)
-- Images for the Articles, Events & Posts made on the site have been accumulated from numerous sources on Twitter & Instgram. I do not have the information of the original content cresator for these memes.
+- Images for the Articles, Events & Posts made on the site have been accumulated from numerous sources on Twitter & Instagram. I do not have the information of the original content creator for these memes.
