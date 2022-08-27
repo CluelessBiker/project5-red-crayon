@@ -17,7 +17,7 @@ export const handlers = [
         profile_id: 2,
         profile_image:
           'https://res.cloudinary.com/cluelessbiker/image/upload/v1/media/images/551800-grt-Best-Substitutes-for-Lemon-Juice-1200x628-Facebook-1200x628_w14bpn',
-      })
+      }),
     );
   }),
   rest.post(`${baseURL}dj-rest-auth/logout/`, (req, res, ctx) => {

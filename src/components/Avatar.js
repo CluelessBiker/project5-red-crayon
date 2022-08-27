@@ -4,7 +4,7 @@ import styles from '../styles/Avatar.module.css';
 /**
  * Code provided in Moments walkthrough.
  */
-const Avatar = ({ src, height = 45, text }) => {
+function Avatar({ src, height = 45, text }) {
   return (
     <span>
       <img
@@ -17,6 +17,6 @@ const Avatar = ({ src, height = 45, text }) => {
       {text}
     </span>
   );
-};
+}
 
 export default Avatar;

@@ -6,7 +6,7 @@ import FourOFour from '../assets/notfound.png';
 /**
  * Display error graphic for non-existent pages.
  */
-const NotFound = () => {
+function NotFound() {
   return (
     <Container>
       <div className={styles.ErrorGraphic}>
@@ -14,6 +14,6 @@ const NotFound = () => {
       </div>
     </Container>
   );
-};
+}
 
 export default NotFound;

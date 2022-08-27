@@ -10,7 +10,7 @@ import styles from '../../styles/Article.module.css';
 /**
  * Render the data of a single article.
  */
-const Article = (props) => {
+function Article(props) {
   const {
     id,
     owner,
@@ -80,6 +80,6 @@ const Article = (props) => {
       <br />
     </Container>
   );
-};
+}
 
 export default Article;

@@ -21,7 +21,7 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
  * Retrieve user data from API upon component mount.
  * Provide user data to child components.
  */
-export const CurrentUserProvider = ({ children }) => {
+export function CurrentUserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
 
   const history = useHistory();
@@ -96,4 +96,6 @@ export const CurrentUserProvider = ({ children }) => {
       </SetCurrentUserContext.Provider>
     </CurrentUserContext.Provider>
   );
-};
+}
+
+export default CurrentUserContext;

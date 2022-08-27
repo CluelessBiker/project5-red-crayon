@@ -28,7 +28,6 @@ import EventsPage from './pages/events/EventsPage';
 import About from './pages/About';
 
 function App() {
-
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || '';
 

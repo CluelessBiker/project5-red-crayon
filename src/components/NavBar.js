@@ -14,7 +14,7 @@ import Avatar from './Avatar';
 /**
  * Navigation bar.
  */
-const NavBar = () => {
+function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -42,7 +42,9 @@ const NavBar = () => {
         aria-label="favourite posts"
         rel="noreferrer"
       >
-        <i className="fa-regular fa-bookmark" /> Favourites
+        <i className="fa-regular fa-bookmark" />
+        {' '}
+        Favourites
       </NavLink>
 
       <NavLink
@@ -52,7 +54,9 @@ const NavBar = () => {
         aria-label="post an article"
         rel="noreferrer"
       >
-        <i className="fa-solid fa-file-pen" /> Add Article
+        <i className="fa-solid fa-file-pen" />
+        {' '}
+        Add Article
       </NavLink>
 
       <NavLink
@@ -62,7 +66,9 @@ const NavBar = () => {
         aria-label="create an event"
         rel="noreferrer"
       >
-        <i className="fa-regular fa-calendar-plus" /> Add Event
+        <i className="fa-regular fa-calendar-plus" />
+        {' '}
+        Add Event
       </NavLink>
 
       <NavLink
@@ -72,7 +78,9 @@ const NavBar = () => {
         aria-label="create post"
         rel="noreferrer"
       >
-        <i className="fa-solid fa-circle-plus" /> Post
+        <i className="fa-solid fa-circle-plus" />
+        {' '}
+        Post
       </NavLink>
 
       <NavLink
@@ -91,7 +99,9 @@ const NavBar = () => {
         aria-label="signout"
         rel="noreferrer"
       >
-        <i className="fa-solid fa-right-from-bracket" /> Logout
+        <i className="fa-solid fa-right-from-bracket" />
+        {' '}
+        Logout
       </NavLink>
     </>
   );
@@ -105,7 +115,9 @@ const NavBar = () => {
         aria-label="login"
         rel="noreferrer"
       >
-        <i className="fa-solid fa-right-to-bracket" /> Login
+        <i className="fa-solid fa-right-to-bracket" />
+        {' '}
+        Login
       </NavLink>
 
       <NavLink
@@ -115,7 +127,9 @@ const NavBar = () => {
         aria-label="sign up"
         rel="noreferrer"
       >
-        <i className="fa-solid fa-user-pen" /> Sign up
+        <i className="fa-solid fa-user-pen" />
+        {' '}
+        Sign up
       </NavLink>
     </>
   );
@@ -139,7 +153,9 @@ const NavBar = () => {
               aria-label="home page"
               rel="noreferrer"
             >
-              <i className="fa-solid fa-file-lines" /> News
+              <i className="fa-solid fa-file-lines" />
+              {' '}
+              News
             </NavLink>
 
             <NavLink
@@ -149,7 +165,9 @@ const NavBar = () => {
               aria-label="events"
               rel="noreferrer"
             >
-              <i className="fa-solid fa-calendar-days" /> Events
+              <i className="fa-solid fa-calendar-days" />
+              {' '}
+              Events
             </NavLink>
 
             <NavLink
@@ -159,7 +177,9 @@ const NavBar = () => {
               aria-label="user posts"
               rel="noreferrer"
             >
-              <i className="fa-solid fa-hashtag" /> Explore
+              <i className="fa-solid fa-hashtag" />
+              {' '}
+              Explore
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
@@ -171,13 +191,15 @@ const NavBar = () => {
               aria-label="about page"
               rel="noreferrer"
             >
-              <i className="fa-solid fa-book-open" /> About
+              <i className="fa-solid fa-book-open" />
+              {' '}
+              About
             </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
     </Container>
   );
-};
+}
 
 export default NavBar;

@@ -12,7 +12,7 @@ import styles from '../../styles/Comment.module.css';
  * Comment display.
  * Functions provided by Moments walkthrough.
  */
-const Comment = (props) => {
+function Comment(props) {
   const {
     profile_id,
     profile_image,
@@ -92,6 +92,6 @@ const Comment = (props) => {
       </Container>
     </>
   );
-};
+}
 
 export default Comment;

@@ -12,7 +12,7 @@ import { useRedirect } from '../../hooks/useRedirect';
  * Render the SignUp form.
  * Variables, data handling & error handling code provided in Moments walkthrough.
  */
-const SignUpForm = () => {
+function SignUpForm() {
   useRedirect('loggedIn');
 
   const [signUpData, setSignUpData] = useState({
@@ -131,6 +131,6 @@ const SignUpForm = () => {
       <br />
     </Container>
   );
-};
+}
 
 export default SignUpForm;
