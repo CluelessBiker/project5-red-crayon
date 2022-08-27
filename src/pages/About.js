@@ -90,6 +90,12 @@ function About() {
           <i className="fa-brands fa-linkedin-in" />
         </a>
       </Row>
+      <br />
+      <p id={styles.Disclaimer}>
+        Athens, Greece
+        <br />
+        Project created for educational purposes only.
+      </p>
     </Container>
   );
 }
