@@ -6,3 +6,7 @@
     background-color: #FFFFFF;
     height: 900px;
 }
+
+.Container h2 {
+    text-transform: uppercase;
+}
