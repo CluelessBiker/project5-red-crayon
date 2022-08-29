@@ -199,11 +199,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
  - Expected an assignment or function call and instead saw an expression
  - Do not nest ternary expressions
  - Fragments should contain more than one child
-
-2. b. Additionally, these errors have also been ignored:
+2. b. Additionally, this error has also been ignored:
  - Identifier 'field_name' is not in camel case 
- - relates to a database field in the API, case cannot be changed.
-2. c. All instances where a newline has been asked for, eg:
+ - - relates to a database field in the API, case cannot be changed for this reason.
+2. c. All instances of errors where a newline has been asked for within an opening & closing set of tags, eg:
  - `<p>{owner} doesn't like the {drink}</p>` should be written as:
 ```
 <p>
@@ -216,13 +215,14 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ```
  - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
 2. d. All `console.log(err);` have been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
-2. e. Added all files affected by the above, unresolved warning to `.eslintignore`, as well as adding the following line to the top of each file, `/* eslint-disable */` to allow for successful deployment on Heroku.
+2. e. Added all files affected by the above, unresolved warnings to `.eslintignore`, as well as added the following line to the top of each individual file, `/* eslint-disable */` to allow for a successful deployment on Heroku.
 
-3. The paage has an excellent Accessibility rating in Lighthouse
+3. The page has an excellent Accessibility rating in Lighthouse:
 
 ![Accessibility score](src/assets/images-readme/readme-lighthouse.png)
 
 4. Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
+
 5. All social links open to external pages as intended.
 
 ### Unfixed Bugs
