@@ -200,7 +200,6 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
  - Do not nest ternary expressions
  - Fragments should contain more than one child
 
-
 2. b. Additionally, these errors have also been ignored:
  - Identifier 'field_name' is not in camel case 
  - relates to a database field in the API, case cannot be changed.
@@ -219,7 +218,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 2. d. All `console.log(err);` have been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
 2. e. Added all files affected by the above, unresolved warning to `.eslintignore`, as well as adding the following line to the top of each file, `/* eslint-disable */` to allow for successful deployment on Heroku.
 
-3. page has an excellent Accessibility rating in Lighthouse
+3. The paage has an excellent Accessibility rating in Lighthouse
 
 ![Accessibility score](src/assets/images-readme/readme-lighthouse.png)
 
@@ -227,6 +226,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 5. All social links open to external pages as intended.
 
 ### Unfixed Bugs
+Whilst it is not technically a bug, I would like to add that I am not entirely satisfied with the header of the site on mobile devices. Increasing the font size to make it stand out, causes the burger icon to shift onto a new line, which takes up too much real estate on the screen. I had attempted early on to separate out the components & have them be independent of each-other, however this then presented a new issue. When shrinking the size of the burger icon, this also shrank the expanding window, which cut off the navigation items. I was unable to ascertain how to target the exact style rule imposed by React-Bootstrap to over ride this and expand the display window, and instead compromised by implementing a smaller font-size into my heading.
 
 ## Technologies Used
 ### Main Languages Used
@@ -234,22 +234,20 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - CSS3
 - Javascript
 - Python
-- Django
 - SQL - Postgres
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts - for the font families: 
-- Font Awesome - to add icons to the social links in the footer element.
-- GitPod - to create my html files & styling sheet before pushing the project to Github.
-- GitHub - to store my repository for submission.
-- Balsamiq - were used to create mockups of the project prior to starting.
-- Am I Responsive? - to ensure the project looked good across all devices.
-- Favicon - to provide the code & image for the icon in the tab bar.
-- Adobe Photoshop - for photo editing
-- Django
-- React-Bootstrap
-- DrawSQL
-- ReactJS
+- Google Fonts : For the site fonts.
+- Font Awesome : To add icons to the social links in the footer & navigation sections.
+- GitPod : To build the project & create the JSX & CSS files before pushing the project to Github.
+- GitHub : To store my repository for submission.
+- Balsamiq : Was used to create mockups of the project prior to starting.
+- Am I Responsive? : To ensure the project looked good across all devices.
+- Favicon : To provide the code & image for the icon in the tab bar.
+- Django : Used to build the backend database that serves as an API for the front-end project.
+- React-Bootstrap : The styling library that has aided to the layout of the site, and which was introduced to us during the course of the program.
+- DrawSQL : An interactive tool that allows for the creation of Database mock-ups so that we can visualise the relationships between models.
+- ReactJS : To build the components that would collectively form the front-end application.
 
 ## Components
 Several components have been implemented within this project that have been reused throughout the project:
@@ -309,6 +307,7 @@ web: serve -s build
 - [Mats Simonsson](https://github.com/Pelikantapeten): A fellow student & friend who consistently helps me to troubleshoot when needed, supports me constantly, and is my rubber duck.
 - [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
 - [BobbyHadz](https://bobbyhadz.com/blog/react-you-are-importing-createroot-from-react-dom#:~:text=The%20error%20%22You%20are%20importing,js%20.): provided the answer on how to resolve a console error indicating that the createRoot render was not compatible with the current version of ReactJS.
+- Two events have been added to the site. The content for these was taken from the [Stavros Niarchos Foundation](https://www.snfcc.org/en/events), and the [Meet Market](https://www.themeetmarket.gr/en/). Each event has also been credited within the content body.
 
 ### Media
 - 404 Error Graphic from [PNG Tree](https://pngtree.com/freepng/404-error-interface-art-word-design_4043816.html)
