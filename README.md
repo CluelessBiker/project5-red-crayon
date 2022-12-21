@@ -4,12 +4,12 @@ The Red Crayon is a news & social media platform for Artists & Art-lovers alike.
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/CluelessBiker/project5-drf-api). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
 #### DEPLOYED BACKEND API RENDER [LINK](https://project5-drf-api.onrender.com)
-#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
+#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://project5-red-crayon.onrender.com)
 #### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/CluelessBiker/project5-drf-api)
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
-The live link for "The Red Crayon" can be found [HERE](https://red-crayon.herokuapp.com/)
+The live link for "The Red Crayon" can be found [HERE](https://project5-red-crayon.onrender.com)
 
 ## Table of Contents
 + [UX](#ux "UX")
@@ -299,6 +299,9 @@ web: serve -s build
 ```
 3. Repeat the steps of git add/commit/push.
 4. Deploy the project via the deploy button on Heroku.
+
+### Deploy to Render & ElephantSQL:
+* Due to Heroku revoking their frie tier access, the project has been redeployed using (Render)[https://render.com/] & (ElephantSQL)[https://www.elephantsql.com/] using the following [instructions](https://code-institute-students.github.io/deployment-docs/41-pp5-adv-fe/pp5-adv-fe-drf-01-create-a-database)
 
 ## Credits
 
