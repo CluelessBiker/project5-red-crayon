@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { rest } from 'msw';
 
-const baseURL = 'https://project5-drf-api.herokuapp.com/';
+const baseURL = 'https://project5-drf-api.onrender.com/';
 
 /**
  * Mock user to intercept API request.

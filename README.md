@@ -3,8 +3,8 @@ The Red Crayon is a news & social media platform for Artists & Art-lovers alike.
 
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/CluelessBiker/project5-drf-api). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
-#### DEPLOYED API HEROKU [LINK](https://project5-drf-api.herokuapp.com)
-#### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
+#### DEPLOYED BACKEND API RENDER [LINK](https://project5-drf-api.onrender.com)
+#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://red-crayon.herokuapp.com/)
 #### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/CluelessBiker/project5-drf-api)
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
